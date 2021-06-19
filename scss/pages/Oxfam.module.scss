@@ -1,0 +1,36 @@
+@import '../helpers/functions';
+@import '../helpers/mixins';
+@import '../helpers/padding-mixins';
+@import '../helpers/variables';
+
+.main_content {
+  @include header_pad_allowance;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+
+    .text_block {
+      order: 2 !important;
+    }
+  }
+
+  .column {
+    @include bottom_pad;
+  }
+}
+
+.lightbox {
+  pointer-events: all;
+  position: relative;
+
+  .icon {
+    bottom: rem(15px);
+    fill: white !important;
+    position: absolute;
+    right: rem(15px);
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

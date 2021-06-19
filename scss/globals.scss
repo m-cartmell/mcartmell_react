@@ -1,0 +1,86 @@
+@import './helpers/functions';
+@import './helpers/mixins';
+@import './helpers/padding-mixins';
+@import './helpers/variables';
+
+@import './base/grid';
+@import './base/links-buttons';
+@import './base/reset';
+@import './base/selection-colour';
+@import './base/typography';
+
+// Base column styles
+.column {
+  @include horizontal_half_pad;
+  @include vertical_pad_0;
+}
+
+// Container
+.content_block {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+// Disable lightbox below 540px
+.lightbox {
+  display: block; // corrects spacing
+
+  @media screen and (max-width: 540px) {
+    pointer-events: none;
+  }
+}
+
+// Hides reCAPTCHA badge
+.grecaptcha-badge {
+  opacity: 0;
+  visibility: hidden !important;
+}
+
+img {
+  background-color: $lightGrey;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+// Wrapper limiter
+[limit_width] {
+  width: rem(1280px);
+}
+
+// Base section styles
+section {
+  @include half_pad;
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// Centres single image column content
+.single {
+  text-align: center;
+
+  img {
+    margin: 0 auto;
+  }
+}
+
+// Travel/Elfsight Load more button
+.eapps-instagram-feed-posts-grid-load-more-text {
+  background-color: white;
+  border: rem(1px) solid $primaryColour;
+  color: $primaryColour;
+  cursor: pointer;
+  display: inline-block;
+  font: 400 rem(18px) $sansFamily;
+  line-height: 1;
+  padding: rem(3px) rem(12px) rem(4px);
+  transition: all $easeInOut;
+
+  &:hover {
+    background-color: $primaryColour;
+    color: white;
+  }
+}

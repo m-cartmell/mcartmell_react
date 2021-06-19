@@ -1,0 +1,19 @@
+a {
+  @include links;
+}
+
+.button {
+  @include buttons;
+}
+
+button {
+  &.block {
+    @include buttons;
+  }
+
+  &.plain {
+    @include links;
+
+    background-color: transparent;
+  }
+}

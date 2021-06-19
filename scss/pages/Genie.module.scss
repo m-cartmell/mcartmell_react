@@ -1,0 +1,25 @@
+@import '../helpers/functions';
+@import '../helpers/mixins';
+@import '../helpers/padding-mixins';
+@import '../helpers/variables';
+
+.top_content {
+  @include horizontal_pad_0;
+
+  padding-bottom: 0;
+}
+
+.lower_content {
+  .content_block {
+    &:first-of-type {
+      @include horizontal_half_pad;
+    }
+  }
+}
+
+// Disable GLightbox above 1920px
+.glightbox {
+  @media screen and (min-width: 1921px) {
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,72 @@
+@import '../helpers/functions';
+@import '../helpers/mixins';
+@import '../helpers/padding-mixins';
+@import '../helpers/variables';
+
+.main_content {
+  @include header_pad_allowance;
+  align-items: unset;
+  background-color: $fcYellow;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: row !important;
+  }
+
+  h2 {
+    color: $primaryColour;
+  }
+
+  img {
+    background-color: $fcYellow;
+    border-left: rem(1px) solid $primaryColour;
+    border-right: rem(1px) solid $primaryColour;
+    margin: 0 auto;
+  }
+
+  picture {
+    bottom: 0;
+    margin-bottom: rem(15px);
+    max-width: rem(600px);
+    position: absolute;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: rem(20px);
+    }
+
+    img {
+      border: none;
+      width: 50%;
+    }
+  }
+}
+
+.image_block {
+  align-items: center;
+  flex: 1 !important;
+  flex-direction: column;
+  padding-bottom: 0 !important;
+  position: relative;
+}
+
+.text_block {
+  @include bottom_pad;
+
+  @media screen and (min-width: 1024px) {
+    order: 2 !important;
+  }
+}
+
+.top_bar {
+  border: rem(1px) solid $primaryColour;
+  border-top-left-radius: rem(3px);
+  border-top-right-radius: rem(3px);
+  max-width: rem(600px);
+  padding: rem(4px) rem(6px) !important;
+
+  .btn {
+    height: rem(8px);
+    margin-right: rem(4px);
+    width: rem(8px);
+  }
+}

@@ -1,0 +1,32 @@
+@import '../helpers/functions';
+@import '../helpers/mixins';
+@import '../helpers/padding-mixins';
+@import '../helpers/variables';
+
+.container {
+  @include header_pad_allowance;
+  flex-wrap: nowrap;
+}
+
+.column {
+  flex-basis: 100%;
+
+  &.double {
+    padding: 0;
+
+    // 2 columns @ screens > 768px
+    @media screen and (min-width: 768px) {
+      flex-basis: 50%;
+    }
+
+    // Hides 2nd banner image by default
+    &:last-of-type {
+      display: none;
+
+      // Displays 2nd banner image @ screens > 768px
+      @media screen and (min-width: 768px) {
+        display: block;
+      }
+    }
+  }
+}

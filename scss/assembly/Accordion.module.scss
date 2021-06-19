@@ -1,0 +1,54 @@
+@import '../helpers/functions';
+@import '../helpers/mixins';
+@import '../helpers/padding-mixins';
+@import '../helpers/variables';
+
+.container {
+  padding: 0 rem(12.5px) rem(25px) !important;
+
+  @media screen and (min-width: 414px) {
+    padding: 0 rem(20px) rem(40px) !important;
+  }
+}
+
+.wrapper {
+  border: rem(1px) solid $primaryColour;
+  border-top-left-radius: rem(3px);
+  border-top-right-radius: rem(3px);
+  position: relative;
+}
+
+.image {
+  &:last-of-type {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s;
+  }
+}
+
+.expand {
+  background-color: $primaryColour !important;
+  border-radius: 50%;
+  bottom: rem(-13.5px);
+  height: rem(27px);
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  width: rem(27px);
+
+  &:hover {
+    background-color: $secondaryColour !important;
+  }
+}
+
+.icon {
+  fill: white !important;
+  height: rem(17px);
+  margin: 0 auto;
+}
+
+.rotate {
+  transform: rotate(45deg);
+  transition: transform 0.3s;
+}

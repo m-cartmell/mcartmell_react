@@ -1,0 +1,28 @@
+@import '../helpers/functions';
+@import '../helpers/mixins';
+@import '../helpers/padding-mixins';
+@import '../helpers/variables';
+
+.top_content {
+  @include header_pad_allowance;
+  @include horizontal_pad;
+
+  align-items: baseline;
+  flex-wrap: wrap !important;
+  justify-content: space-between;
+  margin-bottom: 0;
+
+  h1 {
+    margin-right: 0;
+
+    @media screen and (min-width: 1024px) {
+      margin-right: rem(20px); //ensures h1 never touches the controls
+    }
+  }
+}
+
+.gallery {
+  background-color: $lightGrey;
+  padding: 0;
+  width: 100%;
+}

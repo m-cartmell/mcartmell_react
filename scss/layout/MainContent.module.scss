@@ -1,0 +1,42 @@
+@import '../helpers/functions';
+@import '../helpers/mixins';
+@import '../helpers/padding-mixins';
+@import '../helpers/variables';
+
+.container {
+  @include top_pad;
+  flex-direction: column;
+  padding-bottom: 0;
+
+  // Select all .columns with .container parent
+  > .column {
+    @include bottom_pad;
+    flex: 1;
+
+    &.image_block {
+      display: flex;
+      flex: 2;
+    }
+
+    &.text_block {
+      order: -1;
+
+      .wrapper {
+        max-width: rem(900px);
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .container {
+    flex-direction: row;
+
+    .column {
+      &.text_block {
+        order: 2;
+      }
+    }
+  }
+}

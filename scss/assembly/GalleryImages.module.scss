@@ -1,0 +1,80 @@
+@import '../helpers/functions';
+@import '../helpers/mixins';
+@import '../helpers/padding-mixins';
+@import '../helpers/variables';
+
+.container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  // Breakpoints
+  @media screen and (min-width: 480px) {
+    width: 50%;
+  }
+
+  @media screen and (min-width: 900px) {
+    width: 33.33%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 25%;
+  }
+
+  .overlay {
+    @include absoluteFillArea;
+
+    background-color: rgba($color: black, $alpha: 0.6);
+    opacity: 0;
+    transition: all $easeInOut;
+  }
+
+  .details {
+    bottom: rem(40px);
+    display: none;
+    left: rem(40px);
+    position: absolute;
+    right: rem(40px);
+
+    h2 {
+      color: white;
+      margin-bottom: rem(12px);
+    }
+  }
+
+  .categories {
+    display: flex;
+
+    .category {
+      color: white;
+      font-size: rem(18px);
+      margin-right: rem(6px);
+
+      &::after {
+        content: '.';
+        margin-left: rem(1px);
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
+    img {
+      transform: scale(1.1);
+      transition: all $easeInOut;
+    }
+
+    .overlay {
+      opacity: 1;
+      transition: all $easeInOut;
+    }
+
+    .details {
+      display: block;
+    }
+  }
+}

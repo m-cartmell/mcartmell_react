@@ -1,0 +1,17 @@
+@import '../helpers/functions';
+@import '../helpers/mixins';
+@import '../helpers/padding-mixins';
+@import '../helpers/variables';
+
+.main_content {
+  @include header_pad_allowance;
+}
+
+.image_block {
+  flex-wrap: wrap;
+  padding: 0 !important;
+}
+
+.text_block {
+  @include bottom_pad;
+}
