@@ -9,10 +9,13 @@ export default function TopContent({ client, id, topImages }) {
   const clientStyles = actions.clientStyles(id);
 
   // Selects client page styles
-  const { top_content } = clientStyles;
+  const { top_content, single } = clientStyles;
 
   if (topImages) {
-    const bannerType = topImages.length > 1 ? `${styles.double}` : 'single';
+    const bannerType =
+      topImages.length > 1
+        ? `${styles.double}`
+        : `${single ? single : ''} single`;
 
     return (
       <section
@@ -33,7 +36,7 @@ export default function TopContent({ client, id, topImages }) {
   } else if (client === 'Refali') {
     return (
       <section className={`${styles.container} ${top_content}`}>
-        <div className={`${styles.column} single`}>
+        <div className={`${styles.column} ${single} single`}>
           <RefaliLogo clientStyles={clientStyles} />
         </div>
       </section>

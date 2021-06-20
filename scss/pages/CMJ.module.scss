@@ -9,7 +9,6 @@
 
   .single {
     @include horizontal_half_pad;
-    @include vertical_pad_0;
   }
 
   [limit_width] {
