@@ -49,6 +49,11 @@
 }
 
 .rotate {
+  background-color: $secondaryColour !important;
   transform: rotate(45deg);
-  transition: transform 0.3s;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $primaryColour !important;
+  }
 }

@@ -1,9 +1,9 @@
 import styles from '../../../scss/assembly/Icon.module.scss';
 
-export default function PlusIcon({ customStyle, rotate }) {
+export default function PlusIcon({ customStyle }) {
   return (
     <svg
-      className={`${styles.item} ${customStyle} ${rotate}`}
+      className={`${styles.item} ${customStyle}`}
       aria-hidden="true"
       focusable="false"
       role="img"

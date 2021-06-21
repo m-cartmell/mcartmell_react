@@ -49,7 +49,7 @@ export default function Accordion({ client, id, block }) {
             );
           })}
           <button
-            className={`plain ${styles.expand}`}
+            className={`plain ${styles.expand} ${isOpen ? styles.rotate : ''}`}
             title="Expand Image"
             type="button"
             onClick={() => {
@@ -57,10 +57,7 @@ export default function Accordion({ client, id, block }) {
               open();
             }}
           >
-            <PlusIcon
-              customStyle={styles.icon}
-              rotate={isOpen ? styles.rotate : ''}
-            />
+            <PlusIcon customStyle={styles.icon} />
           </button>
         </div>
       </div>
