@@ -37,8 +37,10 @@
   right: 0;
   width: rem(27px);
 
-  &:hover {
-    background-color: $secondaryColour !important;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $secondaryColour !important;
+    }
   }
 }
 
@@ -53,7 +55,9 @@
   transform: rotate(45deg);
   transition: all 0.3s;
 
-  &:hover {
-    background-color: $primaryColour !important;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $primaryColour !important;
+    }
   }
 }
