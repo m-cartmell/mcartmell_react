@@ -1,6 +1,5 @@
 import styles from '../../scss/layout/Footer.module.scss';
 import LinkedInIcon from '../Assembly/Icons/LinkedInIcon';
-import GitHubIcon from '../Assembly/Icons/GitHubIcon';
 import EnvelopeIcon from '../Assembly/Icons/EnvelopeIcon';
 import { useState } from 'react';
 import Modal from './Modal';
@@ -20,15 +19,6 @@ export default function Footer() {
             rel="noreferrer"
           >
             <LinkedInIcon />
-          </a>
-          <a
-            className={styles.wrap}
-            title="My GitHub"
-            href="https://github.com/m-cartmell"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <GitHubIcon />
           </a>
           <button
             className={`plain ${styles.wrap}`}
