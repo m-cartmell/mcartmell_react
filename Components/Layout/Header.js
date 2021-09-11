@@ -33,22 +33,6 @@ export default function Header() {
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a6acaf" />
         <meta name="theme-color" content="#ffffff" />
-
-        {/* Google Analytics */}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ID}`}
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){window.dataLayer.push(arguments)}
-              gtag("js", new Date());
-              gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ID}");
-            `,
-          }}
-        ></script>
       </Head>
       <header className={styles.container}>
         <Link href="/">
