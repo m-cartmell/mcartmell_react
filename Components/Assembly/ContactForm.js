@@ -3,7 +3,7 @@ import PlusIcon from '../Assembly/Icons/PlusIcon';
 import { useRef, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-export default function contactForm({ closeModal }) {
+export default function ContactForm({ closeModal }) {
   const form = useRef(null);
   const notification = useRef(null);
   const send = useRef(null);
