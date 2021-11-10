@@ -11,7 +11,7 @@ const src = {
   _8: 'https://proxy.elfsightcdn.com',
   _9: 'https://api.instacloud.io',
   _10: 'https://vitals.vercel-insights.com',
-  _11: 'https://scontent-sea1-1.cdninstagram.com',
+  _11: '*.cdninstagram.com',
 };
 
 const { _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11 } = src;
