@@ -32,7 +32,10 @@ export default function Footer() {
             <EnvelopeIcon />
           </button>
         </div>
-        <div>&copy; mcartmell.&nbsp;{new Date().getFullYear()}</div>
+        <div className={styles.copyright}>
+          &copy; {new Date().getFullYear()} mcartmell.
+          All&nbsp;rights&nbsp;reserved.
+        </div>
       </footer>
       <Modal show={showModal} setShow={setShowModal} />
     </>

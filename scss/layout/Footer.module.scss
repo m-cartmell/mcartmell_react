@@ -23,6 +23,10 @@
   }
 }
 
+.copyright {
+  line-height: 1.5;
+}
+
 // Switches footer elements to rows @ screens > 480px
 @media screen and (min-width: 480px) {
   .container {
