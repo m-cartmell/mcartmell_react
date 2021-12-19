@@ -13,10 +13,10 @@ export default function Footer() {
         <div className={styles.icons}>
           <a
             className={styles.wrap}
-            title="My LinkedIn"
             href="https://www.linkedin.com/in/m-cartmell/"
+            rel="noopener noreferrer"
             target="_blank"
-            rel="noreferrer"
+            title="My LinkedIn"
           >
             <LinkedInIcon />
           </a>
