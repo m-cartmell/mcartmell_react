@@ -18,7 +18,7 @@ exports.csp = () => {
   let directive = `default-src 'self';`;
   directive += `script-src 'self' 'unsafe-inline' ${
     dev ? `'unsafe-eval'` : ''
-  } ${_1} ${_2} ${_3} ${_5} ${_7};`;
+  } ${_1} ${_2} ${_3} ${_5} ${_7} ${_9};`;
   directive += `style-src 'self' 'unsafe-inline' ${_4};`;
   directive += `font-src 'self' ${_5};`;
   directive += `frame-src 'self' ${_1};`;
