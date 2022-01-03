@@ -32,7 +32,7 @@
     cursor: pointer;
     font-size: rem(18px);
     outline: none;
-    padding: rem(7px) rem(14px);
+    padding: rem(7px) rem(14px) rem(5px);
     transition: all $easeInOut;
     width: 100%;
 
@@ -51,6 +51,7 @@
     color: $secondaryColour;
     font-size: rem(18px);
     left: rem(10px);
+    line-height: 1.25;
     padding-left: rem(5px);
     pointer-events: none;
     position: absolute;
