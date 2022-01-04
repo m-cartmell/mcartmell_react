@@ -13,7 +13,6 @@
 
   h2 {
     color: $primaryColour;
-    margin-bottom: rem(30px);
   }
 
   textarea {
@@ -62,6 +61,10 @@
 .input_group {
   margin-bottom: rem(30px);
   position: relative;
+
+  &:first-of-type {
+    margin-top: rem(30px);
+  }
 }
 
 .validation_error {
