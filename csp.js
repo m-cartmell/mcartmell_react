@@ -10,9 +10,10 @@ const src = {
   _7: 'https://*.elfsight.com',
   _8: 'https://vitals.vercel-insights.com',
   _9: 'https://*.cdninstagram.com',
+  _10: 'https://proxy.elfsightcdn.com',
 };
 
-const { _1, _2, _3, _4, _5, _6, _7, _8, _9 } = src;
+const { _1, _2, _3, _4, _5, _6, _7, _8, _9, _10 } = src;
 
 exports.csp = () => {
   let directive = `default-src 'self';`;
@@ -23,7 +24,7 @@ exports.csp = () => {
   directive += `font-src 'self' ${_5};`;
   directive += `frame-src 'self' ${_1};`;
   directive += `connect-src 'self' ${_2} ${_7} ${_8};`;
-  directive += `img-src 'self' ${_2} ${_6} ${_9};`;
+  directive += `img-src 'self' ${_2} ${_6} ${_9} ${_10};`;
 
   return directive;
 };
