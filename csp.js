@@ -10,7 +10,7 @@ const src = {
   _7: 'https://*.elfsight.com',
   _8: 'https://vitals.vercel-insights.com',
   _9: 'https://*.cdninstagram.com',
-  _10: 'https://proxy.elfsightcdn.com',
+  _10: 'https://*.elfsightcdn.com',
 };
 
 const { _1, _2, _3, _4, _5, _6, _7, _8, _9, _10 } = src;
