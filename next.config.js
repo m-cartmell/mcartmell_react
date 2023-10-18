@@ -4,8 +4,9 @@ module.exports = {
   // Fixes npm packages that depend on `fs` module
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      config.node = {
-        fs: 'empty',
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
       };
     }
 
