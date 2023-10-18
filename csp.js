@@ -23,7 +23,7 @@ exports.csp = () => {
   directive += `style-src 'self' 'unsafe-inline' ${_4};`;
   directive += `font-src 'self' ${_5};`;
   directive += `frame-src 'self' ${_1};`;
-  directive += `connect-src 'self' ${_2} ${_3} ${_7} ${_8};`;
+  directive += `connect-src 'self' ${_2} ${_7} ${_8};`;
   directive += `img-src 'self' ${_2} ${_6} ${_9} ${_10};`;
 
   return directive;
