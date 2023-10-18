@@ -3,7 +3,7 @@ const dev = process.env.NODE_ENV === 'development';
 const src = {
   _1: 'https://www.google.com',
   _2: 'https://www.google-analytics.com',
-  _3: 'https://www.googletagmanager.com',
+  _3: 'https://*.googletagmanager.com',
   _4: 'https://fonts.googleapis.com',
   _5: 'https://*.gstatic.com',
   _6: 'data:',
@@ -23,7 +23,7 @@ exports.csp = () => {
   directive += `style-src 'self' 'unsafe-inline' ${_4};`;
   directive += `font-src 'self' ${_5};`;
   directive += `frame-src 'self' ${_1};`;
-  directive += `connect-src 'self' ${_2} ${_7} ${_8};`;
+  directive += `connect-src 'self' ${_2} ${_3} ${_7} ${_8};`;
   directive += `img-src 'self' ${_2} ${_6} ${_9} ${_10};`;
 
   return directive;
