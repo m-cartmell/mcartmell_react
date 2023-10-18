@@ -79,6 +79,7 @@ export default function ContactForm({ closeModal }) {
         <p className={styles.input_group}>
           <label htmlFor="name">Name *</label>
           <input
+            autoComplete="name"
             id="name"
             className={errors.name && styles.error}
             type="text"
@@ -90,12 +91,18 @@ export default function ContactForm({ closeModal }) {
         {/* Bot trap */}
         <p className={styles.agent}>
           <label htmlFor="last-name">Last Name</label>
-          <input id="last-name" type="text" {...register('last-name')} />
+          <input
+            autoComplete="off"
+            id="last-name"
+            type="text"
+            {...register('last-name')}
+          />
         </p>
 
         <p className={styles.input_group}>
           <label htmlFor="email">Email *</label>
           <input
+            autoComplete="email"
             id="email"
             className={errors.email && styles.error}
             type="email"
@@ -109,6 +116,7 @@ export default function ContactForm({ closeModal }) {
         <p className={styles.input_group}>
           <label htmlFor="subject">Subject *</label>
           <input
+            autoComplete="off"
             id="subject"
             className={errors.subject && styles.error}
             type="text"
@@ -119,6 +127,7 @@ export default function ContactForm({ closeModal }) {
         <p className={styles.input_group}>
           <label htmlFor="message">Message *</label>
           <textarea
+            autoComplete="off"
             id="message"
             className={errors.message && styles.error}
             {...register('message', { required: true })}
