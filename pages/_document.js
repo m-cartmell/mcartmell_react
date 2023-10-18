@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
         <Head>
           <script
             strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
           />
           <script
             strategy="afterInteractive"
@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
-                gtag('config', '${process.env.GA_MEASUREMENT_ID}', {
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}', {
                     page_path: window.location.pathname,
                 });
                 `,
