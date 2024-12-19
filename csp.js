@@ -2,7 +2,7 @@ const dev = process.env.NODE_ENV === 'development';
 
 const src = {
   _1: 'https://www.google.com',
-  _2: 'https://*.google-analytics.com',
+  _2: 'https://*.analytics.google.com',
   _3: 'https://www.googletagmanager.com',
   _4: 'https://fonts.googleapis.com',
   _5: 'https://*.gstatic.com',
