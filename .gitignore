@@ -35,3 +35,5 @@ yarn-error.log*
 
 # Full size image directory
 /images
+
+.nvmrc
