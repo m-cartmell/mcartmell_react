@@ -147,27 +147,6 @@ export default function ContactForm({ closeModal }) {
         >
           Send
         </button>
-        <div className={styles.recaptcha_text}>
-          This site is protected by reCAPTCHA and the Google{' '}
-          <a
-            href="https://policies.google.com/privacy"
-            target="_blank"
-            rel="noreferrer"
-            title="Visit Page"
-          >
-            Privacy Policy
-          </a>{' '}
-          and{' '}
-          <a
-            href="https://policies.google.com/terms"
-            target="_blank"
-            rel="noreferrer"
-            title="Visit Page"
-          >
-            Terms of Service
-          </a>{' '}
-          apply.
-        </div>
       </form>
       <button
         className={`plain ${styles.close}`}
