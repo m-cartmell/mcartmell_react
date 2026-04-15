@@ -63,9 +63,9 @@ export default function Home({ content }) {
         </div>
         <SkillTags data={skills} />
       </section>
-      <section className={classNames(styles['gallery-section'], 'reveal-item')}>
+      <section className={styles['gallery-section']}>
         <GalleryControls content={content} />
-        <div id="gallery" className={styles.gallery}>
+        <div id="gallery" className={classNames(styles.gallery, 'reveal-item')}>
           <GalleryImages content={content} />
         </div>
       </section>

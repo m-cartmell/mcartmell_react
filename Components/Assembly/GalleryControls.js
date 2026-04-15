@@ -43,7 +43,7 @@ export default function GalleryControls({ content }) {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={classNames(styles.container, 'reveal-item')}>
       <button
         className={classNames('plain', { [styles.selected]: filter === '*' })}
         type="button"

@@ -32,6 +32,11 @@
     &:hover {
       transform: scale(1.2);
     }
+
+    // Hide below 540px
+    @media (width <= 540px) {
+      visibility: hidden;
+    }
   }
 }
 
