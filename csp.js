@@ -1,33 +1,59 @@
 const dev = process.env.NODE_ENV === 'development';
 
-const src = {
-  _1: 'https://www.google.com',
-  _2: 'https://*.analytics.google.com',
-  _3: 'https://www.googletagmanager.com',
-  _4: 'https://fonts.googleapis.com',
-  _5: 'https://*.gstatic.com',
-  _6: 'data:',
-  _7: 'https://*.elfsight.com',
-  _8: 'https://vitals.vercel-insights.com',
-  _9: 'https://*.cdninstagram.com',
-  _10: 'https://*.elfsightcdn.com',
-  _11: 'https://stats.g.doubleclick.net',
-  _12: 'https://www.google.co.uk',
-  _13: 'https://td.doubleclick.net',
+const csp = () => {
+  const directives = {
+    'default-src': [`'self'`],
+    'base-uri': [`'self'`],
+    'object-src': [`'none'`],
+    'frame-ancestors': [`'none'`],
+
+    'script-src': [
+      `'self'`,
+      `'sha256-coQXW/idXus2fnwNkAbGVQbUWqfsMiONGSg9GNgEPAw='`,
+      ...(dev ? [`'unsafe-eval'`] : []),
+      'https://www.google.com',
+      'https://*.analytics.google.com',
+      'https://www.googletagmanager.com',
+      'https://*.gstatic.com',
+      'https://*.elfsight.com',
+      'https://*.cdninstagram.com',
+      'https://*.elfsightcdn.com',
+    ],
+
+    'style-src': [`'self'`, `'unsafe-inline'`, 'https://fonts.googleapis.com'],
+    'font-src': [`'self'`, 'https://*.gstatic.com'],
+    'frame-src': [
+      `'self'`,
+      'https://www.google.com',
+      'https://td.doubleclick.net',
+    ],
+    'connect-src': [
+      `'self'`,
+      'https://www.google.com',
+      'https://*.analytics.google.com',
+      'https://*.gstatic.com',
+      'https://*.elfsight.com',
+      'https://vitals.vercel-insights.com',
+      'https://stats.g.doubleclick.net',
+    ],
+    'img-src': [
+      `'self'`,
+      'data:',
+      'https://*.analytics.google.com',
+      'https://*.cdninstagram.com',
+      'https://*.elfsightcdn.com',
+      'https://www.google.co.uk',
+    ],
+    'script-src-attr': [`'none'`],
+  };
+
+  if (!dev) {
+    directives['upgrade-insecure-requests'] = [];
+  }
+
+  return Object.entries(directives)
+    .map(([key, value]) => `${key} ${value.join(' ')}`.trim())
+    .join('; ');
 };
 
-const { _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13 } = src;
-
-exports.csp = () => {
-  let directive = `default-src 'self';`;
-  directive += `script-src 'self' 'unsafe-inline' ${
-    dev ? `'unsafe-eval'` : ''
-  } ${_1} ${_2} ${_3} ${_5} ${_7} ${_9} ${_10};`;
-  directive += `style-src 'self' 'unsafe-inline' ${_4};`;
-  directive += `font-src 'self' ${_5};`;
-  directive += `frame-src 'self' ${_1} ${_13};`;
-  directive += `connect-src 'self' ${_1} ${_2} ${_5} ${_7} ${_8} ${_11};`;
-  directive += `img-src 'self' ${_2} ${_6} ${_9} ${_10} ${_12};`;
-
-  return directive;
-};
+module.exports = { csp };

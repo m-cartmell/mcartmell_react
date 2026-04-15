@@ -12,7 +12,7 @@ import facetsStyles from '../../scss/pages/Facets.module.scss';
 import oxfamStyles from '../../scss/pages/Oxfam.module.scss';
 import travelStyles from '../../scss/pages/Travel.module.scss';
 
-export const Portfolio = createContext({});
+export const Work = createContext({});
 
 export const Provider = ({ children }) => {
   const clientStyles = (id) => {
@@ -31,7 +31,7 @@ export const Provider = ({ children }) => {
   };
 
   return (
-    <Portfolio.Provider
+    <Work.Provider
       value={{
         actions: {
           clientStyles,
@@ -39,6 +39,6 @@ export const Provider = ({ children }) => {
       }}
     >
       {children}
-    </Portfolio.Provider>
+    </Work.Provider>
   );
 };

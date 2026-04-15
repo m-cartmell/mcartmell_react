@@ -1,10 +1,10 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
-.top_content {
-  @include horizontal_pad_0;
+.top-content {
+  @include horizontal-pad-0;
 
   padding-bottom: 0;
 }

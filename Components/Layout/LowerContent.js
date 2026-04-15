@@ -1,17 +1,22 @@
 import styles from '../../scss/layout/LowerContent.module.scss';
 import Accordion from '../Assembly/Accordion';
 import { useContext } from 'react';
-import { Portfolio } from '../Context';
-import Image from '../Assembly/Image';
+import { Work } from '../Context';
+import CustomImage from '../Assembly/CustomImage';
 import LightBoxImage from '../Assembly/LightBoxImage';
+import classNames from 'classnames';
 
 export default function LowerContent({ client, id, lowerImages }) {
-  const { actions } = useContext(Portfolio);
+  const { actions } = useContext(Work);
   const clientStyles = actions.clientStyles(id);
   const getObjValues = () => Object.values(lowerImages);
 
   // Selects client page styles
-  const { lower_content, column, content_block } = clientStyles;
+  const {
+    'lower-content': lowerContent,
+    column,
+    'content-block': contentBlock,
+  } = clientStyles;
 
   const defineColumns = (block) => {
     // Pages – SS / Refali / JJ
@@ -32,9 +37,13 @@ export default function LowerContent({ client, id, lowerImages }) {
       return block.map((image, index) => {
         return (
           <div
-            className={`column ${defineColumns(block)} ${styles.column} ${
-              column ? column : ''
-            }`}
+            className={classNames(
+              'column',
+              defineColumns(block),
+              styles.column,
+              column,
+              'reveal-item',
+            )}
             key={`${id}${index}`}
           >
             {image.light_box ? (
@@ -45,7 +54,7 @@ export default function LowerContent({ client, id, lowerImages }) {
                 image={image}
               />
             ) : (
-              <Image client={client} id={id} image={image} />
+              <CustomImage client={client} id={id} image={image} />
             )}
           </div>
         );
@@ -55,15 +64,15 @@ export default function LowerContent({ client, id, lowerImages }) {
 
   if (lowerImages) {
     return (
-      <section
-        className={`${styles.container} ${lower_content ? lower_content : ''}`}
-      >
+      <section className={classNames(styles.container, lowerContent)}>
         {getObjValues().map((block, index) => {
           return (
             <div
-              className={`content_block ${styles.content_block} ${
-                content_block ? content_block : ''
-              }`}
+              className={classNames(
+                'content-block',
+                styles['content-block'],
+                contentBlock,
+              )}
               key={`${id}${index}`}
             >
               {renderImage(block)}

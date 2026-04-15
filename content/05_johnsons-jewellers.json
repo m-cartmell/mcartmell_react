@@ -1,11 +1,12 @@
 {
   "client": "Johnsons Jewellers",
-  "heading": "Website design and art direction",
-  "description": "Johnson's timeless, minimalistic website design complements their elegant branding and allows their products and services to take dominance.",
-  "categories": ["Art direction", "Digital"],
+  "heading": "Web design",
+  "description": "A refined eCommerce website for Johnsons, designed to highlight their jewellery through a clean, understated digital experience.",
+  "categories": ["Digital"],
   "text": [
-    "Johnsons is a mid- to high-end family jeweller, trading from a store in Nuneaton. They required an eCommerce website with an overview of their services and photography to illustrate.",
-    "The minimalistic design will stand the test of time and complement their elegant branding, allowing the products and services to take dominance. As the site was built on Magento, it furthered my experience with the CMS, including adjusting template styling and creating and customising static content."
+    "Johnsons is a mid- to high-end family jeweller based in Nuneaton. They required an eCommerce website to showcase their products, highlight their services, and support high-quality photography.",
+    "The design takes a minimal, understated approach that complements the brand's elegance while keeping the focus on the products. Clean layouts and restrained styling allow the jewellery and imagery to lead, creating a refined and timeless user experience.",
+    "Built on Magento, the project also involved working closely with the CMS—customising templates, refining styling, and creating tailored static content to support the overall design."
   ],
   "images": {
     "gallery": {
@@ -127,5 +128,9 @@
         }
       ]
     }
+  },
+  "skills": {
+    "Languages": ["HTML", "CSS"],
+    "Platforms": ["Magento"]
   }
 }

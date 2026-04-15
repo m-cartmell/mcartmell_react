@@ -1,17 +1,18 @@
 import Link from 'next/link';
 import styles from '../../scss/assembly/PageNav.module.scss';
+import classNames from 'classnames';
 
 export default function PageNav({ prev, next }) {
   const pages = {
     prevPage: {
       ...prev,
-      titleStart: 'Previous page:',
+      titleStart: 'Prev:',
       style: styles.prev,
       label: 'Prev',
     },
     nextPage: {
       ...next,
-      titleStart: 'Next page:',
+      titleStart: 'Next:',
       style: styles.next,
       label: 'Next',
     },
@@ -20,13 +21,12 @@ export default function PageNav({ prev, next }) {
   const renderLink = (page) => {
     if (page.id) {
       return (
-        <Link href={`/portfolio/${page.id}`}>
-          <a
-            title={`${page.titleStart} ${page.client}`}
-            className={`button ${styles.button} ${page.style}`}
-          >
-            {page.label}
-          </a>
+        <Link
+          className={classNames('button', styles.button, page.style)}
+          href={`/work/${page.id}`}
+          title={`${page.titleStart} ${page.client}`}
+        >
+          {page.label}
         </Link>
       );
     }
@@ -35,10 +35,12 @@ export default function PageNav({ prev, next }) {
   return (
     <div className={styles.container}>
       {renderLink(pages.prevPage)}
-      <Link href="/">
-        <a title="Home page" className={`button ${styles.button}`}>
-          Home
-        </a>
+      <Link
+        className={classNames('button', styles.button)}
+        href="/"
+        title="Back to Home"
+      >
+        Home
       </Link>
       {renderLink(pages.nextPage)}
     </div>

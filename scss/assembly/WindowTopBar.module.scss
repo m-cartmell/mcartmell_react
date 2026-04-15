@@ -1,31 +1,44 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
 .container {
-  border-bottom: rem(1px) solid $primaryColour;
+  background-color: $light-grey;
+  border-top-left-radius: to-rem(3px);
+  border-top-right-radius: to-rem(3px);
   line-height: 0;
-  padding: rem(2px) rem(3px);
+  padding: to-rem(2px) to-rem(3px);
   width: 100%;
 
-  @media screen and (min-width: 768px) {
-    padding: rem(3px) rem(5px);
+  @media (width >= 768px) {
+    padding: to-rem(3px) to-rem(5px);
   }
 }
 
 .btn {
-  border: rem(1px) solid $primaryColour;
   border-radius: 50%;
   display: inline-block;
-  height: rem(4px);
-  margin-right: rem(2px);
+  height: to-rem(4px);
+  margin-right: to-rem(2px);
   vertical-align: middle;
-  width: rem(4px);
+  width: to-rem(4px);
 
-  @media screen and (min-width: 768px) {
-    height: rem(6px);
-    margin-right: rem(3px);
-    width: rem(6px);
+  &.red {
+    background-color: #fd5559;
+  }
+
+  &.yellow {
+    background-color: #f8c127;
+  }
+
+  &.green {
+    background-color: #32bf52;
+  }
+
+  @media (width >= 768px) {
+    height: to-rem(6px);
+    margin-right: to-rem(3px);
+    width: to-rem(6px);
   }
 }

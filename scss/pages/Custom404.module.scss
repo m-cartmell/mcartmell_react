@@ -1,17 +1,18 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
-.main_content {
-  @include bottom_pad;
-  @include header_pad_allowance;
-  @include horizontal_pad;
+.main-content {
+  @include bottom-pad;
+  @include header-pad-allowance;
+  @include horizontal-pad;
+
   align-items: flex-start;
-  border-bottom: rem(1px) solid $secondaryColour;
+  border-bottom: to-rem(1px) solid $secondary-colour;
   flex-direction: column;
 
   p {
-    margin-bottom: rem(16px);
+    margin-bottom: to-rem(16px);
   }
 }

@@ -1,8 +1,8 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
-.main_content {
+.main-content {
   padding-top: 0 !important;
 }

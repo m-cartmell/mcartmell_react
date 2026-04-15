@@ -1,22 +1,21 @@
-@import './helpers/functions';
-@import './helpers/mixins';
-@import './helpers/padding-mixins';
-@import './helpers/variables';
-
-@import './base/grid';
-@import './base/links-buttons';
-@import './base/reset';
-@import './base/selection-colour';
-@import './base/typography';
+@use './helpers/functions' as *;
+@use './helpers/mixins' as *;
+@use './helpers/padding-mixins' as *;
+@use './helpers/variables' as *;
+@use './base/grid' as *;
+@use './base/links-buttons' as *;
+@use './base/reset' as *;
+@use './base/selection-colour' as *;
+@use './base/typography' as *;
 
 // Base column styles
 .column {
-  @include horizontal_half_pad;
-  @include vertical_pad_0;
+  @include horizontal-half-pad;
+  @include vertical-pad-0;
 }
 
 // Container
-.content_block {
+.content-block {
   align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
@@ -27,7 +26,7 @@
 .lightbox {
   display: block; // corrects spacing
 
-  @media screen and (max-width: 540px) {
+  @media (width <= 540px) {
     pointer-events: none;
   }
 }
@@ -39,23 +38,25 @@
 }
 
 img {
-  background-color: $lightGrey;
+  background-color: $light-grey;
   display: block;
   height: auto;
   max-width: 100%;
 }
 
 // Wrapper limiter
-[limit_width] {
-  width: rem(1280px);
+[data-limit-width] {
+  width: to-rem(1280px);
 }
 
 // Base section styles
 section {
-  @include half_pad;
+  @include half-pad;
+
   align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 
 // Centres single image column content
@@ -70,17 +71,27 @@ section {
 // Travel/Elfsight Load more button
 .eapps-instagram-feed-posts-grid-load-more-text {
   background-color: white;
-  border: rem(1px) solid $primaryColour;
-  color: $primaryColour;
+  border: to-rem(1px) solid $primary-colour;
+  color: $primary-colour;
   cursor: pointer;
   display: inline-block;
-  font: 400 rem(18px) $sansFamily;
+  font: 400 to-rem(18px) $body-font-family;
   line-height: 1;
-  padding: rem(3px) rem(12px) rem(4px);
-  transition: all $easeInOut;
+  padding: to-rem(3px) to-rem(12px) to-rem(4px);
+  transition: all $ease-in-out;
 
   &:hover {
-    background-color: $primaryColour;
+    background-color: $primary-colour;
     color: white;
+  }
+}
+
+// Animations
+.reveal-item {
+  @include reveal-item;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

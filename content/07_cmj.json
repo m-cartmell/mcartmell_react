@@ -1,11 +1,11 @@
 {
   "client": "The Company of Master Jewellers",
-  "heading": "Website design in Sketch",
-  "description": "The CMJ's website designs, for an all-encompassing web app, provide a powerful visual system for an effective interface and a responsively flexible layout.",
+  "heading": "Web design",
+  "description": "Interface design for the CMJ web app, combining a clear visual system with flexible, responsive layouts for a membership-driven platform.",
   "categories": ["Digital"],
   "text": [
-    "The CMJ is a UK-based buying group for jewellers. The aim of the project was to create a custom-built, all-encompassing web app, supporting different aspects of the business and functioning as an online community for the membership.",
-    "A powerful visual system of colour palettes, interactions, and design features creates an effective interface, promoting an intuitive user experience. The bold modular layouts are well structured and responsively flexible, a suitably corporate yet practical design decision."
+    "The CMJ is a UK-based buying group for jewellers. The project involved designing a custom web application to support multiple areas of the business, while also functioning as a central platform for its membership community.",
+    "A clear visual system—built around colour, interaction, and consistent design patterns—creates a structured and intuitive interface. Modular layouts provide flexibility across different types of content, while responsive behaviour ensures the platform remains usable across devices. The result is a practical, corporate design that supports both functionality and ease of use."
   ],
   "images": {
     "gallery": {
@@ -113,5 +113,8 @@
         }
       ]
     }
+  },
+  "skills": {
+    "Tools": ["Sketch"]
   }
 }

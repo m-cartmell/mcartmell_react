@@ -2,7 +2,8 @@ import { useCallback, useEffect, useState, useRef } from 'react';
 import WindowTopBar from './WindowTopBar';
 import PlusIcon from '../Assembly/Icons/PlusIcon';
 import styles from '../../scss/assembly/Accordion.module.scss';
-import Image from './Image';
+import CustomImage from './CustomImage';
+import classNames from 'classnames';
 
 export default function Accordion({ client, id, block }) {
   const blockKeys = Object.keys(block);
@@ -32,7 +33,7 @@ export default function Accordion({ client, id, block }) {
   const defineColumns = () => {
     if (id.includes('email')) return 'x4';
     else if (id.includes('wongs')) return 'x2';
-    else return 'web_page';
+    else return 'web-page';
   };
 
   // Makes an intial copy of the hiddenImages
@@ -48,28 +49,35 @@ export default function Accordion({ client, id, block }) {
   return blockKeys.map((item, index) => {
     return (
       <div
-        className={`column ${styles.container} ${defineColumns()}`}
+        className={classNames(
+          'column',
+          styles.container,
+          defineColumns(),
+          'reveal-item',
+        )}
         key={`${id}${index}`}
       >
         <div className={styles.wrapper}>
           <WindowTopBar />
-          {block[item].map((image, i) => {
-            return (
-              <div
-                className={styles.image}
-                key={i}
-                ref={(ref) => {
-                  if (i === 1) hiddenImages.current.push(ref);
-                }}
-              >
-                <Image client={client} id={id} image={image} />
-              </div>
-            );
-          })}
+          <div className={styles['image-blocks']}>
+            {block[item].map((image, i) => {
+              return (
+                <div
+                  className={styles.image}
+                  key={i}
+                  ref={(ref) => {
+                    if (i === 1) hiddenImages.current.push(ref);
+                  }}
+                >
+                  <CustomImage client={client} id={id} image={image} />
+                </div>
+              );
+            })}
+          </div>
           <button
-            className={`plain ${styles.expand} ${
-              +open === index ? styles.rotate : ''
-            }`}
+            className={classNames('plain', styles.expand, {
+              [styles.rotate]: +open === index,
+            })}
             onClick={() => {
               const target = `${index}`;
               if (target === open) {

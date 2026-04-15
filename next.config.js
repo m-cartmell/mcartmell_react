@@ -30,10 +30,6 @@ module.exports = {
             value: 'DENY',
           },
           {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
             key: 'Content-Security-Policy',
             value: csp(),
           },
@@ -49,64 +45,79 @@ module.exports = {
         destination: '/',
         permanent: true,
       },
+
+      // Old title-based URLs
       {
-        source: '/portfolio/Status%20Seating',
-        destination: '/portfolio/status-seating',
+        source: '/portfolio/Status Seating',
+        destination: '/work/status-seating',
         permanent: true,
       },
       {
-        source: '/portfolio/Pride%20&%20Joy',
-        destination: '/portfolio/pride-joy',
+        source: '/portfolio/Pride & Joy',
+        destination: '/work/pride-joy',
         permanent: true,
       },
       {
-        source: '/portfolio/Fast-Track%20Telecom',
-        destination: '/portfolio/fast-track-telecom',
+        source: '/portfolio/Fast-Track Telecom',
+        destination: '/work/fast-track-telecom',
         permanent: true,
       },
       {
-        source: '/portfolio/Johnsons%20Jewellers',
-        destination: '/portfolio/johnsons-jewellers',
+        source: '/portfolio/Johnsons Jewellers',
+        destination: '/work/johnsons-jewellers',
         permanent: true,
       },
       {
-        source: '/portfolio/Genie%20Bio%20Clean',
-        destination: '/portfolio/genie-bio-clean',
+        source: '/portfolio/Genie Bio Clean',
+        destination: '/work/genie-bio-clean',
         permanent: true,
       },
       {
-        source: '/portfolio/The%20Company%20of%20Master%20Jewellers',
-        destination: '/portfolio/the-company-of-master-jewellers',
+        source: '/portfolio/The Company of Master Jewellers',
+        destination: '/work/the-company-of-master-jewellers',
         permanent: true,
       },
       {
-        source: '/portfolio/Wongs%20Jewellers',
-        destination: '/portfolio/wongs-jewellers',
+        source: '/portfolio/Wongs Jewellers',
+        destination: '/work/wongs-jewellers',
         permanent: true,
       },
       {
-        source: '/portfolio/Email%20Marketing',
-        destination: '/portfolio/email-marketing',
+        source: '/portfolio/Email Marketing',
+        destination: '/work/email-marketing',
         permanent: true,
       },
       {
         source: '/portfolio/email',
-        destination: '/portfolio/email-marketing',
+        destination: '/work/email-marketing',
         permanent: true,
       },
       {
-        source: '/portfolio/Facets%20Creative',
-        destination: '/portfolio/facets-creative',
+        source: '/portfolio/Facets Creative',
+        destination: '/work/facets-creative',
         permanent: true,
       },
       {
-        source: '/portfolio/Oxfam%20Creative%20Concept',
-        destination: '/portfolio/oxfam-creative-concept',
+        source: '/portfolio/Oxfam Creative Concept',
+        destination: '/work/oxfam-creative-concept',
         permanent: true,
       },
       {
-        source: `/portfolio/'What%20an%20Experience'`,
-        destination: '/portfolio/travel',
+        source: "/portfolio/'What an Experience'",
+        destination: '/work/travel',
+        permanent: true,
+      },
+
+      // Old slug-style portfolio URLs
+      {
+        source: '/portfolio/:slug',
+        destination: '/work/:slug',
+        permanent: true,
+      },
+
+      {
+        source: '/work',
+        destination: '/',
         permanent: true,
       },
     ];

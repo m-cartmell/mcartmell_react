@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import 'lazysizes';
 
-export default function Image({ client, id, image }) {
+export default function CustomImage({ client, id, image }) {
   const { src, alt, format, widths, heights, limit_width, light_box } = image;
 
   const size = (dms) => (dms.length < 3 ? dms[dms.length - 1] : dms[2]);
@@ -9,17 +10,17 @@ export default function Image({ client, id, image }) {
 
   const setImg = () => {
     return (
-      <img
+      <Image
         className="lazyload"
         data-sizes="auto"
         src={`data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size(
           widths,
         )} ${size(heights)}"%3E%3C/svg%3E`}
+        data-limit-width={limit_width ? '' : undefined}
         data-src={`/images/${id}/${id}-${src}${setSize}.${setFormat}`}
         alt={`${client} ${alt}`}
-        width={`${size(widths)}`}
-        height={`${size(heights)}`}
-        limit_width={limit_width ? '' : undefined}
+        width={size(widths)}
+        height={size(heights)}
         data-gallery={light_box}
       />
     );

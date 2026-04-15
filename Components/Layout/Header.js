@@ -7,11 +7,6 @@ export default function Header() {
   return (
     <>
       <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Barlow:wght@300;400;500&display=swap"
-          rel="stylesheet"
-        />
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="apple-touch-icon"
@@ -34,13 +29,15 @@ export default function Header() {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a6acaf" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <header className={styles.container}>
-        <Link href="/">
-          <a title="Home page" className={styles.identity}>
-            mc<span className={styles.full}>artmell</span>.
-          </a>
+      <header className={styles.header}>
+        <Link
+          className={styles['identity-container']}
+          href="/"
+          title="Home page"
+        >
+          <span>Matt Cartmell</span>
+          <TypeIt />
         </Link>
-        <TypeIt />
       </header>
     </>
   );

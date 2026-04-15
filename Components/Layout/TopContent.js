@@ -1,15 +1,16 @@
 import styles from '../../scss/layout/TopContent.module.scss';
 import { useContext } from 'react';
-import { Portfolio } from '../Context';
+import { Work } from '../Context';
 import RefaliLogo from '../Assembly/RefaliLogo';
-import Image from '../Assembly/Image';
+import CustomImage from '../Assembly/CustomImage';
+import classNames from 'classnames';
 
 export default function TopContent({ client, id, topImages }) {
-  const { actions } = useContext(Portfolio);
+  const { actions } = useContext(Work);
   const clientStyles = actions.clientStyles(id);
 
   // Selects client page styles
-  const { top_content, single } = clientStyles;
+  const { 'top-content': topContent, single } = clientStyles;
 
   if (topImages) {
     const bannerType =
@@ -19,15 +20,19 @@ export default function TopContent({ client, id, topImages }) {
 
     return (
       <section
-        className={`${styles.container} ${top_content ? top_content : ''}`}
+        className={classNames(styles.container, topContent, {
+          ['reveal-item']: topImages.length === 2,
+        })}
       >
         {topImages.map((image, index) => {
           return (
             <div
-              className={`${styles.column} ${bannerType}`}
+              className={classNames(styles.column, bannerType, {
+                ['reveal-item']: topImages.length === 1,
+              })}
               key={`${id}${index}`}
             >
-              <Image client={client} id={id} image={image} />
+              <CustomImage client={client} id={id} image={image} />
             </div>
           );
         })}
@@ -35,8 +40,10 @@ export default function TopContent({ client, id, topImages }) {
     );
   } else if (client === 'Refali') {
     return (
-      <section className={`${styles.container} ${top_content}`}>
-        <div className={`${styles.column} ${single} single`}>
+      <section className={classNames(styles.container, topContent)}>
+        <div
+          className={classNames(styles.column, single, 'single', 'reveal-item')}
+        >
           <RefaliLogo clientStyles={clientStyles} />
         </div>
       </section>

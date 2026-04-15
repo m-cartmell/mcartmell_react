@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
-import Image from './Image';
+import CustomImage from './CustomImage';
 
 // Pages w light_box images – SS / Refali / PJ / JJ / GBC / CMJ
 export default function LightBoxImage({ images, client, id, image }) {
@@ -15,7 +15,7 @@ export default function LightBoxImage({ images, client, id, image }) {
   return (
     <>
       <a className="lightbox" onClick={() => setOpen(true)}>
-        <Image client={client} id={id} image={image} />
+        <CustomImage client={client} id={id} image={image} />
       </a>
 
       {open && (

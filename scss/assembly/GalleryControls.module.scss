@@ -1,26 +1,23 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
 .container {
-  display: none;
-  font-size: rem(22px);
-  margin: rem(20px) 0;
+  @include horizontal-pad;
 
-  @media screen and (min-width: 600px) {
+  display: none;
+  font-size: to-rem(22px);
+  margin: to-rem(5px) 0;
+
+  @media (width >= 600px) {
     display: block;
   }
 
   button {
-    font-size: rem(22px);
+    font-size: to-rem(22px);
     line-height: normal;
-    margin-right: rem(6px);
-
-    &::after {
-      content: '.';
-      margin-left: rem(1px);
-    }
+    margin-right: to-rem(12px);
 
     &:last-child {
       margin-right: 0;
@@ -29,5 +26,5 @@
 }
 
 .selected {
-  color: $primaryColour !important;
+  color: $primary-colour !important;
 }

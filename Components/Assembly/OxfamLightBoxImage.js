@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
-import Image from './Image';
+import CustomImage from './CustomImage';
 import ExpandIcon from './Icons/ExpandIcon';
+import classNames from 'classnames';
 
 export default function LightBoxImage({
   client,
@@ -15,8 +16,11 @@ export default function LightBoxImage({
 
   return (
     <>
-      <a className={`lightbox ${lightBoxClass}`} onClick={() => setOpen(true)}>
-        <Image client={client} id={id} image={image} />
+      <a
+        className={classNames('lightbox', lightBoxClass)}
+        onClick={() => setOpen(true)}
+      >
+        <CustomImage client={client} id={id} image={image} />
         <ExpandIcon customClass={iconClass} />
       </a>
 

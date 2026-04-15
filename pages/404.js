@@ -8,16 +8,14 @@ export default function Custom404() {
       <Head>
         <title>404 | Page Not Found</title>
       </Head>
-      <section className={styles.main_content}>
+      <section className={styles['main-content']}>
         <h1>404 – Page Not Found</h1>
         <p>
           Oops! It looks like the page you&apos;re looking for doesn&apos;t
           exist.
         </p>
-        <Link href="/">
-          <a title="Home page" className="button">
-            Home
-          </a>
+        <Link className="button" href="/" title="Home page">
+          Home
         </Link>
       </section>
     </>

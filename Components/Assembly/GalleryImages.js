@@ -1,36 +1,48 @@
 import Link from 'next/link';
 import styles from '../../scss/assembly/GalleryImages.module.scss';
+import skillStyles from '../../scss/assembly/SkillTags.module.scss';
 import { prepString } from '../../lib/content';
-import Image from './Image';
+import CustomImage from './CustomImage';
+import classNames from 'classnames';
 
 export default function GalleryImages({ content }) {
   return (
     <>
       {content.map((item) => {
-        const { id, categories, client, gallery } = item.params;
+        const { heading, id, categories, client, gallery, skills } =
+          item.params;
+
+        const skillList = skills ? Object.values(skills).flat() : [];
 
         return (
-          <Link href={`/portfolio/${id}`} key={`${id}-link`}>
-            <a className={`${styles.container} item ${prepString(categories)}`}>
-              <Image client={client} id={id} image={gallery} />
-              <div className={styles.overlay}>
-                <div className={styles.details}>
-                  <h2>{client}</h2>
-                  <div className={styles.categories}>
-                    {categories.map((category, index) => {
-                      return (
-                        <span
-                          className={styles.category}
-                          key={`${id}-cat${index}`}
-                        >
-                          {category}
-                        </span>
-                      );
-                    })}
+          <Link
+            className={classNames(
+              styles.container,
+              'item',
+              prepString(categories),
+            )}
+            href={`/work/${id}`}
+            key={`${id}-link`}
+          >
+            <CustomImage client={client} id={id} image={gallery} />
+            <div className={styles.overlay}>
+              <div className={styles.details}>
+                <h2>{heading}</h2>
+                <p className={styles.client}>{client}</p>
+                {!!skillList.length && (
+                  <div className={styles.skills}>
+                    {skillList.map((s) => (
+                      <span
+                        key={`${id}-${s}`}
+                        className={skillStyles['tag-white']}
+                      >
+                        {s}
+                      </span>
+                    ))}
                   </div>
-                </div>
+                )}
               </div>
-            </a>
+            </div>
           </Link>
         );
       })}

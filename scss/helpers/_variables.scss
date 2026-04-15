@@ -4,27 +4,28 @@
 
 // Main Palette
 $error: #ce4257;
-$lightGrey: #efefef;
-$primaryColour: #282c34;
-$secondaryColour: #a6acaf;
+$light-grey: #efefef;
+$primary-colour: #282c34;
+$secondary-colour: #a6acaf;
 $success: #58bc82;
 
 // Clients
-$fcYellow: #fee050;
-$fttGrey: #abb2c2;
-$jjLightRose: #f3e1df;
-$refaliBlue: #50b1ea;
-$wongsLightGreen: #f3f7d9;
+$fc-yellow: #fee050;
+$ftt-grey: #abb2c2;
+$jj-light-rose: #f3e1df;
+$refali-blue: #50b1ea;
+$wongs-light-green: #f3f7d9;
 
 // ********************
 //        Fonts
 // ********************
 
-$sansFamily: 'Barlow', sans-serif;
-$serifFamily: 'Abril Fatface', sans-serif;
+$heading-font-family: 'Montserrat', sans-serif;
+$body-font-family: 'Plus Jakarta Sans', sans-serif;
 
 // ********************
 //     Transitions
 // ********************
 
-$easeInOut: 0.25s ease-in-out 0s;
+$ease-in-out: 0.25s ease-in-out 0s;
+$reveal-ease: 0.35s ease-in-out;

@@ -1,34 +1,44 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
 .container {
-  @include full_pad;
+  @include horizontal-pad;
+
+  padding-bottom: to-rem(25px);
+  padding-top: to-rem(25px);
   text-align: center;
 }
 
 .icons {
   display: flex;
   justify-content: center;
-  margin-bottom: rem(25px);
+  margin-bottom: to-rem(25px);
 
   .wrap {
     box-sizing: content-box;
-    margin-right: rem(25px);
+    margin-right: to-rem(25px);
 
     &:last-child {
       margin-right: 0;
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      color: $primary-colour;
     }
   }
 }
 
 .copyright {
+  font-size: to-rem(16px);
   line-height: 1.5;
 }
 
 // Switches footer elements to rows @ screens > 480px
-@media screen and (min-width: 480px) {
+@media (width >= 480px) {
   .container {
     align-items: center;
     display: flex;

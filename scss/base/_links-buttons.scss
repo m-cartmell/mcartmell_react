@@ -1,3 +1,5 @@
+@use '../helpers/mixins' as *;
+
 a {
   @include links;
 }

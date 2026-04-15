@@ -1,11 +1,11 @@
 {
   "client": "Oxfam Creative Concept",
-  "heading": "Marketing and print design",
-  "description": "A creative piece of marketing and print design from a university project focused on famine. Following Oxfam's 'Be Humankind' branding really helped bring it to life.",
+  "heading": "Print design",
+  "description": "Conceptual print design exploring famine awareness, inspired by Oxfam's “Be Humankind” campaign and visual language.",
   "categories": ["Print"],
   "text": [
-    "Before anybody gets excited, I'm afraid I didn't produce this for Oxfam. I wish it were the case, but this was part of a university project focused on famine. Following Oxfam's 'Be Humankind' branding really helped bring it to life.",
-    "You'd struggle to ignore the bold headline and blood-stained hands; the perspective invokes a sense of responsibility, pulling on your heartstrings."
+    "This university project explores famine awareness through a conceptual print campaign. The work draws on the visual language of Oxfam's 'Be Humankind' initiative, using its tone and structure as a foundation to develop a compelling and emotive piece.",
+    "A bold headline and striking imagery—featuring blood-stained hands—create an immediate visual impact. The perspective places responsibility on the viewer, reinforcing the message and encouraging an emotional response."
   ],
   "images": {
     "gallery": {
@@ -22,5 +22,9 @@
         "heights": [421, 591, 1183, 1577, 2142]
       }
     ]
+  },
+  "skillTagsAlign": "left",
+  "skills": {
+    "Tools": ["Adobe Creative Cloud"]
   }
 }

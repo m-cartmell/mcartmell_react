@@ -1,0 +1,67 @@
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
+
+.container {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-bottom: to-rem(10px);
+
+  @media (width >= 1280px) {
+    align-items: flex-end;
+  }
+}
+
+.container-left {
+  align-items: flex-start;
+}
+
+.h2 {
+  color: $primary-colour;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+
+  @media (width >= 1280px) {
+    align-items: flex-end;
+  }
+}
+
+.group-left {
+  align-items: flex-start;
+}
+
+.group-heading {
+  color: $secondary-colour;
+  margin-bottom: to-rem(5px);
+  margin-top: to-rem(8px);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: to-rem(10px);
+
+  @media (width >= 1280px) {
+    justify-content: flex-end;
+  }
+}
+
+.tags-left {
+  justify-content: flex-start;
+}
+
+.tag {
+  @include tag;
+}
+
+.tag-white {
+  @include tag(white, $primary-colour);
+}

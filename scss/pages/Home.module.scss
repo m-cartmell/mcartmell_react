@@ -1,28 +1,42 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
-.top_content {
-  @include header_pad_allowance;
-  @include horizontal_pad;
+.top-content {
+  @include header-pad-allowance;
+  @include horizontal-pad;
 
-  align-items: baseline;
-  flex-wrap: wrap !important;
-  justify-content: space-between;
+  flex-flow: column wrap;
+  gap: to-rem(24px);
   margin-bottom: 0;
 
-  h1 {
-    margin-right: 0;
+  .info-block {
+    flex: 1;
+    margin-bottom: to-rem(5px);
+    max-width: to-rem(992px);
+    width: 100%;
 
-    @media screen and (min-width: 1024px) {
-      margin-right: rem(20px); //ensures h1 never touches the controls
+    .intro {
+      display: block;
+      font-weight: 700;
     }
+  }
+
+  @media (width >= 1280px) {
+    flex-direction: row;
   }
 }
 
 .gallery {
-  background-color: $lightGrey;
+  background-color: $light-grey;
+  margin-top: to-rem(15px);
   padding: 0;
   width: 100%;
+}
+
+.gallery-section {
+  align-items: flex-end;
+  flex-direction: column;
+  padding: 0;
 }

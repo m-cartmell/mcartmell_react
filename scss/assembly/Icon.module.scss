@@ -1,16 +1,12 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
 .item {
   display: block;
-  fill: $secondaryColour;
-  height: rem(22px);
-  transition: all $easeInOut;
-
-  &:focus,
-  &:hover {
-    fill: $primaryColour;
-  }
+  fill: currentcolor;
+  height: to-rem(23px);
+  transition: fill $ease-in-out;
+  width: auto;
 }

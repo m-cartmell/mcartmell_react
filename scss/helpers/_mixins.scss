@@ -1,25 +1,25 @@
+@use './variables' as *;
+@use './functions' as *;
+
 // Fill area within a relative element
-@mixin absoluteFillArea {
-  bottom: 0;
-  left: 0;
+@mixin absolute-fill-area {
+  inset: 0;
   position: absolute;
-  right: 0;
-  top: 0;
 }
 
 // Button styles
 @mixin buttons {
   background-color: white;
-  border: rem(1px) solid $primaryColour;
-  color: $primaryColour;
+  border: to-rem(1px) solid $primary-colour;
+  color: $primary-colour;
   cursor: pointer;
   display: inline-block;
-  padding: rem(3px) rem(12px) rem(4px);
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  transition: all $easeInOut;
+  padding: to-rem(3px) to-rem(12px) to-rem(5px);
+  -webkit-tap-highlight-color: transparent;
+  transition: all $ease-in-out;
 
   &:hover {
-    background-color: $primaryColour;
+    background-color: $primary-colour;
     color: white;
   }
 
@@ -30,25 +30,34 @@
 
 // Link styles
 @mixin links {
-  color: $secondaryColour;
+  color: $secondary-colour;
   cursor: pointer;
   display: inline-block;
   outline: 0;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   text-decoration: none;
-  transition: color $easeInOut;
+  transition: color $ease-in-out;
 
   &:hover {
-    color: $primaryColour;
+    color: $primary-colour;
   }
 }
 
-// No selection
-@mixin userSelectNone {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none;
+// Animations
+@mixin reveal-item($distance: 30px) {
+  opacity: 0;
+  transform: translateY($distance);
+  transition:
+    opacity $reveal-ease,
+    transform $reveal-ease;
+}
+
+// Tags
+@mixin tag($bgColour: $primary-colour, $textColour: white) {
+  background-color: $bgColour;
+  border-radius: to-rem(4px);
+  color: $textColour;
+  font-size: to-rem(15px);
+  font-weight: 500;
+  padding: to-rem(4px) to-rem(6px);
 }

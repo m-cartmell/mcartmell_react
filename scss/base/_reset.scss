@@ -64,7 +64,7 @@ video {
   -webkit-font-smoothing: antialiased;
   margin: 0;
   padding: 0;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   text-size-adjust: none;
   vertical-align: baseline;
 }
@@ -106,5 +106,6 @@ table {
 
 input {
   -webkit-appearance: none;
+  appearance: none;
   border-radius: 0;
 }

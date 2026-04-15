@@ -3,6 +3,7 @@ import LinkedInIcon from '../Assembly/Icons/LinkedInIcon';
 import EnvelopeIcon from '../Assembly/Icons/EnvelopeIcon';
 import { useState } from 'react';
 import Modal from './Modal';
+import classNames from 'classnames';
 
 export default function Footer() {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +22,7 @@ export default function Footer() {
             <LinkedInIcon />
           </a>
           <button
-            className={`plain ${styles.wrap}`}
+            className={classNames('plain', styles.wrap)}
             id="show_form"
             title="Message me"
             type="button"
@@ -33,7 +34,7 @@ export default function Footer() {
           </button>
         </div>
         <div className={styles.copyright}>
-          &copy; {new Date().getFullYear()} mcartmell.
+          Copyright &copy; 2021–{new Date().getFullYear()}.
           All&nbsp;rights&nbsp;reserved.
         </div>
       </footer>

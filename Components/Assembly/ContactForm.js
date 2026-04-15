@@ -2,6 +2,7 @@ import styles from '../../scss/assembly/ContactForm.module.scss';
 import PlusIcon from '../Assembly/Icons/PlusIcon';
 import { useRef, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import classNames from 'classnames';
 
 export default function ContactForm({ closeModal }) {
   const form = useRef(null);
@@ -33,7 +34,7 @@ export default function ContactForm({ closeModal }) {
       if (res.ok) {
         // Injects success notice
         notification.current.classList.add(styles.delivered);
-        notification.current.textContent = 'Success, your message sent.';
+        notification.current.textContent = 'Your message has been sent.';
       } else {
         // Injects failure notice
         notification.current.classList.add(styles.undelivered);
@@ -42,10 +43,13 @@ export default function ContactForm({ closeModal }) {
     });
   };
 
+  // eslint-disable-next-line react-hooks/refs
+  const submitForm = handleSubmit(onSubmit);
+
   const errorMessage = (email) => {
     // Checks for email, as only exception
     return (
-      <span className={styles.validation_error}>
+      <span className={styles['validation-error']}>
         {email ? 'Invalid email' : 'Required'}
       </span>
     );
@@ -70,13 +74,8 @@ export default function ContactForm({ closeModal }) {
   return (
     <div className={styles.container}>
       <h2>Send a message&hellip;</h2>
-      <form
-        name="contactForm"
-        role="form"
-        onSubmit={handleSubmit(onSubmit)}
-        ref={form}
-      >
-        <p className={styles.input_group}>
+      <form name="contactForm" role="form" onSubmit={submitForm} ref={form}>
+        <p className={styles['input-group']}>
           <label htmlFor="name">Name *</label>
           <input
             autoComplete="name"
@@ -99,7 +98,7 @@ export default function ContactForm({ closeModal }) {
           />
         </p>
 
-        <p className={styles.input_group}>
+        <p className={styles['input-group']}>
           <label htmlFor="email">Email *</label>
           <input
             autoComplete="email"
@@ -113,7 +112,7 @@ export default function ContactForm({ closeModal }) {
           />
           {errors.email && errorMessage(errors.email)}
         </p>
-        <p className={styles.input_group}>
+        <p className={styles['input-group']}>
           <label htmlFor="subject">Subject *</label>
           <input
             autoComplete="off"
@@ -124,7 +123,7 @@ export default function ContactForm({ closeModal }) {
           />
           {errors.subject && errorMessage()}
         </p>
-        <p className={styles.input_group}>
+        <p className={styles['input-group']}>
           <label htmlFor="message">Message *</label>
           <textarea
             autoComplete="off"
@@ -149,7 +148,7 @@ export default function ContactForm({ closeModal }) {
         </button>
       </form>
       <button
-        className={`plain ${styles.close}`}
+        className={classNames('plain', styles.close)}
         id="close_form"
         title="Close form"
         type="button"

@@ -1,11 +1,11 @@
 {
-  "client": "Email Marketing",
-  "heading": "Experience in MailChimp and Campaign Monitor",
-  "description": "I've spent a number of years mastering the craft of email marketing, developing both custom and platform-built campaigns.",
+  "client": "Various clients",
+  "heading": "Email development",
+  "description": "Experienced in email marketing, delivering custom campaigns, scalable templates, and automated, data-driven workflows.",
   "categories": ["Digital"],
   "text": [
-    "I've spent a number of years mastering the craft of email marketing, developing both custom and platform-built campaigns. Part of the mastery has involved building personalised database-driven emails, setting up branded reusable ID-friendly templates, integrating newsletter sign-ups, and automating workflows to segment consumer data or respond to user interactions.",
-    "Simplicity is still the key to delivering the most effective email marketing campaign."
+    "I have several years' experience in email marketing, designing and building both custom and platform-based campaigns. This includes developing personalised, data-driven emails, creating reusable branded templates, integrating sign-up systems, and implementing automated workflows to segment audiences and respond to user behaviour.",
+    "Despite the technical depth, simplicity remains key—clear, focused design consistently delivers the most effective campaigns."
   ],
   "images": {
     "gallery": {
@@ -83,5 +83,8 @@
         ]
       }
     }
+  },
+  "skills": {
+    "Languages": ["HTML", "CSS"]
   }
 }

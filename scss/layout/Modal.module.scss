@@ -1,32 +1,43 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
 .container {
   align-items: center;
-  background-color: rgba($color: black, $alpha: 0.8);
-  bottom: 0;
+  background-color: rgb(0 0 0 / 90%);
+  cursor: pointer;
   display: flex;
+  inset: 0;
   justify-content: center;
-  left: 0;
   opacity: 0;
   overflow-x: auto;
-  padding: rem(10px);
+  padding: to-rem(10px);
+  pointer-events: none;
   position: fixed;
-  right: 0;
-  top: 0;
-  transition: all $easeInOut;
+  transition:
+    opacity $reveal-ease,
+    visibility 0s linear $reveal-ease;
   visibility: hidden;
 
   .zone {
-    max-width: rem(500px);
+    cursor: auto;
+    max-width: to-rem(500px);
+    transform: translateY(10px);
+    transition: transform $reveal-ease;
     width: 100%;
   }
 
   &.visible {
-    cursor: pointer;
     opacity: 1;
+    pointer-events: auto;
+    transition:
+      opacity $reveal-ease,
+      visibility 0s linear 0s;
     visibility: visible;
+
+    .zone {
+      transform: translateY(0);
+    }
   }
 }

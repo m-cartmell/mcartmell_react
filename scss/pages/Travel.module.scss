@@ -1,20 +1,18 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
-.main_content {
-  @include half_bottom_pad;
-  @include header_pad_allowance;
-  @include horizontal_pad_0;
+.main-content {
+  @include half-bottom-pad;
+  @include header-pad-allowance;
+  @include horizontal-pad-0;
+
   flex-direction: column;
 
-  .text_block {
-    @include horizontal_pad;
-    order: -1 !important;
+  .info-block {
+    @include horizontal-pad;
 
-    h2 {
-      margin-bottom: 0;
-    }
+    order: -1 !important;
   }
 }

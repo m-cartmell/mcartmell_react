@@ -1,9 +1,10 @@
 import styles from '../../../scss/assembly/Icon.module.scss';
+import classNames from 'classnames';
 
 export default function ExpandIcon({ customClass }) {
   return (
     <svg
-      className={`${styles.item} ${customClass}`}
+      className={classNames(styles.item, customClass)}
       aria-hidden="true"
       focusable="false"
       role="img"

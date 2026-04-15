@@ -1,21 +1,23 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
 .container {
-  padding: 0 rem(12.5px) rem(25px) !important;
+  padding: 0 to-rem(12.5px) to-rem(25px) !important;
 
-  @media screen and (min-width: 414px) {
-    padding: 0 rem(20px) rem(40px) !important;
+  @media (width >= 414px) {
+    padding: 0 to-rem(20px) to-rem(40px) !important;
   }
 }
 
 .wrapper {
-  border: rem(1px) solid $primaryColour;
-  border-top-left-radius: rem(3px);
-  border-top-right-radius: rem(3px);
   position: relative;
+}
+
+.image-blocks {
+  border: to-rem(1px) solid $light-grey;
+  border-top: none;
 }
 
 .image {
@@ -27,37 +29,37 @@
 }
 
 .expand {
-  background-color: $primaryColour !important;
+  background-color: $primary-colour !important;
   border-radius: 50%;
-  bottom: rem(-13.5px);
-  height: rem(27px);
+  bottom: to-rem(-13.5px);
+  height: to-rem(27px);
   left: 0;
   margin: 0 auto;
   position: absolute;
   right: 0;
-  width: rem(27px);
+  width: to-rem(27px);
 
   @media (hover: hover) {
     &:hover {
-      background-color: $secondaryColour !important;
+      background-color: $secondary-colour !important;
     }
   }
 }
 
 .icon {
   fill: white !important;
-  height: rem(17px);
+  height: to-rem(17px);
   margin: 0 auto;
 }
 
 .rotate {
-  background-color: $secondaryColour !important;
+  background-color: $secondary-colour !important;
   transform: rotate(45deg);
   transition: all 0.3s;
 
   @media (hover: hover) {
     &:hover {
-      background-color: $primaryColour !important;
+      background-color: $primary-colour !important;
     }
   }
 }

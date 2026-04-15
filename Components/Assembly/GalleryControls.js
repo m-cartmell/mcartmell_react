@@ -1,6 +1,7 @@
 import styles from '../../scss/assembly/GalleryControls.module.scss';
 import { prepString } from '../../lib/content';
 import { useRef, useEffect, useState } from 'react';
+import classNames from 'classnames';
 
 export default function GalleryControls({ content }) {
   // Ref to store Isotope object
@@ -44,7 +45,7 @@ export default function GalleryControls({ content }) {
   return (
     <div className={styles.container}>
       <button
-        className={`plain ${filter === '*' ? styles.selected : ''}`}
+        className={classNames('plain', { [styles.selected]: filter === '*' })}
         type="button"
         onClick={handleFilter('*')}
       >
@@ -53,9 +54,9 @@ export default function GalleryControls({ content }) {
       {categorySet().map((cat, index) => {
         return (
           <button
-            className={`plain ${
-              filter === prepString(cat) ? styles.selected : ''
-            }`}
+            className={classNames('plain', {
+              [styles.selected]: filter === prepString(cat),
+            })}
             type="button"
             onClick={handleFilter(prepString(cat))}
             key={`control${index}`}

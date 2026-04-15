@@ -1,37 +1,38 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
-.main_content {
-  @include header_pad_allowance;
+.main-content {
+  @include header-pad-allowance;
+
   align-items: unset;
-  background-color: $fcYellow;
+  background-color: $fc-yellow;
 
-  @media screen and (min-width: 1024px) {
+  @media (width >= 1024px) {
     flex-direction: row !important;
   }
 
   h2 {
-    color: $primaryColour;
+    color: $primary-colour;
   }
 
   img {
-    background-color: $fcYellow;
-    border-left: rem(1px) solid $primaryColour;
-    border-right: rem(1px) solid $primaryColour;
+    background-color: $fc-yellow;
+    border-left: to-rem(1px) solid $light-grey;
+    border-right: to-rem(1px) solid $light-grey;
     margin: 0 auto;
   }
 
   picture {
     bottom: 0;
-    margin-bottom: rem(15px);
-    max-width: rem(600px);
+    margin-bottom: to-rem(15px);
+    max-width: to-rem(600px);
     position: absolute;
     width: 100%;
 
-    @media screen and (min-width: 768px) {
-      margin-bottom: rem(20px);
+    @media (width >= 768px) {
+      margin-bottom: to-rem(20px);
     }
 
     img {
@@ -41,7 +42,7 @@
   }
 }
 
-.image_block {
+.image-block {
   align-items: center;
   flex: 1 !important;
   flex-direction: column;
@@ -49,24 +50,23 @@
   position: relative;
 }
 
-.text_block {
-  @include bottom_pad;
+.info-block {
+  @include bottom-pad;
 
-  @media screen and (min-width: 1024px) {
+  flex-direction: column !important;
+
+  @media (width >= 1024px) {
     order: 2 !important;
   }
 }
 
-.top_bar {
-  border: rem(1px) solid $primaryColour;
-  border-top-left-radius: rem(3px);
-  border-top-right-radius: rem(3px);
-  max-width: rem(600px);
-  padding: rem(4px) rem(6px) !important;
+.top-bar {
+  max-width: to-rem(600px);
+  padding: to-rem(4px) to-rem(6px) !important;
 
   .btn {
-    height: rem(8px);
-    margin-right: rem(4px);
-    width: rem(8px);
+    height: to-rem(8px);
+    margin-right: to-rem(4px);
+    width: to-rem(8px);
   }
 }

@@ -1,11 +1,11 @@
 {
   "client": "Pride & Joy",
-  "heading": "Branding, print design and art direction",
-  "description": "Pride & Joy's playful illustrations and sophisticated serif logo create a versatile combination for any print design application.",
-  "categories": ["Art direction", "Branding", "Print"],
+  "heading": "Branding and print design",
+  "description": "A refined identity for Pride & Joy, pairing an elegant serif logo with bold, playful illustrations inspired by a vibrant, eco-friendly colour palette.",
+  "categories": ["Branding", "Print"],
   "text": [
-    "Pride & Joy was Teknos's answer to a consumer-facing luxury paint brand for your home. The branding was to playfully reflect a vast and vibrant eco-friendly colour range around the strap line, 'Bursting with Colour'.",
-    "The brief was answered with a minimalist, tightly positioned serif logo, conveying an established air of sophistication. The flat stylised illustrations allow for bold use of colour and give the brand character, while the nature theme underpins an eco-friendly brand value."
+    "Pride & Joy was developed by Teknos as a consumer-facing luxury paint brand. The identity needed to reflect a vibrant, eco-friendly colour range while capturing the spirit of the strapline, 'Bursting with Colour'.",
+    "The logotype uses a tightly set serif to convey a sense of refinement and heritage, balancing the brand's more playful elements. Flat, stylised illustrations introduce character and allow for bold, expressive use of colour, while subtle nature references reinforce the brand's eco-conscious positioning."
   ],
   "images": {
     "gallery": {
@@ -60,5 +60,8 @@
         }
       ]
     }
+  },
+  "skills": {
+    "Tools": ["Adobe Creative Cloud"]
   }
 }

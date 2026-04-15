@@ -1,8 +1,11 @@
 {
-  "client": "'What an Experience'",
-  "heading": "An incredible 11 months of travel throughout Asia, New Zealand, and Australia.",
-  "description": "An Instagram feed documenting my time away travelling. Hopefully you can appreciate my eye for catching a good frame...",
+  "client": "Personal",
+  "heading": "11 Months Travelling Across Asia, New Zealand & Australia",
+  "description": "Scenic photography exploring composition, light, and landscape.",
   "categories": ["Travel"],
+  "text": [
+    "Captured on a phone, focusing on composition, light, and landscape."
+  ],
   "images": {
     "gallery": {
       "src": "gallery-image",

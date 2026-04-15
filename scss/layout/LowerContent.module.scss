@@ -1,18 +1,18 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
 .container {
   padding: 0;
 }
 
 .column {
-  @include horizontal_pad_0;
+  @include horizontal-pad-0;
 }
 
-.content_block {
+.content-block {
   &:last-of-type {
-    background-color: $lightGrey;
+    background-color: $light-grey;
   }
 }

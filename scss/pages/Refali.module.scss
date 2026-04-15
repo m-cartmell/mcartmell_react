@@ -1,19 +1,19 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
-.top_content {
-  background-color: $refaliBlue;
+.top-content {
+  background-color: $refali-blue;
 }
 
 .single {
-  @include half_pad;
+  @include half-pad;
 }
 
-#refali_logo {
+#refali-logo {
   fill: white;
-  max-width: rem(300px);
+  max-width: to-rem(300px);
   width: 100%;
 
   .logo {
@@ -36,6 +36,6 @@
   }
 }
 
-.lower_content {
-  background-color: $lightGrey;
+.lower-content {
+  background-color: $light-grey;
 }

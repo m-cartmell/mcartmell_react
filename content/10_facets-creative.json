@@ -1,11 +1,11 @@
 {
   "client": "Facets Creative",
   "heading": "Email animation",
-  "description": "The bold, minimalistic design empowers confidence, while the animation dynamically introduces the agency's services and efficiently uses the limited space.",
+  "description": "A bold, minimal design paired with motion to introduce services and make efficient use of a compact digital space.",
   "categories": ["Digital"],
   "text": [
-    "The bold, minimalistic design empowers confidence, while the animation dynamically introduces the agency's services and efficiently uses the limited space. Hopefully the jewellery group appreciated the playful heading, influenced by a Monroe classic.",
-    "Animation produced in After Effects."
+    "This project uses a bold, minimal design approach to create a confident and focused visual presence. Animation is used to introduce the agency's services, helping guide users while making effective use of a compact layout. The playful heading subtly references a classic Monroe line, adding a layer of character to the piece.",
+    "Animation was created in After Effects as part of the overall design and presentation."
   ],
   "images": {
     "gallery": {
@@ -31,5 +31,9 @@
         "heights": [281, 450]
       }
     ]
+  },
+  "skillTagsAlign": "left",
+  "skills": {
+    "Tools": ["Adobe Creative Cloud"]
   }
 }

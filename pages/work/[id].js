@@ -1,5 +1,6 @@
 import { getPaths, getContent } from '../../lib/content';
 import Head from 'next/head';
+import Script from 'next/script';
 import TopContent from '../../Components/Layout/TopContent';
 import MainContent from '../../Components/Layout/MainContent';
 import LowerContent from '../../Components/Layout/LowerContent';
@@ -25,7 +26,7 @@ export async function getStaticProps(context) {
   };
 }
 
-export default function Portfolio({ pageContent }) {
+export default function Work({ pageContent }) {
   const content = pageContent.params;
   const {
     id,
@@ -37,6 +38,8 @@ export default function Portfolio({ pageContent }) {
     topImages,
     mainImages,
     lowerImages,
+    skills,
+    skillTagsAlign,
     prev,
     next,
   } = content;
@@ -46,20 +49,19 @@ export default function Portfolio({ pageContent }) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        {id === 'travel' && (
-          <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-        )}
       </Head>
-      <TopContent client={client} id={id} topImages={topImages} />
+      {id === 'travel' && (
+        <Script
+          src="https://apps.elfsight.com/p/platform.js"
+          strategy="afterInteractive"
+        />
+      )}
+      <TopContent {...{ client, id, topImages }} />
       <MainContent
-        id={id}
-        heading={heading}
-        client={client}
-        text={text}
-        mainImages={mainImages}
+        {...{ client, heading, id, mainImages, text, skills, skillTagsAlign }}
       />
-      <LowerContent client={client} id={id} lowerImages={lowerImages} />
-      <PageNav prev={prev} next={next} />
+      <LowerContent {...{ client, id, lowerImages }} />
+      <PageNav {...{ next, prev }} />
     </>
   );
 }

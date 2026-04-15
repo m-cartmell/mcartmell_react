@@ -1,36 +1,27 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
-.container {
-  @include full_pad;
-  align-items: baseline;
-  display: flex;
-  font-size: rem(26px);
+.header {
+  @include full-pad;
+
   left: 0;
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 1000;
 }
 
-.identity {
-  color: $primaryColour;
+.identity-container {
+  align-items: baseline;
+  color: $primary-colour;
   display: flex;
-  font-size: rem(26px);
-  margin-right: rem(6px);
-
-  .full {
-    display: none;
-
-    // Toggles full identity @ screens > 340px
-    @media screen and (min-width: 340px) {
-      display: inline-block;
-    }
-  }
+  font-size: to-rem(26px);
+  gap: to-rem(8px);
 }
 
-#type_it {
-  font-family: $serifFamily;
-  width: 100%;
+.type-it {
+  font-family: $body-font-family;
+  font-weight: 700;
 }

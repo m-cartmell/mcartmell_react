@@ -1,25 +1,26 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
-.top_content {
-  background-color: $lightGrey;
+.top-content {
+  background-color: $light-grey;
 }
 
-.lower_content {
-  .content_block {
-    @include horizontal_half_pad;
+.lower-content {
+  .content-block {
+    @include horizontal-half-pad;
+
     background-color: white !important;
   }
 
-  .top_bar {
-    padding: rem(4px) rem(6px);
+  .top-bar {
+    padding: to-rem(4px) to-rem(6px);
 
     .btn {
-      height: rem(8px);
-      margin-right: rem(4px);
-      width: rem(8px);
+      height: to-rem(8px);
+      margin-right: to-rem(4px);
+      width: to-rem(8px);
     }
   }
 }

@@ -1,10 +1,11 @@
-@import '../helpers/functions';
-@import '../helpers/mixins';
-@import '../helpers/padding-mixins';
-@import '../helpers/variables';
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
 
 .container {
-  @include header_pad_allowance;
+  @include header-pad-allowance;
+
   flex-wrap: nowrap;
 }
 
@@ -15,7 +16,7 @@
     padding: 0;
 
     // 2 columns @ screens > 768px
-    @media screen and (min-width: 768px) {
+    @media (width >= 768px) {
       flex-basis: 50%;
     }
 
@@ -24,7 +25,7 @@
       display: none;
 
       // Displays 2nd banner image @ screens > 768px
-      @media screen and (min-width: 768px) {
+      @media (width >= 768px) {
         display: block;
       }
     }

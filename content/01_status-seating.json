@@ -1,12 +1,12 @@
 {
   "client": "Status Seating",
-  "heading": "Brochure design and art direction",
-  "description": "The Status Seating brochure is a tasteful balance of clean print design and considered art direction, clearly highlighting their product range.",
-  "categories": ["Art direction", "Print"],
+  "heading": "Print design",
+  "description": "Brochure design for Status Seating, combining clean layouts and tailored imagery to clearly present and compare their chair range.",
+  "categories": ["Print"],
   "text": [
-    "Status Seating manufactures a variety of chairs in a number of different configurations. They required a brochure to not only highlight but also compare the features and options of their product range.",
-    "The main issue was creating a set of feature images on a modest budget. Image-comping the chairs into suitable backgrounds was the most viable solution; the upholstery was hand-picked to complement the surroundings.",
-    "The brochure's clean layout and subtle design features improve readability and usability, while generously sized product shots help support the information. Plenty of white space allows the pages to breathe."
+    "Status Seating manufactures a wide range of chairs across multiple configurations. The goal was to design a brochure that not only showcased the products, but also made it easy to compare features and options across the range.",
+    "A key challenge was producing high-quality feature imagery within a modest budget. To achieve this, the chairs were composited into carefully selected environments, with upholstery choices tailored to complement each setting.",
+    "The final brochure uses a clean, structured layout with subtle design details to enhance readability. Generous white space and large product visuals help present information clearly, creating a balanced and easy-to-navigate piece."
   ],
   "images": {
     "gallery": {
@@ -96,5 +96,8 @@
         }
       ]
     }
+  },
+  "skills": {
+    "Tools": ["Adobe Creative Cloud"]
   }
 }

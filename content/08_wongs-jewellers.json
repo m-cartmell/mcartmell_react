@@ -1,11 +1,11 @@
 {
   "client": "Wongs Jewellers",
-  "heading": "WordPress website design and development",
-  "description": "The design and development of an interim brochure website for Wongs Jewellers with a minimalistic modular layout to complement their branding.",
+  "heading": "Web development",
+  "description": "A clean, responsive website for Wongs Jewellers, using a modular layout and subtle interactions to complement their brand.",
   "categories": ["Digital"],
   "text": [
-    "Wongs is an independent family-run jeweller based in Liverpool. This project was briefed as an interim brochure site to temporarily substitute the loss of their existing site.",
-    "Accordions and carousels utilise space, adding a level of micro-interaction, while a minimalistic modular layout complements the current branding and works in favour of responsive behaviour."
+    "Wongs is an independent, family-run jeweller based in Liverpool. The project was delivered as a fast, interim solution following the loss of their existing website, providing a clear and reliable online presence.",
+    "The design uses a minimal, modular layout that aligns with the brand while supporting responsive behaviour across devices. Components such as accordions and carousels make efficient use of space and introduce subtle interaction, helping to present content clearly without overwhelming the user."
   ],
   "images": {
     "gallery": {
@@ -86,5 +86,10 @@
         }
       ]
     }
+  },
+  "skillTagsAlign": "left",
+  "skills": {
+    "Languages": ["HTML", "CSS"],
+    "Platforms": ["WordPress"]
   }
 }

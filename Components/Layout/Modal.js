@@ -1,49 +1,66 @@
-import { useCallback, useEffect, useState, useRef } from 'react';
-import ReactDOM from 'react-dom';
+'use client';
+
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import ContactForm from '../Assembly/ContactForm';
 import styles from '../../scss/layout/Modal.module.scss';
+import classNames from 'classnames';
 
 export default function Modal({ show, setShow }) {
-  const [isBrowser, setIsBrowser] = useState(false);
-  const modal = useRef(null);
-  const zone = useRef(null);
+  const [mounted, setMounted] = useState(false);
+  const dialogRef = useRef(null);
 
   const closeModal = useCallback(() => {
-    if (show) {
-      modal.current.classList.remove(styles.visible);
-      setShow(false);
-    }
-  }, [setShow, show]);
+    setShow(false);
+  }, [setShow]);
 
   useEffect(() => {
-    const trigger = (e) => {
-      // On click outside of form || On 'esc' keydown
-      if (!zone.current.contains(e.target) || e.key === 27) closeModal();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!show) return;
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
     };
 
-    setIsBrowser(true);
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKeyDown);
 
-    window.addEventListener('click', trigger);
-    window.addEventListener('keydown', trigger);
+    // Move focus into modal
+    dialogRef.current?.focus();
+
     return () => {
-      window.removeEventListener('click', trigger);
-      window.removeEventListener('keydown', trigger);
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKeyDown);
     };
-  }, [closeModal]);
+  }, [show, closeModal]);
 
-  if (isBrowser) {
-    return ReactDOM.createPortal(
+  if (!mounted) return null;
+
+  const modalRoot = document.getElementById('modal');
+  if (!modalRoot) return null;
+
+  return createPortal(
+    <div
+      className={classNames(styles.container, {
+        [styles.visible]: show,
+      })}
+      onClick={show ? closeModal : undefined}
+      aria-hidden={!show}
+    >
       <div
-        className={`${styles.container} ${show ? styles.visible : ''}`}
-        ref={modal}
+        className={styles.zone}
+        onClick={(e) => e.stopPropagation()}
+        ref={dialogRef}
       >
-        <div className={styles.zone} ref={zone}>
-          <ContactForm closeModal={closeModal} />
-        </div>
-      </div>,
-      document.getElementById('modal'),
-    );
-  } else {
-    return null;
-  }
+        <ContactForm closeModal={closeModal} />
+      </div>
+    </div>,
+    modalRoot,
+  );
 }

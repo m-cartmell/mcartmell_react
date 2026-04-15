@@ -9,11 +9,15 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      window.gtag('config', process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID, {
-        page_path: url,
-      });
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('config', process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID, {
+          page_path: url,
+        });
+      }
     };
+
     router.events.on('routeChangeComplete', handleRouteChange);
+
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
@@ -22,7 +26,7 @@ export default function App({ Component, pageProps }) {
   return (
     <Provider>
       <Layout>
-        <Component {...pageProps} />
+        <Component key={router.asPath} {...pageProps} />
       </Layout>
     </Provider>
   );

@@ -1,10 +1,12 @@
+@use '../helpers/variables' as *;
+
 ::selection {
-  background: $primaryColour;
+  background: $primary-colour;
   color: white;
 }
 
 ::-moz-selection {
-  background: $primaryColour;
+  background: $primary-colour;
   color: white;
 }
 
@@ -18,5 +20,5 @@ img::-moz-selection {
 
 body {
   color: white;
-  -webkit-tap-highlight-color: $primaryColour;
+  -webkit-tap-highlight-color: $primary-colour;
 }
