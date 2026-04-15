@@ -11,39 +11,45 @@ const csp = () => {
       `'self'`,
       `'sha256-coQXW/idXus2fnwNkAbGVQbUWqfsMiONGSg9GNgEPAw='`,
       ...(dev ? [`'unsafe-eval'`] : []),
+
+      // Vercel Analytics
+      'https://va.vercel-scripts.com',
+
+      // reCAPTCHA
       'https://www.google.com',
-      'https://*.analytics.google.com',
-      'https://www.googletagmanager.com',
-      'https://*.gstatic.com',
+      'https://www.gstatic.com',
+
+      // other embeds
       'https://*.elfsight.com',
       'https://*.cdninstagram.com',
       'https://*.elfsightcdn.com',
     ],
 
     'style-src': [`'self'`, `'unsafe-inline'`, 'https://fonts.googleapis.com'],
-    'font-src': [`'self'`, 'https://*.gstatic.com'],
+
+    'font-src': [`'self'`, 'https://fonts.gstatic.com'],
+
     'frame-src': [
       `'self'`,
       'https://www.google.com',
-      'https://td.doubleclick.net',
+      'https://recaptcha.google.com',
     ],
+
     'connect-src': [
       `'self'`,
-      'https://www.google.com',
-      'https://*.analytics.google.com',
-      'https://*.gstatic.com',
-      'https://*.elfsight.com',
       'https://vitals.vercel-insights.com',
-      'https://stats.g.doubleclick.net',
+      'https://www.google.com',
+      'https://*.elfsight.com',
     ],
+
     'img-src': [
       `'self'`,
       'data:',
-      'https://*.analytics.google.com',
       'https://*.cdninstagram.com',
       'https://*.elfsightcdn.com',
-      'https://www.google.co.uk',
+      'https://www.gstatic.com',
     ],
+
     'script-src-attr': [`'none'`],
   };
 

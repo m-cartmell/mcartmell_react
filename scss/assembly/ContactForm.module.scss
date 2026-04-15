@@ -92,6 +92,7 @@
 
   &.undelivered {
     color: $error;
+    margin-top: to-rem(25px);
   }
 }
 
