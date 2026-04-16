@@ -34,11 +34,11 @@
   }
 
   .details {
-    bottom: to-rem(40px);
-    left: to-rem(40px);
+    bottom: to-rem(30px);
+    left: to-rem(30px);
     opacity: 0;
     position: absolute;
-    right: to-rem(40px);
+    right: to-rem(30px);
     transition: opacity $ease-in-out;
     visibility: hidden;
 
