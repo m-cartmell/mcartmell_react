@@ -12,8 +12,6 @@ export default function GalleryImages({ content }) {
         const { heading, id, categories, client, gallery, skills } =
           item.params;
 
-        const skillList = skills ? Object.values(skills).flat() : [];
-
         return (
           <Link
             className={classNames(
@@ -29,9 +27,9 @@ export default function GalleryImages({ content }) {
               <div className={styles.details}>
                 <h2>{heading}</h2>
                 <p className={styles.client}>{client}</p>
-                {!!skillList.length && (
+                {!!skills?.length && (
                   <div className={styles.skills}>
-                    {skillList.map((s) => (
+                    {skills.map((s) => (
                       <span
                         key={`${id}-${s}`}
                         className={skillStyles['tag-white']}

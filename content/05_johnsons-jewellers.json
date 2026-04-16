@@ -129,8 +129,5 @@
       ]
     }
   },
-  "skills": {
-    "Languages": ["HTML", "CSS"],
-    "Platforms": ["Magento"]
-  }
+  "skills": ["Web Design", "eCommerce", "Magento", "HTML & CSS"]
 }

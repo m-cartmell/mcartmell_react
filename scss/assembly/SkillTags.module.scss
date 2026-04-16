@@ -22,26 +22,7 @@
 .h2 {
   color: $primary-colour;
   font-weight: 700;
-  margin-bottom: 0;
-}
-
-.group {
-  display: flex;
-  flex-direction: column;
-
-  @media (width >= 1280px) {
-    align-items: flex-end;
-  }
-}
-
-.group-left {
-  align-items: flex-start;
-}
-
-.group-heading {
-  color: $secondary-colour;
-  margin-bottom: to-rem(5px);
-  margin-top: to-rem(8px);
+  margin-bottom: to-rem(12px);
 }
 
 .tags {

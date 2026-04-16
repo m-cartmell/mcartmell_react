@@ -57,9 +57,10 @@
       ]
     }
   },
-  "skills": {
-    "Languages": ["JavaScript", "HTML", "CSS"],
-    "Libraries": ["jQuery"],
-    "Tools": ["Adobe Creative Cloud"]
-  }
+  "skills": [
+    "Branding",
+    "Livery Design",
+    "Web Development",
+    "Adobe Creative Cloud"
+  ]
 }

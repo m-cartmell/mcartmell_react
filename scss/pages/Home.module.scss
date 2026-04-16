@@ -7,24 +7,33 @@
   @include header-pad-allowance;
   @include horizontal-pad;
 
-  flex-flow: column wrap;
-  gap: to-rem(24px);
+  flex-direction: column;
   margin-bottom: 0;
 
   .info-block {
+    display: flex;
+    flex-flow: column wrap;
+    gap: to-rem(36px);
+    justify-content: space-between;
+    width: 100%;
+
+    @media (width >= 1280px) {
+      flex-direction: row;
+    }
+  }
+
+  .summary {
     flex: 1;
-    margin-bottom: to-rem(5px);
+    margin-bottom: 0;
     max-width: to-rem(992px);
+    min-width: 0;
     width: 100%;
 
     .intro {
       display: block;
       font-weight: 700;
+      margin-bottom: to-rem(6px);
     }
-  }
-
-  @media (width >= 1280px) {
-    flex-direction: row;
   }
 }
 

@@ -33,7 +33,10 @@
     ]
   },
   "skillTagsAlign": "left",
-  "skills": {
-    "Tools": ["Adobe Creative Cloud"]
-  }
+  "skills": [
+    "Motion Design",
+    "Email Design",
+    "Animation",
+    "Adobe Creative Cloud"
+  ]
 }

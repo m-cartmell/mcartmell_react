@@ -88,8 +88,5 @@
     }
   },
   "skillTagsAlign": "left",
-  "skills": {
-    "Languages": ["HTML", "CSS"],
-    "Platforms": ["WordPress"]
-  }
+  "skills": ["Web Design", "Responsive Design", "HTML & CSS", "WordPress"]
 }

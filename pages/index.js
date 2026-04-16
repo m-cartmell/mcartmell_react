@@ -5,25 +5,7 @@ import GalleryControls from '../Components/Assembly/GalleryControls';
 import GalleryImages from '../Components/Assembly/GalleryImages';
 import SkillTags from '../Components/Assembly/SkillTags';
 import classNames from 'classnames';
-
-const skills = {
-  Languages: ['JavaScript (ES6+)', 'HTML', 'CSS', 'Sass'],
-  'Frameworks & Libraries': [
-    'React',
-    'Next.js',
-    'Node.js',
-    'React Native',
-    'Apollo GraphQL',
-  ],
-  'Tools & Platforms': [
-    'Git',
-    'Bitbucket Pipelines (CI/CD)',
-    'AWS S3',
-    'Android',
-    'Adobe Creative Cloud',
-  ],
-  Databases: ['MongoDB'],
-};
+import ExperienceCarousel from '../Components/Assembly/ExperienceCarousel';
 
 export async function getStaticProps() {
   const content = getGalleryContent();
@@ -46,22 +28,24 @@ export default function Home({ content }) {
         />
       </Head>
       <section className={styles['top-content']}>
+        <h1 className="reveal-item">Software developer & designer</h1>
         <div className={styles['info-block']}>
-          <h1 className="reveal-item">Software developer & designer</h1>
-          <p className="reveal-item">
-            <span className={styles.intro}>
-              Focused on building complete, end-to-end digital products.
-            </span>
-            <span>
-              I specialise in JavaScript across Node.js, React, and React
-              Native, creating scalable applications with Apollo GraphQL,
-              WebSockets, MongoDB, and cloud-based asset storage. With a
-              multidisciplinary design background, I deliver cohesive,
-              user-focused experiences across mobile and web.
-            </span>
-          </p>
+          <div className={styles.summary}>
+            <p className="reveal-item">
+              <span className={styles.intro}>
+                Focused on building complete, end-to-end digital products.
+              </span>
+              <span>
+                I specialise in JavaScript across Node.js, React, and React
+                Native, creating scalable applications with GraphQL, WebSockets,
+                MongoDB, and cloud-based asset storage. With a multidisciplinary
+                design background, I deliver cohesive, user-focused experiences
+                across mobile and web.
+              </span>
+            </p>
+          </div>
+          <ExperienceCarousel />
         </div>
-        <SkillTags data={skills} />
       </section>
       <section className={styles['gallery-section']}>
         <GalleryControls content={content} />

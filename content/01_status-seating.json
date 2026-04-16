@@ -97,7 +97,5 @@
       ]
     }
   },
-  "skills": {
-    "Tools": ["Adobe Creative Cloud"]
-  }
+  "skills": ["Print Design", "Art Direction", "Adobe Creative Cloud"]
 }

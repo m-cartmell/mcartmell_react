@@ -24,7 +24,10 @@
     ]
   },
   "skillTagsAlign": "left",
-  "skills": {
-    "Tools": ["Adobe Creative Cloud"]
-  }
+  "skills": [
+    "Print Design",
+    "Concept Development",
+    "Art Direction",
+    "Adobe Creative Cloud"
+  ]
 }

@@ -93,8 +93,5 @@
       ]
     }
   },
-  "skills": {
-    "Languages": ["JavaScript", "PHP", "HTML", "CSS"],
-    "Libraries": ["jQuery"]
-  }
+  "skills": ["Web Design", "Responsive Design", "HTML & CSS", "JavaScript"]
 }

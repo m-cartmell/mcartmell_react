@@ -61,7 +61,5 @@
       ]
     }
   },
-  "skills": {
-    "Tools": ["Adobe Creative Cloud"]
-  }
+  "skills": ["Branding", "Illustration", "Print Design", "Adobe Creative Cloud"]
 }

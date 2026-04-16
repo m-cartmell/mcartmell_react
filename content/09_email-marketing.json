@@ -84,7 +84,5 @@
       }
     }
   },
-  "skills": {
-    "Languages": ["HTML", "CSS"]
-  }
+  "skills": ["Email Design", "Email Development", "HTML & CSS", "Automation"]
 }

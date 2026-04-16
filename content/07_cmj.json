@@ -114,7 +114,5 @@
       ]
     }
   },
-  "skills": {
-    "Tools": ["Sketch"]
-  }
+  "skills": ["UI Design", "Design Systems", "Responsive Design", "Sketch"]
 }
