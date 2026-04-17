@@ -38,6 +38,7 @@ export default function Work({ pageContent }) {
     topImages,
     mainImages,
     lowerImages,
+    singleColumnSummary,
     skills,
     skillTagsAlign,
     prev,
@@ -58,7 +59,16 @@ export default function Work({ pageContent }) {
       )}
       <TopContent {...{ client, id, topImages }} />
       <MainContent
-        {...{ client, heading, id, mainImages, text, skills, skillTagsAlign }}
+        {...{
+          client,
+          heading,
+          id,
+          mainImages,
+          text,
+          singleColumnSummary,
+          skills,
+          skillTagsAlign,
+        }}
       />
       <LowerContent {...{ client, id, lowerImages }} />
       <PageNav {...{ next, prev }} />

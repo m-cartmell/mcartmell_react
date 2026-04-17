@@ -9,10 +9,6 @@
   align-items: unset;
   background-color: $fc-yellow;
 
-  @media (width >= 1024px) {
-    flex-direction: row !important;
-  }
-
   h2 {
     color: $primary-colour;
   }
@@ -53,9 +49,7 @@
 .info-block {
   @include bottom-pad;
 
-  flex-direction: column !important;
-
-  @media (width >= 1024px) {
+  @media (width >= 1440px) {
     order: 2 !important;
   }
 }

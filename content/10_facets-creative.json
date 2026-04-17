@@ -32,6 +32,7 @@
       }
     ]
   },
+  "singleColumnSummary": true,
   "skillTagsAlign": "left",
   "skills": [
     "Motion Design",

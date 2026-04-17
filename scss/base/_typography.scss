@@ -11,7 +11,6 @@ body {
 h1 {
   font: 900 to-rem(38px) $heading-font-family;
   line-height: 1.1;
-  margin-bottom: to-rem(10px);
 
   &:last-child {
     margin-bottom: 0;

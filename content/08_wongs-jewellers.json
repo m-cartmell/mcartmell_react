@@ -87,6 +87,7 @@
       ]
     }
   },
+  "singleColumnSummary": true,
   "skillTagsAlign": "left",
   "skills": ["Web Design", "Responsive Design", "HTML & CSS", "WordPress"]
 }

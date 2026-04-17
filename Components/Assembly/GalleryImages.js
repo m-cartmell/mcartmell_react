@@ -27,7 +27,7 @@ export default function GalleryImages({ content }) {
               <div className={styles.details}>
                 <h2>{heading}</h2>
                 <p className={styles.client}>{client}</p>
-                {!!skills?.length && (
+                {skills?.length && (
                   <div className={styles.skills}>
                     {skills.map((s) => (
                       <span

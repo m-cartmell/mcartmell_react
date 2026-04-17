@@ -14,6 +14,7 @@ export default function MainContent({
   client,
   text,
   mainImages,
+  singleColumnSummary,
   skills,
   skillTagsAlign,
 }) {
@@ -104,12 +105,18 @@ export default function MainContent({
           infoBlock,
         )}
       >
-        <div className={styles.wrapper}>
-          <h1 className="reveal-item">{heading}</h1>
-          <h2 className="reveal-item">{client}</h2>
-          {renderText()}
+        <h1 className="reveal-item">{heading}</h1>
+        <div
+          className={classNames(styles.summary, {
+            [styles['single-column']]: singleColumnSummary,
+          })}
+        >
+          <div className={styles.wrapper}>
+            <h2 className="reveal-item">{client}</h2>
+            {renderText()}
+          </div>
+          <SkillTags data={skills} align={skillTagsAlign} />
         </div>
-        <SkillTags data={skills} align={skillTagsAlign} />
       </div>
       {id === 'travel' && (
         <div

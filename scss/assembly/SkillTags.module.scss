@@ -8,7 +8,6 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin-bottom: to-rem(10px);
 
   @media (width >= 1280px) {
     align-items: flex-end;

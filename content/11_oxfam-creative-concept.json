@@ -23,6 +23,7 @@
       }
     ]
   },
+  "singleColumnSummary": true,
   "skillTagsAlign": "left",
   "skills": [
     "Print Design",

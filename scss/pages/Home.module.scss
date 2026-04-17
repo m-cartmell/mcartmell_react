@@ -8,22 +8,25 @@
   @include horizontal-pad;
 
   flex-direction: column;
+  gap: to-rem(24px);
   margin-bottom: 0;
 
   .info-block {
-    display: flex;
-    flex-flow: column wrap;
+    display: grid;
     gap: to-rem(36px);
-    justify-content: space-between;
     width: 100%;
 
     @media (width >= 1280px) {
-      flex-direction: row;
+      align-items: start;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+      > :last-child {
+        justify-self: end;
+      }
     }
   }
 
   .summary {
-    flex: 1;
     margin-bottom: 0;
     max-width: to-rem(992px);
     min-width: 0;
