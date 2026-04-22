@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from '../../scss/assembly/GalleryImages.module.scss';
 import skillStyles from '../../scss/assembly/SkillTags.module.scss';
-import { prepString } from '../../lib/content';
+import { prepString } from '../../lib/helpers';
 import CustomImage from './CustomImage';
 import classNames from 'classnames';
 
@@ -9,8 +9,7 @@ export default function GalleryImages({ content }) {
   return (
     <>
       {content.map((item) => {
-        const { heading, id, categories, client, gallery, skills } =
-          item.params;
+        const { heading, categories, client, gallery, skills, slug } = item;
 
         return (
           <Link
@@ -19,10 +18,10 @@ export default function GalleryImages({ content }) {
               'item',
               prepString(categories),
             )}
-            href={`/work/${id}`}
-            key={`${id}-link`}
+            href={`/work/${slug}`}
+            key={`${slug}-link`}
           >
-            <CustomImage client={client} id={id} image={gallery} />
+            <CustomImage image={gallery} {...{ client, slug }} />
             <div className={styles.overlay}>
               <div className={styles.details}>
                 <h2>{heading}</h2>
@@ -31,7 +30,7 @@ export default function GalleryImages({ content }) {
                   <div className={styles.skills}>
                     {skills.map((s) => (
                       <span
-                        key={`${id}-${s}`}
+                        key={`${slug}-${s}`}
                         className={skillStyles['tag-white']}
                       >
                         {s}

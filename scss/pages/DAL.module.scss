@@ -1,0 +1,10 @@
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
+
+.top-content {
+  @include horizontal-pad-0;
+
+  background-color: $light-grey;
+}

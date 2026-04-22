@@ -1,0 +1,99 @@
+{
+  "position": 6,
+  "client": "Fast-Track Telecom",
+  "slug": "fast-track-telecom",
+  "heading": "Website Design & Development",
+  "description": "Website design and development for Fast-Track, featuring a modular, responsive layout and a clear, service-led user journey.",
+  "categories": ["Websites"],
+  "text": [
+    "Fast-Track are Oxfordshire-based telecommunications specialists, providing telephone systems, broadband connectivity, and networking solutions for businesses. They required a brochure website to clearly present their services and act as a central point of contact.",
+    "The site draws on existing brand elements to create a consistent visual identity, while a modular layout system allows content to adapt seamlessly across screen sizes. Simple graphical illustrations help communicate key services, and considered internal linking guides users through the offering, creating a clear and intuitive journey."
+  ],
+  "images": {
+    "gallery": {
+      "src": "gallery-image",
+      "alt": "Website Gallery Image",
+      "widths": [640, 960, 1280],
+      "heights": [640, 960, 1280]
+    },
+    "top": [
+      {
+        "src": "website-home-screens",
+        "alt": "Website Home Screen Mockups",
+        "widths": [640, 960, 1280, 1920],
+        "heights": [294, 441, 588, 882],
+        "limit_width": true
+      }
+    ],
+    "lower": {
+      "block": {
+        "accordion": [
+          {
+            "src": "home-web-page-top",
+            "alt": "Home Web Page Top",
+            "widths": [664, 900, 1280, 1440],
+            "heights": [277, 375, 533, 600]
+          },
+          {
+            "src": "home-web-page-body",
+            "alt": "Home Web Page Body",
+            "widths": [664, 900, 1280, 1440],
+            "heights": [629, 853, 1212, 1364]
+          }
+        ],
+        "accordion2": [
+          {
+            "src": "mpls-web-page-top",
+            "alt": "MPLS Web Page Top",
+            "widths": [664, 900, 1280, 1440],
+            "heights": [277, 375, 533, 600]
+          },
+          {
+            "src": "mpls-web-page-body",
+            "alt": "MPLS Web Page Body",
+            "widths": [664, 900, 1280, 1440],
+            "heights": [386, 524, 745, 838]
+          }
+        ],
+        "accordion3": [
+          {
+            "src": "cloud-telephony-web-page-top",
+            "alt": "Cloud Telephony Web Page Top",
+            "widths": [664, 900, 1280, 1440],
+            "heights": [277, 375, 533, 600]
+          },
+          {
+            "src": "cloud-telephony-web-page-body",
+            "alt": "Cloud Telephony Web Page Body",
+            "widths": [664, 900, 1280, 1440],
+            "heights": [307, 416, 592, 666]
+          }
+        ],
+        "accordion4": [
+          {
+            "src": "clients-web-page-top",
+            "alt": "Clients Web Page Top",
+            "widths": [664, 900, 1280, 1440],
+            "heights": [277, 375, 533, 600]
+          },
+          {
+            "src": "clients-web-page-body",
+            "alt": "Clients Web Page Body",
+            "widths": [664, 900, 1280, 1440],
+            "heights": [244, 331, 470, 529]
+          }
+        ]
+      },
+      "block-2": [
+        {
+          "src": "website-mobile-screens",
+          "alt": "Website Mobile Screens Mockup",
+          "widths": [640, 960, 1280, 1920, 2560],
+          "heights": [301, 452, 603, 904, 1205],
+          "limit_width": true
+        }
+      ]
+    }
+  },
+  "skills": ["Web Design", "Responsive Design", "HTML & CSS", "JavaScript"]
+}

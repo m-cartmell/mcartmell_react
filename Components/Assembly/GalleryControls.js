@@ -1,16 +1,13 @@
 import styles from '../../scss/assembly/GalleryControls.module.scss';
-import { prepString } from '../../lib/content';
+import { prepString } from '../../lib/helpers';
 import { useRef, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 export default function GalleryControls({ content }) {
-  // Ref to store Isotope object
   const iso = useRef();
-
-  // Store the filter keyword in a state
   const [filter, setFilter] = useState('*');
 
-  // Initialize an Isotope object
+  // Init an Isotope object
   useEffect(() => {
     const Isotope = require('isotope-layout');
 
@@ -20,14 +17,20 @@ export default function GalleryControls({ content }) {
     });
 
     // Cleanup
-    return () => iso.current.destroy();
+    return () => iso.current?.destroy();
   }, []);
 
-  // handling filter change
+  // Handle filter change
   useEffect(() => {
-    filter === '*'
-      ? iso.current.arrange({ filter: '*' })
-      : iso.current.arrange({ filter: `.${filter}` });
+    if (!iso.current) return;
+
+    iso.current.arrange({
+      filter: filter === '*' ? '*' : `.${filter}`,
+    });
+
+    requestAnimationFrame(() => {
+      iso.current?.layout();
+    });
   }, [filter]);
 
   const handleFilter = (key) => () => setFilter(key);
@@ -36,7 +39,7 @@ export default function GalleryControls({ content }) {
     const categories = [];
 
     content.map((item) => {
-      categories.push(...item.params.categories);
+      categories.push(...item.categories);
     });
 
     return [...new Set(categories.sort())];

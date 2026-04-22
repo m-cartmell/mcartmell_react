@@ -1,0 +1,109 @@
+{
+  "position": 8,
+  "client": "Genie Bio Clean",
+  "slug": "genie-bio-clean",
+  "heading": "Website Design & Development",
+  "description": "Responsive brochure website for Genie Bio Clean, designed to clearly explain their touchless disinfection system through a modular, user-friendly layout.",
+  "categories": ["Websites"],
+  "text": [
+    "Genie Bio Clean provides nationwide touchless disinfection services. They required a brochure website to clearly communicate their process, technology, benefits, and applications. The design uses a modular structure with subtle interactive elements to make efficient use of space and guide users through the content. This approach translates seamlessly across devices, ensuring a consistent and accessible experience on mobile."
+  ],
+  "images": {
+    "gallery": {
+      "src": "gallery-image",
+      "alt": "Website Gallery Image",
+      "widths": [640, 960, 1280],
+      "heights": [640, 960, 1280]
+    },
+    "top": [
+      {
+        "src": "molecular-banner-left",
+        "alt": "Molecular Banner Left",
+        "widths": [640, 960, 1280],
+        "heights": [200, 300, 400]
+      },
+      {
+        "src": "molecular-banner-right",
+        "alt": "Molecular Banner Left",
+        "widths": [640, 960, 1280],
+        "heights": [200, 300, 400]
+      }
+    ],
+    "lower": {
+      "block": {
+        "accordion": [
+          {
+            "src": "home-web-page-top",
+            "alt": "Home Web Page Top",
+            "widths": [664, 900, 1258],
+            "heights": [264, 358, 500]
+          },
+          {
+            "src": "home-web-page-body",
+            "alt": "Home Web Page Body",
+            "widths": [664, 900, 1258],
+            "heights": [361, 489, 684]
+          }
+        ],
+        "accordion2": [
+          {
+            "src": "applications-web-page-top",
+            "alt": "Applications Web Page Top",
+            "widths": [664, 900, 1258],
+            "heights": [264, 358, 500]
+          },
+          {
+            "src": "applications-web-page-body",
+            "alt": "Applications Web Page Body",
+            "widths": [664, 900, 1258],
+            "heights": [388, 526, 735]
+          }
+        ],
+        "accordion3": [
+          {
+            "src": "faqs-web-page-top",
+            "alt": "FAQs Web Page Top",
+            "widths": [664, 900, 1258],
+            "heights": [264, 358, 500]
+          },
+          {
+            "src": "faqs-web-page-body",
+            "alt": "FAQs Web Page Body",
+            "widths": [664, 900, 1258],
+            "heights": [326, 442, 618]
+          }
+        ],
+        "accordion4": [
+          {
+            "src": "locations-web-page-top",
+            "alt": "Locations Web Page Top",
+            "widths": [664, 900, 1258],
+            "heights": [264, 358, 500]
+          },
+          {
+            "src": "locations-web-page-body",
+            "alt": "Locations Web Page Body",
+            "widths": [664, 900, 1258],
+            "heights": [433, 587, 821]
+          }
+        ]
+      },
+      "block-2": [
+        {
+          "src": "pathogen-vision-slider-demo-web-page",
+          "alt": "Pathogen Vision Slider Web Page",
+          "format": "gif",
+          "widths": [640, 960, 1280],
+          "heights": [350, 525, 700]
+        },
+        {
+          "src": "system-web-page-screens",
+          "alt": "Cleaning System Web Page Screens",
+          "widths": [640, 960, 1280, 1920, 2560],
+          "heights": [350, 525, 700, 1050, 1400]
+        }
+      ]
+    }
+  },
+  "skills": ["Web Design", "Responsive Design", "HTML & CSS", "JavaScript"]
+}

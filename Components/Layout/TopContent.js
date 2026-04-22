@@ -5,9 +5,9 @@ import RefaliLogo from '../Assembly/RefaliLogo';
 import CustomImage from '../Assembly/CustomImage';
 import classNames from 'classnames';
 
-export default function TopContent({ client, id, topImages }) {
+export default function TopContent({ client, slug, topImages }) {
   const { actions } = useContext(Work);
-  const clientStyles = actions.clientStyles(id);
+  const clientStyles = actions.clientStyles(slug);
 
   // Selects client page styles
   const { 'top-content': topContent, single } = clientStyles;
@@ -30,9 +30,9 @@ export default function TopContent({ client, id, topImages }) {
               className={classNames(styles.column, bannerType, {
                 ['reveal-item']: topImages.length === 1,
               })}
-              key={`${id}${index}`}
+              key={`${slug}${index}`}
             >
-              <CustomImage client={client} id={id} image={image} />
+              <CustomImage {...{ client, image, slug }} />
             </div>
           );
         })}

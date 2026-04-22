@@ -2,34 +2,30 @@ import styles from '../../scss/layout/MainContent.module.scss';
 import { useContext } from 'react';
 import { Work } from '../Context';
 import Accordion from '../Assembly/Accordion';
-import WindowTopBar from '../Assembly/WindowTopBar';
 import CustomImage from '../Assembly/CustomImage';
-import OxfamLightBoxImage from '../Assembly/OxfamLightBoxImage';
 import classNames from 'classnames';
 import SkillTags from '../Assembly/SkillTags';
+import PageNav from '../Assembly/PageNav';
 
 export default function MainContent({
-  id,
   heading,
   client,
   text,
   mainImages,
+  nav,
   singleColumnSummary,
   skills,
   skillTagsAlign,
+  slug,
 }) {
   const { actions } = useContext(Work);
-  const clientStyles = actions.clientStyles(id);
+  const clientStyles = actions.clientStyles(slug);
 
   // Selects client page styles
   const {
     'main-content': mainContent,
     'image-block': imageBlock,
     'info-block': infoBlock,
-    'top-bar': topBar,
-    btn,
-    lightbox,
-    icon,
     elfsight_container,
   } = clientStyles;
 
@@ -54,37 +50,19 @@ export default function MainContent({
           styles['image-block'],
           imageBlock,
           {
-            'reveal-item': !id.includes('wongs'),
+            'reveal-item': !slug.includes('wongs'),
           },
         )}
       >
-        {id.includes('wongs') && (
-          <Accordion client={client} id={id} block={mainImages} />
+        {slug.includes('wongs') && (
+          <Accordion block={mainImages} {...{ client, slug }} />
         )}
-        {id.includes('facets') && (
-          <WindowTopBar containerClass={topBar} btnClass={btn} />
-        )}
-        {id.includes('facets') &&
+        {slug.includes('mars-fitness-app') &&
           mainImages.map((image, index) => {
             return (
               <CustomImage
-                client={client}
-                id={id}
-                image={image}
-                key={`${id}${index}`}
-              />
-            );
-          })}
-        {id.includes('oxfam') &&
-          mainImages.map((image, index) => {
-            return (
-              <OxfamLightBoxImage
-                client={client}
-                id={id}
-                image={image}
-                key={`${id}${index}`}
-                lightBoxClass={lightbox}
-                iconClass={icon}
+                key={`${slug}${index}`}
+                {...{ client, image, slug }}
               />
             );
           })}
@@ -93,9 +71,7 @@ export default function MainContent({
   };
 
   return (
-    <section
-      className={classNames(styles.container, styles.container, mainContent)}
-    >
+    <section className={classNames(styles.container, mainContent)}>
       {mainImages && renderExceptions()}
       <div
         className={classNames(
@@ -111,14 +87,17 @@ export default function MainContent({
             [styles['single-column']]: singleColumnSummary,
           })}
         >
-          <div className={styles.wrapper}>
+          <div className={styles['width-wrapper']}>
             <h2 className="reveal-item">{client}</h2>
             {renderText()}
           </div>
-          <SkillTags data={skills} align={skillTagsAlign} />
+          <div className={styles.wrapper}>
+            <SkillTags data={skills} align={skillTagsAlign} />
+            <PageNav next={nav.next} prev={nav.prev} align={skillTagsAlign} />
+          </div>
         </div>
       </div>
-      {id === 'travel' && (
+      {slug === 'travel' && (
         <div
           className={classNames(
             'elfsight-app-599e27b4-e246-43dd-a8a2-e4d58b0a6d43',

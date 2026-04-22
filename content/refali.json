@@ -1,0 +1,65 @@
+{
+  "position": 4,
+  "client": "Refali",
+  "slug": "refali",
+  "heading": "Brand Identity & Website Development",
+  "description": "A bold industrial identity for Refali, combining a distinctive logotype, striking livery, and a clean single-page web presence.",
+  "categories": ["Branding", "Websites"],
+  "text": [
+    "Refali specialises in the installation of Reflok air conditioning and refrigeration piping systems. Unlike traditional copper systems, Reflok's interlocking aluminium joints require no brazing, making them ideal for use in sensitive commercial environments.",
+    "The logotype builds on Reflok's existing typeface, using an uppercase treatment with 'ALi' outlined as a subtle reference to aluminium. The Pantone blue was carefully selected using the Color Bridge system to ensure consistency across both spot colour and CMYK print applications. The result is a bold, industrial identity designed to stand out within a competitive sector.",
+    "Working within a minimal budget, I also designed and developed a single-page website. The site provides a clear overview of services while establishing a strong and professional online presence."
+  ],
+  "images": {
+    "gallery": {
+      "src": "gallery-image",
+      "alt": "Branding Gallery Image",
+      "format": "svg",
+      "widths": [640, 960, 1280],
+      "heights": [640, 960, 1280]
+    },
+    "lower": {
+      "block": [
+        {
+          "src": "stationery-mockup",
+          "alt": "Staionery Mockup",
+          "widths": [640, 960, 1280, 1800],
+          "heights": [427, 640, 853, 1200]
+        },
+        {
+          "src": "brand-guidelines-logotype-page-mockup",
+          "alt": "Brand Guidelines Logotype Page Mockup",
+          "widths": [640, 960, 1280, 1800],
+          "heights": [427, 640, 853, 1200]
+        },
+        {
+          "src": "website-demo",
+          "alt": "Website Demo",
+          "format": "gif",
+          "widths": [640, 960, 1200],
+          "heights": [427, 640, 800]
+        }
+      ],
+      "block-2": [
+        {
+          "src": "livery-front-rear",
+          "alt": "Livery Front and Rear",
+          "widths": [640, 960, 1280, 1920, 2560],
+          "heights": [293, 440, 587, 880, 1173]
+        },
+        {
+          "src": "livery-side-profile",
+          "alt": "Livery Side Profile",
+          "widths": [640, 960, 1280, 1920, 2560],
+          "heights": [293, 440, 587, 880, 1173]
+        }
+      ]
+    }
+  },
+  "skills": [
+    "Branding",
+    "Livery Design",
+    "Web Development",
+    "Adobe Creative Cloud"
+  ]
+}

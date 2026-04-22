@@ -1,47 +1,43 @@
 import Link from 'next/link';
 import styles from '../../scss/assembly/PageNav.module.scss';
 import classNames from 'classnames';
+import { ArrowLeftIcon, ArrowRightIcon } from './Icons/ArrowIcons';
 
-export default function PageNav({ prev, next }) {
+export default function PageNav({ prev, next, align }) {
   const pages = {
     prevPage: {
       ...prev,
-      titleStart: 'Prev:',
-      style: styles.prev,
       label: 'Prev',
     },
     nextPage: {
       ...next,
-      titleStart: 'Next:',
-      style: styles.next,
       label: 'Next',
     },
   };
 
+  const isLeftAligned = align === 'left';
+
   const renderLink = (page) => {
-    if (page.id) {
-      return (
-        <Link
-          className={classNames('button', styles.button, page.style)}
-          href={`/work/${page.id}`}
-          title={`${page.titleStart} ${page.client}`}
-        >
-          {page.label}
-        </Link>
-      );
-    }
+    if (!page?.slug) return null;
+
+    const isPrev = page.label.toLowerCase() === 'prev';
+
+    return (
+      <Link className={styles.button} href={`/work/${page.slug}`}>
+        {isPrev && <ArrowLeftIcon className={styles.icon} />}
+        <span>{page.label}</span>
+        {!isPrev && <ArrowRightIcon className={styles.icon} />}
+      </Link>
+    );
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={classNames(styles.container, 'reveal-item', {
+        [styles['right-align']]: !isLeftAligned,
+      })}
+    >
       {renderLink(pages.prevPage)}
-      <Link
-        className={classNames('button', styles.button)}
-        href="/"
-        title="Back to Home"
-      >
-        Home
-      </Link>
       {renderLink(pages.nextPage)}
     </div>
   );

@@ -1,11 +1,11 @@
 const sharp = require('sharp');
 const path = require('path');
-const glob = require('glob');
+const { globSync } = require('glob');
 
-const client = 'gallery-images';
+const client = 'mars-fitness-app';
 const input = `./images/full/${client}/*`;
 const output = './images/resized';
-const sizes = [1556, 1280, 900, 664];
+const sizes = [640, 960, 1280];
 
 async function resize(file, size) {
   // Removes path and ext
@@ -26,10 +26,10 @@ async function resize(file, size) {
     .catch((err) => console.log(err));
 }
 
-glob(input, (er, files) => {
-  files.forEach((file) => {
-    sizes.forEach((size) => {
-      resize(file, size);
-    });
+const files = globSync(input);
+
+files.forEach((file) => {
+  sizes.forEach((size) => {
+    resize(file, size);
   });
 });

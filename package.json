@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "start": "next start"
+    "start": "next start",
+    "optimiseImages": "node optimise-images.js && echo 'Done'"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -18,7 +19,6 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.72.1",
-    "react-image-lightbox": "^5.1.4",
     "sass": "^1.93.2",
     "typeit-react": "^2.7.8"
   },
@@ -26,6 +26,7 @@
     "node": "22.x"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.3",
     "eslint-plugin-react": "^7.37.5",

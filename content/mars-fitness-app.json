@@ -1,0 +1,66 @@
+{
+  "position": 1,
+  "slug": "mars-fitness-app",
+  "client": "Escape Fitness",
+  "heading": "Global Fitness Platform",
+  "description": "A globally deployed React Native fitness application supporting configurable training systems across multiple product types.",
+  "categories": ["Applications"],
+  "text": [
+    "MARS is a React Native Android application developed for Escape Fitness and used globally across 300+ customer locations. The platform supports multiple product configurations—Functional, Recovery, and Strength—through a single, adaptable codebase, allowing the same platform to support multiple product offerings.",
+    "The application includes multilingual support, supporting expansion into new territories, alongside partner API integrations for analytics and scheduling functionality to manage and restrict session access. I designed and developed the application end-to-end, including a registration wizard, a workout player powered by workouts built from an exercise library, user analytics, and custom branding.",
+    "The platform is supported by a MERN stack backend, providing scalable data handling, integrations, and remote content and device management. I delivered this end-to-end, from UI/UX through to deployment and device installation."
+  ],
+  "images": {
+    "gallery": {
+      "src": "gallery-image",
+      "alt": "MARS App Gallery Image",
+      "widths": [640, 960, 1280],
+      "heights": [640, 960, 1280]
+    },
+    "main": [
+      {
+        "src": "versions-mockup",
+        "alt": "MARS App Versions Mockup",
+        "widths": [640, 960, 1280, 1800],
+        "heights": [526, 788, 1051, 1478]
+      }
+    ],
+    "lower": {
+      "block": [
+        {
+          "src": "screens-mockup_01",
+          "alt": "MARS App Screens Mockup",
+          "widths": [640, 960, 1280],
+          "heights": [586, 879, 1172]
+        },
+        {
+          "src": "screens-mockup_02",
+          "alt": "MARS App Screens Mockup",
+          "widths": [640, 960, 1280],
+          "heights": [586, 879, 1172]
+        },
+        {
+          "src": "screens-mockup_03",
+          "alt": "MARS App Screens Mockup",
+          "widths": [640, 960, 1280],
+          "heights": [586, 879, 1172]
+        },
+        {
+          "src": "screens-mockup_04",
+          "alt": "MARS App Screens Mockup",
+          "widths": [640, 960, 1280],
+          "heights": [586, 879, 1172]
+        }
+      ]
+    }
+  },
+  "singleColumnSummary": true,
+  "skillTagsAlign": "left",
+  "skills": [
+    "React Native",
+    "Android",
+    "API Integration",
+    "UI/UX Design",
+    "Product Development"
+  ]
+}

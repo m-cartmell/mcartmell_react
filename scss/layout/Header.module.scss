@@ -16,9 +16,10 @@
 .identity-container {
   align-items: baseline;
   color: $primary-colour;
-  display: flex;
+  display: inline-flex;
   font-size: to-rem(26px);
   gap: to-rem(8px);
+  width: fit-content;
 }
 
 .type-it {

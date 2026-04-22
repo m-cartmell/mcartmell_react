@@ -5,7 +5,7 @@ import styles from '../../scss/assembly/Accordion.module.scss';
 import CustomImage from './CustomImage';
 import classNames from 'classnames';
 
-export default function Accordion({ client, id, block }) {
+export default function Accordion({ block, client, slug }) {
   const blockKeys = Object.keys(block);
   const hiddenImages = useRef([]);
   const [open, setOpen] = useState(undefined);
@@ -31,8 +31,8 @@ export default function Accordion({ client, id, block }) {
   );
 
   const defineColumns = () => {
-    if (id.includes('email')) return 'x4';
-    else if (id.includes('wongs')) return 'x2';
+    if (slug.includes('email')) return 'x4';
+    else if (slug.includes('wongs')) return 'x2';
     else return 'web-page';
   };
 
@@ -55,7 +55,7 @@ export default function Accordion({ client, id, block }) {
           defineColumns(),
           'reveal-item',
         )}
-        key={`${id}${index}`}
+        key={`${slug}${index}`}
       >
         <div className={styles.wrapper}>
           <WindowTopBar />
@@ -69,7 +69,7 @@ export default function Accordion({ client, id, block }) {
                     if (i === 1) hiddenImages.current.push(ref);
                   }}
                 >
-                  <CustomImage client={client} id={id} image={image} />
+                  <CustomImage {...{ client, image, slug }} />
                 </div>
               );
             })}

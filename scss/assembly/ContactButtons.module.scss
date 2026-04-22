@@ -1,0 +1,32 @@
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
+
+.container {
+  align-items: center;
+  background-color: $highlight;
+  border-bottom-left-radius: to-rem(10px);
+  border-top-left-radius: to-rem(10px);
+  bottom: to-rem(14px);
+  display: flex;
+  flex-direction: column;
+  gap: to-rem(10px);
+  position: fixed;
+  right: 0;
+
+  @media (width >= 768px) {
+    flex-direction: row;
+  }
+
+  .icon {
+    box-sizing: content-box;
+    color: white;
+    padding: to-rem(10px) to-rem(20px);
+
+    &:hover,
+    &:focus-visible {
+      color: $primary-colour;
+    }
+  }
+}

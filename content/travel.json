@@ -1,0 +1,19 @@
+{
+  "position": 14,
+  "client": "Personal",
+  "slug": "travel",
+  "heading": "Moments from Travel",
+  "description": "A collection of moments captured during travel, focusing on composition, light, and environment.",
+  "categories": ["Travel"],
+  "text": [
+    "Captured on a phone, focusing on composition, light, and landscape."
+  ],
+  "images": {
+    "gallery": {
+      "src": "gallery-image",
+      "alt": "Travel Gallery Image",
+      "widths": [640, 960, 1280],
+      "heights": [640, 960, 1280]
+    }
+  }
+}

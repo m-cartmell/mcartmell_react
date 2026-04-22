@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import TypeIt from '../Assembly/TypeIt';
+import TypeItAnimation from '../Assembly/TypeItAnimation';
 import styles from '../../scss/layout/Header.module.scss';
 
 export default function Header() {
@@ -25,7 +25,7 @@ export default function Header() {
           title="Home page"
         >
           <span>Matt Cartmell</span>
-          <TypeIt />
+          <TypeItAnimation />
         </Link>
       </header>
     </>

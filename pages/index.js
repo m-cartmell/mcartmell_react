@@ -3,7 +3,6 @@ import { getGalleryContent } from '../lib/content';
 import styles from '../scss/pages/Home.module.scss';
 import GalleryControls from '../Components/Assembly/GalleryControls';
 import GalleryImages from '../Components/Assembly/GalleryImages';
-import SkillTags from '../Components/Assembly/SkillTags';
 import classNames from 'classnames';
 import ExperienceCarousel from '../Components/Assembly/ExperienceCarousel';
 
@@ -11,9 +10,7 @@ export async function getStaticProps() {
   const content = getGalleryContent();
 
   return {
-    props: {
-      content,
-    },
+    props: { content },
   };
 }
 
@@ -37,10 +34,10 @@ export default function Home({ content }) {
               </span>
               <span>
                 I specialise in JavaScript across Node.js, React, and React
-                Native, creating scalable applications with GraphQL, WebSockets,
-                MongoDB, and cloud-based asset storage. With a multidisciplinary
-                design background, I deliver cohesive, user-focused experiences
-                across mobile and web.
+                Native, building scalable applications and connected platforms
+                across mobile and web. With a multidisciplinary design
+                background, I deliver cohesive, user-focused products from
+                interface through to backend systems and integrations.
               </span>
             </p>
           </div>

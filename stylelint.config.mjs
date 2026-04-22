@@ -33,6 +33,7 @@ const config = {
     'order/properties-alphabetical-order': true,
     'selector-no-vendor-prefix': null,
     'property-no-vendor-prefix': null,
+    'color-hex-length': 'long',
   },
 };
 

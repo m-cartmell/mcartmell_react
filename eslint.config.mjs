@@ -25,7 +25,13 @@ const config = [
       'key-spacing': ['error', { beforeColon: false }],
       'no-console': 'off',
       'no-fallthrough': 'warn',
-      'no-unused-vars': 'off',
+      'no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
       'prefer-const': 'error',
       quotes: ['error', 'single', { allowTemplateLiterals: true }],
       semi: ['error', 'always'],
@@ -33,6 +39,7 @@ const config = [
       'react/display-name': 'off',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
+      '@next/next/no-img-element': 'off',
     },
   },
 ];

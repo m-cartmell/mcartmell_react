@@ -35,7 +35,7 @@ const ExperienceCarousel = () => {
           {experience.map(
             ({ role, employer, start, end, summary, skills }, i) => (
               <div className={styles['embla__slide']} key={`experience-${i}`}>
-                <p className={styles.heading}>
+                <p className={classNames(styles.p, styles.headline)}>
                   <span className={styles.item}>{role}</span>
                   {employer && (
                     <>
@@ -49,7 +49,7 @@ const ExperienceCarousel = () => {
                   </span>
                 </p>
 
-                <p>{summary}</p>
+                <p className={styles.p}>{summary}</p>
 
                 <div
                   className={classNames(skillStyles.tags, styles['skill-tags'])}
@@ -120,7 +120,7 @@ const experience = [
     start: 'May 2022',
     end: 'Present',
     summary:
-      'Led development of a global MERN-based platform and React Native app used across 300+ locations—improving performance, delivering new features, and building end-to-end solutions from design through to deployment and support.',
+      'Led development of a globally deployed fitness platform (MARS), used across 300+ locations, and a MERN-based content and configuration system (DAL) that underpins the platform and wider business systems. Delivered end-to-end across mobile, backend, and infrastructure, including real-time device management, API integrations, and product configuration tooling that reduced operational overhead.',
     skills: [
       'JavaScript',
       'React',

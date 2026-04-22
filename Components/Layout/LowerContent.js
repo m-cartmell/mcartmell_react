@@ -3,12 +3,11 @@ import Accordion from '../Assembly/Accordion';
 import { useContext } from 'react';
 import { Work } from '../Context';
 import CustomImage from '../Assembly/CustomImage';
-import LightBoxImage from '../Assembly/LightBoxImage';
 import classNames from 'classnames';
 
-export default function LowerContent({ client, id, lowerImages }) {
+export default function LowerContent({ client, lowerImages, slug }) {
   const { actions } = useContext(Work);
-  const clientStyles = actions.clientStyles(id);
+  const clientStyles = actions.clientStyles(slug);
   const getObjValues = () => Object.values(lowerImages);
 
   // Selects client page styles
@@ -22,7 +21,7 @@ export default function LowerContent({ client, id, lowerImages }) {
     // Pages – SS / Refali / JJ
     if (block.length % 3 === 0) return 'x3';
     else if (block.length % 2 === 0) {
-      // Pages – PJ / CMJ
+      // Pages – MARS / PJ / CMJ
       if (block.length > 2) return 'x4';
       // Pages – GBC / Refali
       else return 'x2';
@@ -32,7 +31,7 @@ export default function LowerContent({ client, id, lowerImages }) {
   const renderImage = (block) => {
     if ('accordion' in block) {
       // Pages – FT / JJ / GBC / CMJ / EM
-      return <Accordion client={client} id={id} block={block} />;
+      return <Accordion block={block} {...{ client, slug }} />;
     } else {
       return block.map((image, index) => {
         return (
@@ -44,18 +43,9 @@ export default function LowerContent({ client, id, lowerImages }) {
               column,
               'reveal-item',
             )}
-            key={`${id}${index}`}
+            key={`${slug}${index}`}
           >
-            {image.light_box ? (
-              <LightBoxImage
-                images={block}
-                client={client}
-                id={id}
-                image={image}
-              />
-            ) : (
-              <CustomImage client={client} id={id} image={image} />
-            )}
+            <CustomImage {...{ client, image, slug }} />
           </div>
         );
       });
@@ -73,7 +63,7 @@ export default function LowerContent({ client, id, lowerImages }) {
                 styles['content-block'],
                 contentBlock,
               )}
-              key={`${id}${index}`}
+              key={`${slug}${index}`}
             >
               {renderImage(block)}
             </div>

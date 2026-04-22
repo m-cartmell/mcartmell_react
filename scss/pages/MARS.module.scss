@@ -1,0 +1,49 @@
+@use '../helpers/functions' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/padding-mixins' as *;
+@use '../helpers/variables' as *;
+
+.main-content {
+  @include header-pad-allowance;
+
+  align-items: flex-start;
+  gap: to-rem(36px);
+  padding-bottom: to-rem(40px) !important;
+}
+
+.image-block {
+  align-items: center;
+  flex: 1 !important;
+  flex-direction: column;
+  padding: 0 !important;
+
+  picture {
+    max-width: to-rem(700px);
+    width: 100%;
+  }
+}
+
+.info-block {
+  @include bottom-pad;
+
+  order: 2 !important;
+  padding-bottom: 0 !important;
+}
+
+.lower-content {
+  .content-block:last-of-type {
+    background-color: #8c8c8c;
+  }
+
+  .column {
+    flex-basis: 100%;
+
+    @media (width >= 768px) {
+      flex-basis: calc(100% / 2);
+    }
+
+    @media (width >= 1536px) {
+      flex-basis: calc(100% / 4);
+    }
+  }
+}

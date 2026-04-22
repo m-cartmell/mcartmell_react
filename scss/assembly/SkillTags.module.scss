@@ -40,6 +40,8 @@
 
 .tag {
   @include tag;
+
+  white-space: nowrap;
 }
 
 .tag-white {

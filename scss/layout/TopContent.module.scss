@@ -17,7 +17,7 @@
 
     // 2 columns @ screens > 768px
     @media (width >= 768px) {
-      flex-basis: 50%;
+      flex-basis: calc(100% / 2);
     }
 
     // Hides 2nd banner image by default

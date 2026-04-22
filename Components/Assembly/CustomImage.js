@@ -1,57 +1,95 @@
-import Image from 'next/image';
 import 'lazysizes';
 
-export default function CustomImage({ client, id, image }) {
-  const { src, alt, format, widths, heights, limit_width, light_box } = image;
+export default function CustomImage({ client, image, slug }) {
+  const { src, alt, format, widths, heights, limit_width } = image;
 
-  const size = (dms) => (dms.length < 3 ? dms[dms.length - 1] : dms[2]);
-  const setSize = format === 'svg' ? '' : `-${size(widths)}`;
-  const setFormat = !format ? 'jpg' : format;
+  const largest = (arr) => arr[arr.length - 1];
+  const finalFormat = format || 'jpg';
+  const width = largest(widths);
+  const height = largest(heights);
 
-  const setImg = () => {
-    return (
-      <Image
-        className="lazyload"
-        data-sizes="auto"
-        src={`data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size(
-          widths,
-        )} ${size(heights)}"%3E%3C/svg%3E`}
-        data-limit-width={limit_width ? '' : undefined}
-        data-src={`/images/${id}/${id}-${src}${setSize}.${setFormat}`}
-        alt={`${client} ${alt}`}
-        width={size(widths)}
-        height={size(heights)}
-        data-gallery={light_box}
-      />
-    );
+  const buildSrc = (type, imgWidth) => {
+    if (format === 'svg') {
+      return `/images/${slug}/${slug}-${src}.svg`;
+    }
+
+    return `/images/${slug}/${slug}-${src}-${imgWidth}.${type}`;
   };
 
-  const srcSet = (id, type) => {
-    const line = [];
-    widths.forEach((size) => {
-      line.push(`/images/${id}/${id}-${src}-${size}.${type} ${size}w`);
-    });
-    return line.toString();
+  const buildSrcSet = (type) =>
+    widths
+      .map((imgWidth) => `${buildSrc(type, imgWidth)} ${imgWidth}w`)
+      .join(', ');
+
+  const imgProps = {
+    className: 'lazyload',
+    'data-limit-width': limit_width ? '' : undefined,
+    height,
+    width,
   };
 
-  const setSource = (type) => {
-    return (
-      <source
-        type={`image/${type}`}
-        data-sizes="auto"
-        data-srcset={`${srcSet(id, type)}`}
-      />
-    );
-  };
+  const placeholder = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${width} ${height}'/%3E`;
 
-  if (format === 'svg') return setImg();
-  else {
+  if (format === 'svg') {
     return (
-      <picture>
-        {!format && setSource('webp')}
-        {setSource(!format ? 'jpg' : format)}
-        {setImg()}
-      </picture>
+      <>
+        <img
+          alt={`${client} ${alt}`}
+          data-src={buildSrc('svg')}
+          src={placeholder}
+          {...imgProps}
+        />
+        <noscript>
+          <img
+            src={buildSrc('svg')}
+            alt={`${client} ${alt}`}
+            width={width}
+            height={height}
+            data-limit-width={limit_width ? '' : undefined}
+          />
+        </noscript>
+      </>
     );
   }
+
+  return (
+    <>
+      <picture>
+        {!format && (
+          <source type="image/webp" data-srcset={buildSrcSet('webp')} />
+        )}
+
+        <source
+          type={`image/${finalFormat}`}
+          data-srcset={buildSrcSet(finalFormat)}
+        />
+
+        <img
+          alt={`${client} ${alt}`}
+          data-sizes="auto"
+          data-src={buildSrc(finalFormat, width)}
+          src={placeholder}
+          {...imgProps}
+        />
+      </picture>
+
+      <noscript>
+        <picture>
+          {!format && <source type="image/webp" srcSet={buildSrcSet('webp')} />}
+
+          <source
+            type={`image/${finalFormat}`}
+            srcSet={buildSrcSet(finalFormat)}
+          />
+
+          <img
+            src={buildSrc(finalFormat, width)}
+            alt={`${client} ${alt}`}
+            data-limit-width={limit_width ? '' : undefined}
+            {...{ height, width }}
+          />
+        </picture>
+      </noscript>
+    </>
+  );
 }

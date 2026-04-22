@@ -4,34 +4,36 @@
 @use '../helpers/variables' as *;
 
 .container {
-  @include horizontal-pad;
+  display: inline-flex;
+  gap: to-rem(36px);
 
-  background-color: $secondary-colour;
-  text-align: center;
+  &:not(:first-child) {
+    margin-top: to-rem(20px);
+  }
 
-  @media (width >= 768px) {
-    text-align: right;
+  @media (width >= 1280px) {
+    &.right-align {
+      align-self: flex-end;
+    }
   }
 }
 
 .button {
-  background-color: $secondary-colour;
-  border: to-rem(1px) solid white;
-  border-bottom: none;
-  border-top: none;
-  color: white;
-  font-size: to-rem(16px);
-  font-weight: 500;
-
-  &.prev {
-    border-right: none;
-  }
-
-  &.next {
-    border-left: none;
-  }
+  align-items: center;
+  border: none;
+  color: $primary-colour;
+  display: flex;
+  font-size: to-rem(18px);
+  font-weight: 700;
+  gap: to-rem(10px);
+  padding: to-rem(12px) 0;
+  transition: color $ease-in-out;
 
   &:hover {
-    background-color: $primary-colour;
+    color: $secondary-colour;
+  }
+
+  .icon {
+    height: to-rem(16px);
   }
 }

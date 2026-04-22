@@ -1,0 +1,95 @@
+{
+  "position": 10,
+  "client": "Wongs Jewellers",
+  "slug": "wongs-jewellers",
+  "heading": "Website Design & Development",
+  "description": "A clean, responsive website for Wongs Jewellers, using a modular layout and subtle interactions to complement their brand.",
+  "categories": ["Websites"],
+  "text": [
+    "Wongs is an independent, family-run jeweller based in Liverpool. The project was delivered as a fast, interim solution following the loss of their existing website, providing a clear and reliable online presence.",
+    "The design uses a minimal, modular layout that aligns with the brand while supporting responsive behaviour across devices. Components such as accordions and carousels make efficient use of space and introduce subtle interaction, helping to present content clearly without overwhelming the user."
+  ],
+  "images": {
+    "gallery": {
+      "src": "gallery-image",
+      "alt": "Website Gallery Image",
+      "widths": [640, 960, 1280],
+      "heights": [640, 960, 1280]
+    },
+    "main": {
+      "accordion": [
+        {
+          "src": "home-web-page-top",
+          "alt": "Home Web Page Top",
+          "widths": [640, 960, 1280, 1568],
+          "heights": [280, 420, 560, 686]
+        },
+        {
+          "src": "home-web-page-body",
+          "alt": "Home Web Page Body",
+          "widths": [640, 960, 1280, 1568],
+          "heights": [1169, 1753, 2337, 2863]
+        }
+      ],
+      "accordion2": [
+        {
+          "src": "diamond-guide-web-page-top",
+          "alt": "Diamond Guide Web Page Top",
+          "widths": [640, 960, 1280, 1568],
+          "heights": [280, 420, 560, 686]
+        },
+        {
+          "src": "diamond-guide-web-page-body",
+          "alt": "Diamond Guide Web Page Body",
+          "widths": [640, 960, 1280, 1568],
+          "heights": [791, 1187, 1583, 1939]
+        }
+      ],
+      "accordion3": [
+        {
+          "src": "gift-vouchers-web-page-top",
+          "alt": "Gift Vouchers Web Page Top",
+          "widths": [640, 960, 1280, 1568],
+          "heights": [280, 420, 560, 686]
+        },
+        {
+          "src": "gift-vouchers-web-page-body",
+          "alt": "Gift Vouchers Web Page Body",
+          "widths": [640, 960, 1280, 1568],
+          "heights": [775, 1163, 1550, 1899]
+        }
+      ],
+      "accordion4": [
+        {
+          "src": "workshop-web-page-top",
+          "alt": "Workshop Web Page Top",
+          "widths": [640, 960, 1280, 1568],
+          "heights": [280, 420, 560, 686]
+        },
+        {
+          "src": "workshop-web-page-body",
+          "alt": "Workshop Web Page Body",
+          "widths": [640, 960, 1280, 1568],
+          "heights": [636, 954, 1272, 1558]
+        }
+      ],
+      "accordion5": [
+        {
+          "src": "repairs-alterations-web-page-top",
+          "alt": "Repairs & Alterations Web Page Top",
+          "widths": [640, 960, 1280, 1568],
+          "heights": [280, 420, 560, 686]
+        },
+        {
+          "src": "repairs-alterations-web-page-body",
+          "alt": "Repairs & Alterations Web Page Body",
+          "widths": [640, 960, 1280, 1568],
+          "heights": [563, 844, 1125, 1378]
+        }
+      ]
+    }
+  },
+  "singleColumnSummary": true,
+  "skillTagsAlign": "left",
+  "skills": ["Web Design", "Responsive Design", "HTML & CSS", "WordPress"]
+}

@@ -7,21 +7,17 @@
   @include horizontal-pad;
 
   display: none;
+  flex-wrap: wrap;
   font-size: to-rem(22px);
-  margin: to-rem(10px) 0;
+  gap: to-rem(22px);
 
   @media (width >= 600px) {
-    display: block;
+    display: flex;
   }
 
   button {
     font-size: to-rem(22px);
     line-height: normal;
-    margin-right: to-rem(12px);
-
-    &:last-child {
-      margin-right: 0;
-    }
   }
 }
 

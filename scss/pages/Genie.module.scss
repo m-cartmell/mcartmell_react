@@ -16,10 +16,3 @@
     }
   }
 }
-
-// Disable GLightbox above 1920px
-.glightbox {
-  @media (width >= 1921px) {
-    pointer-events: none;
-  }
-}

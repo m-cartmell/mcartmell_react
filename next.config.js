@@ -46,7 +46,7 @@ module.exports = {
         permanent: true,
       },
 
-      // Old title-based URLs
+      // Legacy URLs
       {
         source: '/portfolio/Status Seating',
         destination: '/work/status-seating',
@@ -93,28 +93,53 @@ module.exports = {
         permanent: true,
       },
       {
-        source: '/portfolio/Facets Creative',
-        destination: '/work/facets-creative',
-        permanent: true,
-      },
-      {
-        source: '/portfolio/Oxfam Creative Concept',
-        destination: '/work/oxfam-creative-concept',
-        permanent: true,
-      },
-      {
-        source: "/portfolio/'What an Experience'",
+        source: `/portfolio/'What an Experience'`,
         destination: '/work/travel',
         permanent: true,
       },
 
-      // Old slug-style portfolio URLs
+      // Removed project: Facets Creative
+      {
+        source: '/portfolio/Facets Creative',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/portfolio/facets-creative',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/work/facets-creative',
+        destination: '/',
+        permanent: true,
+      },
+
+      // Removed project: Oxfam Creative Concept
+      {
+        source: '/portfolio/Oxfam Creative Concept',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/portfolio/oxfam-creative-concept',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/work/oxfam-creative-concept',
+        destination: '/',
+        permanent: true,
+      },
+
+      // Catch portfolio URLs
       {
         source: '/portfolio/:slug',
         destination: '/work/:slug',
         permanent: true,
       },
 
+      // Catch /work
       {
         source: '/work',
         destination: '/',

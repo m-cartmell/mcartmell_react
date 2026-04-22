@@ -1,0 +1,38 @@
+{
+  "position": 2,
+  "slug": "digital-asset-library",
+  "client": "Escape Fitness",
+  "heading": "Content & Configuration Platform",
+  "description": "A MERN-based platform for managing assets, device content, and product configuration across globally deployed fitness systems.",
+  "categories": ["Applications"],
+  "text": [
+    "The Digital Asset Library (DAL) is a MERN stack platform used to manage media assets, branding, and configuration across the MARS fitness application and wider business systems. It provides a centralised system for distributing content to distributors, customers, staff, and globally deployed devices.",
+    "The platform handles remote content and device management for MARS, using real-time updates to synchronise screens and environments. It integrates with external services, including the DeepL API for multilingual content translation, and exposes custom APIs for partners to access analytics and manage sessions on deployed devices. It also supports a Unity-based application, The Configurator, used to build fitness frames. The DAL uses Configurator data to calculate pricing across currencies and tiers, generate Frame Configuration Documents (FCDs), and process orders through its Kanban workflow.",
+    "I developed and evolved the platform, releasing new features and improving stability, performance, and maintainability through ongoing refactoring, and introducing a CI/CD pipeline to streamline deployments. The platform has enabled significant operational efficiencies, reducing the FCD process from five roles to a single user and reducing errors."
+  ],
+  "images": {
+    "gallery": {
+      "src": "gallery-image",
+      "alt": "DAL Web App Gallery Image",
+      "widths": [640, 960, 1280],
+      "heights": [640, 960, 1280]
+    },
+    "top": [
+      {
+        "src": "website-home-mockup",
+        "alt": "Website Home Page Mockup",
+        "widths": [640, 960, 1280, 1800],
+        "heights": [300, 450, 600, 844],
+        "limit_width": true
+      }
+    ]
+  },
+  "skills": [
+    "MERN Stack",
+    "GraphQL",
+    "WebSockets",
+    "API Development",
+    "AWS",
+    "CI/CD"
+  ]
+}

@@ -1,44 +1,10 @@
 import styles from '../../scss/layout/Footer.module.scss';
-import LinkedInIcon from '../Assembly/Icons/LinkedInIcon';
-import EnvelopeIcon from '../Assembly/Icons/EnvelopeIcon';
-import { useState } from 'react';
-import Modal from './Modal';
-import classNames from 'classnames';
 
 export default function Footer() {
-  const [showModal, setShowModal] = useState(false);
-
   return (
-    <>
-      <footer className={styles.container}>
-        <div className={styles.icons}>
-          <a
-            className={styles.wrap}
-            href="https://www.linkedin.com/in/m-cartmell/"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="My LinkedIn"
-          >
-            <LinkedInIcon />
-          </a>
-          <button
-            className={classNames('plain', styles.wrap)}
-            id="show_form"
-            title="Message me"
-            type="button"
-            onClick={() => {
-              setShowModal(true);
-            }}
-          >
-            <EnvelopeIcon />
-          </button>
-        </div>
-        <div className={styles.copyright}>
-          Copyright &copy; 2021–{new Date().getFullYear()}.
-          All&nbsp;rights&nbsp;reserved.
-        </div>
-      </footer>
-      <Modal show={showModal} setShow={setShowModal} />
-    </>
+    <footer className={styles.container}>
+      &copy; 2021–{new Date().getFullYear()} Matt Cartmell.{' '}
+      All&nbsp;rights&nbsp;reserved.
+    </footer>
   );
 }
