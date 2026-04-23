@@ -8,3 +8,34 @@
 
   background-color: $light-grey;
 }
+
+.lower-content {
+  .content-block:last-of-type {
+    background-color: #f9c8c8;
+    padding: to-rem(20px);
+  }
+
+  .column {
+    flex-basis: 100%;
+    padding: to-rem(20px);
+
+    @media (width >= 768px) {
+      flex-basis: calc(100% / 2);
+    }
+
+    @media (width >= 1536px) {
+      flex-basis: calc(100% / 4);
+    }
+
+    img {
+      border: to-rem(5px) solid white;
+      border-radius: to-rem(15px);
+    }
+
+    figcaption {
+      font-size: to-rem(15px);
+      font-weight: 500;
+      margin-top: to-rem(10px);
+    }
+  }
+}

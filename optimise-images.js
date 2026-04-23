@@ -2,7 +2,7 @@ const sharp = require('sharp');
 const path = require('path');
 const { globSync } = require('glob');
 
-const client = 'mars-fitness-app';
+const client = 'digital-asset-library';
 const input = `./images/full/${client}/*`;
 const output = './images/resized';
 const sizes = [640, 960, 1280];

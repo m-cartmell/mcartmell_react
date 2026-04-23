@@ -45,7 +45,10 @@ export default function LowerContent({ client, lowerImages, slug }) {
             )}
             key={`${slug}${index}`}
           >
-            <CustomImage {...{ client, image, slug }} />
+            <figure>
+              <CustomImage {...{ client, image, slug }} />
+              {image.caption && <figcaption>{image.caption}</figcaption>}
+            </figure>
           </div>
         );
       });

@@ -7,7 +7,7 @@
   "categories": ["Applications"],
   "text": [
     "The Digital Asset Library (DAL) is a MERN stack platform used to manage media assets, branding, and configuration across the MARS fitness application and wider business systems. It provides a centralised system for distributing content to distributors, customers, staff, and globally deployed devices.",
-    "The platform handles remote content and device management for MARS, using real-time updates to synchronise screens and environments. It integrates with external services, including the DeepL API for multilingual content translation, and exposes custom APIs for partners to access analytics and manage sessions on deployed devices. It also supports a Unity-based application, The Configurator, used to build fitness frames. The DAL uses Configurator data to calculate pricing across currencies and tiers, generate Frame Configuration Documents (FCDs), and process orders through its Kanban workflow.",
+    "The platform handles remote content and device management for MARS, using real-time updates to synchronise screens and environments. It integrates with external services, including the DeepL API for multilingual content translation, and exposes custom APIs for partners to access analytics and manage sessions on deployed devices. It also supports a Unity-based application, The Configurator, used to build fitness frames. The DAL uses Configurator data to calculate pricing across configurable parts, currencies and tiers, generate Frame Configuration Documents (FCDs), and process orders through its Kanban workflow.",
     "I developed and evolved the platform, releasing new features and improving stability, performance, and maintainability through ongoing refactoring, and introducing a CI/CD pipeline to streamline deployments. The platform has enabled significant operational efficiencies, reducing the FCD process from five roles to a single user and reducing errors."
   ],
   "images": {
@@ -25,7 +25,67 @@
         "heights": [300, 450, 600, 844],
         "limit_width": true
       }
-    ]
+    ],
+    "lower": {
+      "block": [
+        {
+          "src": "website-screenshot-01",
+          "alt": "Frame Request Form Wizard Screenshot",
+          "widths": [640, 960, 1280],
+          "heights": [428, 642, 856],
+          "caption": "Frame Request Form Wizard"
+        },
+        {
+          "src": "website-screenshot-02",
+          "alt": "Frame Order Screenshot",
+          "widths": [640, 960, 1280],
+          "heights": [428, 642, 856],
+          "caption": "Frame Order"
+        },
+        {
+          "src": "website-screenshot-03",
+          "alt": "Frame Search Filtering Screenshot",
+          "widths": [640, 960, 1280],
+          "heights": [428, 642, 856],
+          "caption": "Frame Search Filtering"
+        },
+        {
+          "src": "website-screenshot-04",
+          "alt": "Frame Kanban Board Screenshot",
+          "widths": [640, 960, 1280],
+          "heights": [428, 642, 856],
+          "caption": "Frame Kanban Board"
+        },
+        {
+          "src": "website-screenshot-05",
+          "alt": "MARS Workout Builder Screenshot",
+          "widths": [640, 960, 1280],
+          "heights": [428, 642, 856],
+          "caption": "MARS Workout Builder"
+        },
+        {
+          "src": "website-screenshot-06",
+          "alt": "MARS Language Editor Screenshot",
+          "widths": [640, 960, 1280],
+          "heights": [428, 642, 856],
+          "caption": "MARS Language Editor"
+        },
+        {
+          "src": "website-screenshot-07",
+          "alt": "MARS Partner Authorisation Screenshot",
+          "widths": [640, 960, 1280],
+          "heights": [428, 642, 856],
+          "caption": "MARS Partner API Authorisation"
+        },
+        {
+          "src": "website-screenshot-08",
+          "alt": "MARS Screen Group Customisation Screenshot",
+          "widths": [640, 960, 1280],
+          "heights": [428, 642, 856],
+          "caption": "MARS Screen Group Customisation"
+        }
+      ]
+    }
   },
   "skills": [
     "MERN Stack",
