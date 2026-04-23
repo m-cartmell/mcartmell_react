@@ -11,7 +11,7 @@
 
 .lower-content {
   .content-block:last-of-type {
-    background-color: #f9c8c8;
+    background-color: #f7b6b6;
     padding: to-rem(20px);
   }
 
@@ -33,8 +33,9 @@
     }
 
     figcaption {
+      color: white;
       font-size: to-rem(15px);
-      font-weight: 500;
+      font-weight: 600;
       margin-top: to-rem(10px);
     }
   }
