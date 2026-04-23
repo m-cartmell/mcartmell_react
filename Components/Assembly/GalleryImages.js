@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from '../../scss/assembly/GalleryImages.module.scss';
-import skillStyles from '../../scss/assembly/SkillTags.module.scss';
+import tagStyles from '../../scss/assembly/tags.module.scss';
 import { prepString } from '../../lib/helpers';
 import CustomImage from './CustomImage';
 import classNames from 'classnames';
@@ -31,7 +31,7 @@ export default function GalleryImages({ content }) {
                     {skills.map((s) => (
                       <span
                         key={`${slug}-${s}`}
-                        className={skillStyles['tag-white']}
+                        className={tagStyles['tag-white']}
                       >
                         {s}
                       </span>
@@ -40,6 +40,11 @@ export default function GalleryImages({ content }) {
                 )}
               </div>
             </div>
+            <span
+              className={classNames(tagStyles['tag-white'], styles['view-tag'])}
+            >
+              View
+            </span>
           </Link>
         );
       })}

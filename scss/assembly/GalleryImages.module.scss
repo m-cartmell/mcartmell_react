@@ -58,24 +58,19 @@
     }
   }
 
-  .categories {
-    display: flex;
-
-    .category {
-      color: white;
-      font-size: to-rem(18px);
-      margin-right: to-rem(10px);
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-
   .skills {
     display: flex;
     flex-wrap: wrap;
     gap: to-rem(10px);
+  }
+
+  .view-tag {
+    bottom: to-rem(30px);
+    font-weight: 600;
+    left: to-rem(30px);
+    opacity: 1;
+    position: absolute;
+    transition: opacity $ease-in-out;
   }
 
   &:hover,
@@ -92,6 +87,10 @@
       opacity: 1;
       pointer-events: auto;
       visibility: visible;
+    }
+
+    .view-tag {
+      opacity: 0;
     }
   }
 }

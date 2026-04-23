@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from '../../scss/assembly/Experience.module.scss';
-import skillStyles from '../../scss/assembly/SkillTags.module.scss';
+import tagStyles from '../../scss/assembly/tags.module.scss';
 import classNames from 'classnames';
 import { ChevronLeftIcon, ChevronRightIcon } from './Icons/ChevronIcons';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -52,10 +52,10 @@ const ExperienceCarousel = () => {
                 <p className={styles.p}>{summary}</p>
 
                 <div
-                  className={classNames(skillStyles.tags, styles['skill-tags'])}
+                  className={classNames(tagStyles.tags, styles['skill-tags'])}
                 >
                   {skills.map((s) => (
-                    <span key={s} className={skillStyles.tag}>
+                    <span key={s} className={tagStyles.tag}>
                       {s}
                     </span>
                   ))}

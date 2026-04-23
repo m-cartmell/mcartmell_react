@@ -1,4 +1,4 @@
-import styles from '../../scss/assembly/SkillTags.module.scss';
+import styles from '../../scss/assembly/tags.module.scss';
 import classNames from 'classnames';
 
 const SkillTags = ({ data, align }) => {
