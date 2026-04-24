@@ -10,44 +10,43 @@
   flex-direction: column;
   gap: to-rem(24px);
   margin-bottom: 0;
+  padding-bottom: to-rem(20px);
 
-  .info-block {
-    display: grid;
-    gap: to-rem(36px);
-    width: 100%;
-
-    @media (width >= 1280px) {
-      align-items: start;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-
-      > :last-child {
-        justify-self: end;
-      }
-    }
+  @media (width >= 960px) {
+    padding-bottom: 0;
   }
 
-  .summary {
+  .intro {
+    display: block;
     margin-bottom: 0;
     max-width: to-rem(992px);
     min-width: 0;
     width: 100%;
 
-    .intro {
+    .bold {
       display: block;
       font-weight: 700;
     }
   }
 }
 
-.gallery {
-  background-color: $light-grey;
-  margin-top: to-rem(24px);
-  padding: 0;
-  width: 100%;
+.experience-button {
+  margin-top: to-rem(15px);
 }
 
 .gallery-section {
   align-items: flex-end;
   flex-direction: column;
+  margin-top: to-rem(20px);
   padding: 0;
+
+  @media (width >= 600px) {
+    margin-top: 0;
+  }
+}
+
+.gallery {
+  background-color: $light-grey;
+  padding: 0;
+  width: 100%;
 }

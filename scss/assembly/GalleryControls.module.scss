@@ -9,7 +9,12 @@
   display: none;
   flex-wrap: wrap;
   font-size: to-rem(22px);
-  gap: to-rem(22px);
+  gap: to-rem(25px);
+  margin: to-rem(15px) 0 to-rem(25px);
+
+  @media (width >= 900px) {
+    margin-top: 0;
+  }
 
   @media (width >= 600px) {
     display: flex;

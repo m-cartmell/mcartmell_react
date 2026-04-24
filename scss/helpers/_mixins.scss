@@ -11,9 +11,11 @@
 @mixin buttons {
   background-color: white;
   border: to-rem(1px) solid $primary-colour;
+  border-radius: to-rem(4px);
   color: $primary-colour;
   cursor: pointer;
   display: inline-block;
+  font-weight: 600;
   padding: to-rem(3px) to-rem(12px) to-rem(5px);
   -webkit-tap-highlight-color: transparent;
   transition: all $ease-in-out;

@@ -171,7 +171,6 @@ export default function ContactForm({ closeModal }) {
       </form>
       <button
         className={classNames('plain', styles.close)}
-        id="close_form"
         title="Close form"
         type="button"
         onClick={handleClose}

@@ -4,8 +4,9 @@ import tagStyles from '../../scss/assembly/tags.module.scss';
 import classNames from 'classnames';
 import { ChevronLeftIcon, ChevronRightIcon } from './Icons/ChevronIcons';
 import useEmblaCarousel from 'embla-carousel-react';
+import PlusIcon from './Icons/PlusIcon';
 
-const ExperienceCarousel = () => {
+const ExperienceCarousel = ({ closeModal, show }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const [index, setIndex] = useState(0);
 
@@ -23,14 +24,23 @@ const ExperienceCarousel = () => {
     return () => emblaApi.off('select', onSelect);
   }, [emblaApi]);
 
+  // Reset on close
+  useEffect(() => {
+    if (show) return;
+
+    const frame = requestAnimationFrame(() => {
+      emblaApi?.scrollTo(0, true);
+      setIndex(0);
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [show, emblaApi]);
+
   return (
     <div className={styles.container}>
-      <h2 className={classNames(styles.h2, 'reveal-item')}>Experience</h2>
+      <h2 className={styles.h2}>Experience</h2>
 
-      <div
-        className={classNames('reveal-item', styles['embla__viewport'])}
-        ref={emblaRef}
-      >
+      <div className={classNames(styles['embla__viewport'])} ref={emblaRef}>
         <div className={styles['embla__container']}>
           {experience.map(
             ({ role, employer, start, end, summary, skills }, i) => (
@@ -52,10 +62,14 @@ const ExperienceCarousel = () => {
                 <p className={styles.p}>{summary}</p>
 
                 <div
-                  className={classNames(tagStyles.tags, styles['skill-tags'])}
+                  className={classNames(
+                    tagStyles.tags,
+                    tagStyles['tags-left'],
+                    styles['skill-tags'],
+                  )}
                 >
                   {skills.map((s) => (
-                    <span key={s} className={tagStyles.tag}>
+                    <span key={s} className={tagStyles['tag-white']}>
                       {s}
                     </span>
                   ))}
@@ -66,13 +80,9 @@ const ExperienceCarousel = () => {
         </div>
       </div>
 
-      <div className={classNames(styles.nav, 'reveal-item')}>
+      <div className={styles.nav}>
         <button
-          className={classNames(
-            'plain',
-            styles['nav-button'],
-            styles['embla__prev'],
-          )}
+          className={classNames(styles['nav-button'], styles['embla__prev'])}
           disabled={index === 0}
           onClick={goPrev}
           type="button"
@@ -85,7 +95,7 @@ const ExperienceCarousel = () => {
           {experience.map((_, i) => (
             <button
               key={`dot-${i}`}
-              className={classNames('plain', styles.dot, {
+              className={classNames(styles.dot, {
                 [styles['dot-active']]: i === index,
               })}
               onClick={() => emblaApi?.scrollTo(i)}
@@ -96,11 +106,7 @@ const ExperienceCarousel = () => {
         </div>
 
         <button
-          className={classNames(
-            'plain',
-            styles['nav-button'],
-            styles['embla__next'],
-          )}
+          className={classNames(styles['nav-button'], styles['embla__next'])}
           disabled={index === experience.length - 1}
           onClick={goNext}
           type="button"
@@ -109,6 +115,15 @@ const ExperienceCarousel = () => {
           <ChevronRightIcon />
         </button>
       </div>
+
+      <button
+        className={styles.close}
+        title="Close"
+        type="button"
+        onClick={closeModal}
+      >
+        <PlusIcon customStyle={styles.icon} />
+      </button>
     </div>
   );
 };

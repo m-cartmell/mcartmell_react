@@ -2,11 +2,16 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import ContactForm from '../Assembly/ContactForm';
 import styles from '../../scss/layout/Modal.module.scss';
 import classNames from 'classnames';
 
-export default function Modal({ show, setShow }) {
+export default function Modal({
+  backgroundOpacity = 0.9,
+  children,
+  maxWidth = '500px',
+  show,
+  setShow,
+}) {
   const [mounted, setMounted] = useState(false);
   const dialogRef = useRef(null);
 
@@ -47,18 +52,22 @@ export default function Modal({ show, setShow }) {
 
   return createPortal(
     <div
+      aria-hidden={!show}
       className={classNames(styles.container, {
         [styles.visible]: show,
       })}
       onClick={show ? closeModal : undefined}
-      aria-hidden={!show}
+      style={{ '--background-opacity': backgroundOpacity }}
     >
       <div
         className={styles.zone}
         onClick={(e) => e.stopPropagation()}
         ref={dialogRef}
+        style={{ '--modal-max-width': maxWidth }}
       >
-        <ContactForm closeModal={closeModal} />
+        {children && typeof children === 'function'
+          ? children({ closeModal })
+          : children}
       </div>
     </div>,
     modalRoot,

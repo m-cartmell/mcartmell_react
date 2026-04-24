@@ -8,15 +8,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  max-width: to-rem(768px);
-  min-width: 0;
-  text-align: left;
-  width: 100%;
-
-  @media (width >= 1280px) {
-    align-items: flex-end;
-    text-align: right;
-  }
+  padding: to-rem(30px);
 }
 
 /* stylelint-disable selector-class-pattern */
@@ -40,13 +32,13 @@
 /* stylelint-enable selector-class-pattern */
 
 .h2 {
-  color: $primary-colour;
+  color: white;
   font-weight: 700;
+  margin-bottom: to-rem(25px);
 }
 
 .p {
-  font-size: to-rem(16px);
-  line-height: 1.5;
+  color: white;
 }
 
 .headline {
@@ -55,11 +47,7 @@
   flex-wrap: wrap;
   font-weight: 700;
   gap: 0 to-rem(6px);
-  margin-bottom: to-rem(6px);
-
-  @media (width >= 1280px) {
-    justify-content: flex-end;
-  }
+  margin-bottom: to-rem(10px);
 
   .item {
     min-width: 0;
@@ -67,19 +55,26 @@
 }
 
 .skill-tags {
-  margin-top: to-rem(14px);
+  margin-top: to-rem(20px);
 }
 
 .nav {
   align-items: center;
   display: flex;
-  gap: to-rem(12px);
+  gap: to-rem(10px);
   justify-content: center;
-  margin-top: to-rem(12px);
+  margin-top: to-rem(20px);
 }
 
 .nav-button {
-  padding: to-rem(12px);
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  opacity: 1;
+  padding: to-rem(15px);
+  transition:
+    color $ease-in-out,
+    opacity $ease-in-out;
 
   &:first-of-type {
     padding-left: 0;
@@ -90,24 +85,20 @@
   }
 
   &:disabled {
-    color: $light-grey;
     cursor: default;
-
-    &:hover {
-      color: $light-grey;
-    }
+    opacity: 0.2;
   }
 }
 
 .dots {
   align-items: center;
   display: flex;
-  gap: to-rem(10px);
+  gap: to-rem(15px);
 }
 
 .dot {
   background-color: transparent;
-  border: 2px solid $secondary-colour;
+  border: 2px solid white;
   border-radius: 50%;
   height: to-rem(13px);
   transition:
@@ -116,15 +107,31 @@
   width: to-rem(13px);
 
   &:hover {
-    background-color: $secondary-colour;
+    background-color: white;
   }
 }
 
 .dot.dot-active {
-  background-color: $primary-colour;
-  border-color: $primary-colour;
+  background-color: white;
+}
+
+// Close button
+.close {
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  opacity: 1;
+  padding: to-rem(15px);
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity $ease-in-out;
 
   &:hover {
-    background-color: $primary-colour;
+    opacity: 0.6;
+  }
+
+  .icon {
+    transform: rotate(45deg);
   }
 }

@@ -4,6 +4,7 @@ import LinkedInIcon from './Icons/LinkedInIcon';
 import EnvelopeIcon from './Icons/EnvelopeIcon';
 import Modal from '../Layout/Modal';
 import styles from '../../scss/assembly/ContactButtons.module.scss';
+import ContactForm from './ContactForm';
 
 const ContactButtons = () => {
   const [showModal, setShowModal] = useState(false);
@@ -32,7 +33,9 @@ const ContactButtons = () => {
           <LinkedInIcon />
         </a>
       </div>
-      <Modal show={showModal} setShow={setShowModal} />
+      <Modal show={showModal} setShow={setShowModal}>
+        {({ closeModal }) => <ContactForm closeModal={closeModal} />}
+      </Modal>
     </>
   );
 };

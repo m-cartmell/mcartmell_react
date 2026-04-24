@@ -61,20 +61,10 @@ section {
 
 // Travel/Elfsight Load more button
 .eapps-instagram-feed-posts-grid-load-more-text {
-  background-color: white;
-  border: to-rem(1px) solid $primary-colour;
-  color: $primary-colour;
-  cursor: pointer;
-  display: inline-block;
-  font: 400 to-rem(18px) $body-font-family;
-  line-height: 1;
-  padding: to-rem(3px) to-rem(12px) to-rem(4px);
-  transition: all $ease-in-out;
+  @include buttons;
 
-  &:hover {
-    background-color: $primary-colour;
-    color: white;
-  }
+  font: 600 to-rem(18px) $body-font-family;
+  line-height: 1;
 }
 
 // Animations

@@ -8,11 +8,10 @@
   @include header-pad-allowance;
   @include horizontal-pad;
 
-  align-items: flex-start;
-  border-bottom: to-rem(1px) solid $secondary-colour;
+  align-items: center;
   flex-direction: column;
 
   p {
-    margin-bottom: to-rem(16px);
+    margin: to-rem(20px) 0 to-rem(30px);
   }
 }
