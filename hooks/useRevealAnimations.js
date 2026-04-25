@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -8,9 +9,12 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const useRevealAnimations = (containerRef) => {
   const router = useRouter();
+  const textRevealCompleteRef = useRef(false);
 
   useGSAP(
     () => {
+      textRevealCompleteRef.current = false;
+
       let split;
 
       const revealOnView = (elements, fromVars, toVars, options = {}) => {
@@ -44,10 +48,17 @@ const useRevealAnimations = (containerRef) => {
           linesClass: 'split-line',
           autoSplit: true,
           onSplit(self) {
+            if (textRevealCompleteRef.current) {
+              gsap.set(self.lines, { yPercent: 0 });
+              return;
+            }
+
             self.lines.forEach((line, index) => {
               const rect = line.getBoundingClientRect();
               const isInitiallyVisible =
                 rect.top < window.innerHeight && rect.bottom > 0;
+
+              const isLastLine = index === self.lines.length - 1;
 
               gsap.fromTo(
                 line,
@@ -64,6 +75,11 @@ const useRevealAnimations = (containerRef) => {
                         start: 'top bottom-=50px',
                         once: true,
                       },
+                  onComplete: isLastLine
+                    ? () => {
+                        textRevealCompleteRef.current = true;
+                      }
+                    : undefined,
                 },
               );
             });
@@ -131,6 +147,7 @@ const useRevealAnimations = (containerRef) => {
     {
       scope: containerRef,
       dependencies: [router.asPath],
+      revertOnUpdate: true,
     },
   );
 };
