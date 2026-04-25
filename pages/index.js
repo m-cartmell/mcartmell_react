@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Head from 'next/head';
 import { getGalleryContent } from '../lib/content';
 import styles from '../scss/pages/Home.module.scss';
@@ -7,6 +7,7 @@ import GalleryImages from '../Components/Assembly/GalleryImages';
 import classNames from 'classnames';
 import ExperienceCarousel from '../Components/Assembly/ExperienceCarousel';
 import Modal from '../Components/Layout/Modal';
+import useRevealAnimations from '../hooks/useRevealAnimations';
 
 export async function getStaticProps() {
   const content = getGalleryContent();
@@ -18,6 +19,11 @@ export async function getStaticProps() {
 
 export default function Home({ content }) {
   const [showExperience, setShowExperience] = useState(false);
+  const topRef = useRef();
+  const galleryRef = useRef();
+
+  useRevealAnimations(topRef);
+  useRevealAnimations(galleryRef);
 
   return (
     <>
@@ -28,10 +34,10 @@ export default function Home({ content }) {
           content="Full-stack developer and designer building end-to-end web and mobile applications with modern JavaScript."
         />
       </Head>
-      <section className={styles['top-content']}>
-        <h1 className="reveal-item">Software developer & designer</h1>
+      <section className={styles['top-content']} ref={topRef}>
+        <h1 className="reveal-text">Software developer & designer</h1>
         <div className={styles.intro}>
-          <p className="reveal-item">
+          <p className="reveal-text">
             <span className={styles.bold}>
               Focused on building complete, end-to-end digital products.
             </span>
@@ -47,7 +53,7 @@ export default function Home({ content }) {
             className={classNames(
               'block',
               styles['experience-button'],
-              'reveal-item',
+              'reveal-after-text',
             )}
             onClick={() => setShowExperience(true)}
           >
@@ -55,7 +61,7 @@ export default function Home({ content }) {
           </button>
         </div>
       </section>
-      <section className={styles['gallery-section']}>
+      <section className={styles['gallery-section']} ref={galleryRef}>
         <GalleryControls content={content} />
         <div id="gallery" className={classNames(styles.gallery, 'reveal-item')}>
           <GalleryImages content={content} />

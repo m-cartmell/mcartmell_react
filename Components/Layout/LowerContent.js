@@ -41,7 +41,7 @@ export default function LowerContent({ client, lowerImages, slug }) {
               defineColumns(block),
               styles.column,
               column,
-              'reveal-item',
+              'reveal-image',
             )}
             key={`${slug}${index}`}
           >

@@ -8,6 +8,20 @@
 @use './base/selection-colour' as *;
 @use './base/typography' as *;
 
+// stylelint-disable selector-id-pattern
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-top: var(--header-height);
+}
+
 // Base column styles
 .column {
   @include horizontal-half-pad;
@@ -29,7 +43,6 @@
 }
 
 img {
-  background-color: $light-grey;
   display: block;
   height: auto;
   max-width: 100%;
@@ -68,11 +81,12 @@ section {
 }
 
 // Animations
-.reveal-item {
-  @include reveal-item;
+.reveal-item,
+.reveal-after-text {
+  visibility: hidden;
+}
 
-  &.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.reveal-text .line {
+  display: block;
+  overflow: hidden;
 }

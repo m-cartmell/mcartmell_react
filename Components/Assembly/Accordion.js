@@ -53,7 +53,7 @@ export default function Accordion({ block, client, slug }) {
           'column',
           styles.container,
           defineColumns(),
-          'reveal-item',
+          'reveal-image',
         )}
         key={`${slug}${index}`}
       >

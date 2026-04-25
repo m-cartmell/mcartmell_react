@@ -9,7 +9,9 @@
   @include horizontal-pad;
 
   align-items: center;
+  flex: 1;
   flex-direction: column;
+  justify-content: center;
 
   p {
     margin: to-rem(20px) 0 to-rem(30px);

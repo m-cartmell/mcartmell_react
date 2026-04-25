@@ -14,6 +14,7 @@ export default function GalleryControls({ content }) {
     iso.current = new Isotope('#gallery', {
       itemSelector: '.item',
       layoutMode: 'fitRows',
+      transitionDuration: '0.35s',
     });
 
     // Cleanup

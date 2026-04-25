@@ -26,14 +26,13 @@ export default function MainContent({
     'main-content': mainContent,
     'image-block': imageBlock,
     'info-block': infoBlock,
-    elfsight_container,
   } = clientStyles;
 
   const renderText = () => {
     if (text) {
       return text.map((para, index) => {
         return (
-          <p className="reveal-item" key={index}>
+          <p className="reveal-text" key={index}>
             {para}
           </p>
         );
@@ -50,7 +49,7 @@ export default function MainContent({
           styles['image-block'],
           imageBlock,
           {
-            'reveal-item': !slug.includes('wongs'),
+            'reveal-image': !slug.includes('wongs'),
           },
         )}
       >
@@ -81,14 +80,14 @@ export default function MainContent({
           infoBlock,
         )}
       >
-        <h1 className="reveal-item">{heading}</h1>
+        <h1 className="reveal-text">{heading}</h1>
         <div
           className={classNames(styles.summary, {
             [styles['single-column']]: singleColumnSummary,
           })}
         >
           <div className={styles['width-wrapper']}>
-            <h2 className="reveal-item">{client}</h2>
+            <h2 className="reveal-text">{client}</h2>
             {renderText()}
           </div>
           <div className={styles.wrapper}>
@@ -98,12 +97,7 @@ export default function MainContent({
         </div>
       </div>
       {slug === 'travel' && (
-        <div
-          className={classNames(
-            'elfsight-app-599e27b4-e246-43dd-a8a2-e4d58b0a6d43',
-            elfsight_container,
-          )}
-        />
+        <div className="elfsight-app-599e27b4-e246-43dd-a8a2-e4d58b0a6d43" />
       )}
     </section>
   );

@@ -14,9 +14,9 @@ const SkillTags = ({ data, align }) => {
         [styles['container-left']]: isLeftAligned,
       })}
     >
-      <h2 className={classNames(styles.h2, 'reveal-item')}>Skills</h2>
+      <h2 className={classNames(styles.h2, 'reveal-text')}>Skills</h2>
       <div
-        className={classNames(styles.tags, 'reveal-item', {
+        className={classNames(styles.tags, 'reveal-after-text', {
           [styles['tags-left']]: isLeftAligned,
         })}
       >

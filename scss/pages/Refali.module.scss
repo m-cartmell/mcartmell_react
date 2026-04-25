@@ -11,29 +11,25 @@
   @include half-pad;
 }
 
-#refali-logo {
+.refali-logo {
   fill: white;
-  max-width: to-rem(300px);
   width: 100%;
+}
 
-  .logo {
-    animation: logo 5s ease forwards;
+.logo-mask {
+  margin-inline: auto;
+  max-width: to-rem(300px);
+  position: relative;
+}
 
-    @keyframes logo {
-      0% {
-        opacity: 0;
-      }
+.logo-base {
+  opacity: 0.25;
+}
 
-      100% {
-        opacity: 1;
-      }
-    }
-  }
-
-  .strapline {
-    animation-delay: 2s;
-    opacity: 0;
-  }
+.logo-reveal {
+  clip-path: inset(0 100% 0 0);
+  inset: 0;
+  position: absolute;
 }
 
 .lower-content {

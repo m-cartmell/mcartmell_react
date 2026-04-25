@@ -6,14 +6,15 @@
 .container {
   align-items: center;
   background-color: $highlight;
-  border-bottom-left-radius: to-rem(10px);
-  border-top-left-radius: to-rem(10px);
+  border-bottom-left-radius: to-rem(5px);
+  border-top-left-radius: to-rem(5px);
   bottom: to-rem(14px);
   display: flex;
   flex-direction: column;
   gap: to-rem(10px);
   position: fixed;
   right: 0;
+  visibility: hidden;
 
   @media (width >= 768px) {
     flex-direction: row;
