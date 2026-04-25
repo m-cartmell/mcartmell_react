@@ -41,6 +41,7 @@ const useRevealAnimations = (containerRef) => {
         split = SplitText.create(textEls, {
           type: 'lines',
           mask: 'lines',
+          linesClass: 'split-line',
           autoSplit: true,
           onSplit(self) {
             self.lines.forEach((line, index) => {
