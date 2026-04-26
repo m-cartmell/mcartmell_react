@@ -37,7 +37,7 @@ export default function Home({ content }) {
       <section className={styles['top-content']} ref={topRef}>
         <h1 className="reveal-text">Software developer & designer</h1>
         <div className={styles.intro}>
-          <p className="reveal-text">
+          <p className="reveal-item">
             <span className={styles.bold}>
               Focused on building complete, end-to-end digital products.
             </span>
@@ -61,9 +61,12 @@ export default function Home({ content }) {
           </button>
         </div>
       </section>
-      <section className={styles['gallery-section']} ref={galleryRef}>
+      <section
+        className={classNames(styles['gallery-section'], 'reveal-item')}
+        ref={galleryRef}
+      >
         <GalleryControls content={content} />
-        <div id="gallery" className={classNames(styles.gallery, 'reveal-item')}>
+        <div id="gallery" className={styles.gallery}>
           <GalleryImages content={content} />
         </div>
       </section>

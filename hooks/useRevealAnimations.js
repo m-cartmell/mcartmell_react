@@ -100,7 +100,7 @@ const useRevealAnimations = (containerRef) => {
             ease: 'power2.out',
           },
           {
-            delay: 1.4,
+            delay: 0.8,
             stagger: 0.1,
           },
         );
@@ -118,6 +118,9 @@ const useRevealAnimations = (containerRef) => {
             duration: 0.8,
             ease: 'power2.out',
           },
+          {
+            delay: 0.5,
+          },
         );
       }
 
@@ -126,7 +129,7 @@ const useRevealAnimations = (containerRef) => {
       if (images.length) {
         revealOnView(
           images,
-          { autoAlpha: 0, scale: 0.97 },
+          { autoAlpha: 0, scale: 0.98 },
           {
             autoAlpha: 1,
             scale: 1,

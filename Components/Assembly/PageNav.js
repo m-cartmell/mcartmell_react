@@ -48,8 +48,7 @@ export default function PageNav({ prev, next, align }) {
         ease: 'sine.inOut',
         yoyo: true,
         repeat: -1,
-        paused: true,
-        delay: 1.4,
+        delay: 2,
       });
 
       const hover = gsap.to(el, {
@@ -62,21 +61,6 @@ export default function PageNav({ prev, next, align }) {
         onStart: () => idle.pause(),
         onComplete: () => idle.play(),
       });
-
-      // nudge on page load
-      gsap.fromTo(
-        el,
-        { x: 0 },
-        {
-          x: 8 * dir,
-          duration: 0.22,
-          ease: 'power2.out',
-          yoyo: true,
-          repeat: 1,
-          delay: 0.8,
-          onComplete: () => idle.play(),
-        },
-      );
 
       el.closest('a')?.addEventListener('mouseenter', () => {
         hover.play(0);

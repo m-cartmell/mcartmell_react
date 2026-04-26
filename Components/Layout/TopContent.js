@@ -33,7 +33,7 @@ export default function TopContent({ client, slug, topImages }) {
 
       gsap.to(el, {
         clipPath: 'inset(0 0% 0 0)',
-        duration: 1.35,
+        duration: 1.2,
         ease: 'power3.out',
         delay: 0.8,
       });

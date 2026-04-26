@@ -31,11 +31,7 @@ export default function MainContent({
   const renderText = () => {
     if (text) {
       return text.map((para, index) => {
-        return (
-          <p className="reveal-text" key={index}>
-            {para}
-          </p>
-        );
+        return <p key={index}>{para}</p>;
       });
     }
   };
@@ -86,11 +82,11 @@ export default function MainContent({
             [styles['single-column']]: singleColumnSummary,
           })}
         >
-          <div className={styles['width-wrapper']}>
-            <h2 className="reveal-text">{client}</h2>
+          <div className={classNames(styles['width-wrapper'], 'reveal-item')}>
+            <h2>{client}</h2>
             {renderText()}
           </div>
-          <div className={styles.wrapper}>
+          <div className={classNames(styles.wrapper, 'reveal-item')}>
             <SkillTags data={skills} align={skillTagsAlign} />
             <PageNav next={nav.next} prev={nav.prev} align={skillTagsAlign} />
           </div>
