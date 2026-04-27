@@ -8,7 +8,6 @@
 
   align-items: flex-start;
   gap: to-rem(36px);
-  padding-bottom: to-rem(40px) !important;
 }
 
 .image-block {
@@ -27,7 +26,6 @@
   @include bottom-pad;
 
   order: 2 !important;
-  padding-bottom: 0 !important;
 }
 
 .lower-content {

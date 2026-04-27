@@ -16,6 +16,8 @@ const useRevealAnimations = (containerRef) => {
       textRevealCompleteRef.current = false;
 
       let split;
+      let resizeHandler;
+      let resizeDebounce;
 
       const revealOnView = (elements, fromVars, toVars, options = {}) => {
         const { delay = 0, stagger = 0.06 } = options;
@@ -42,49 +44,65 @@ const useRevealAnimations = (containerRef) => {
       const textEls = gsap.utils.toArray('.reveal-text');
 
       if (textEls.length) {
-        split = SplitText.create(textEls, {
-          type: 'lines',
-          mask: 'lines',
-          linesClass: 'split-line',
-          autoSplit: true,
-          onSplit(self) {
-            if (textRevealCompleteRef.current) {
-              gsap.set(self.lines, { yPercent: 0 });
-              return;
-            }
+        const createSplitText = () => {
+          split?.revert();
 
-            self.lines.forEach((line, index) => {
-              const rect = line.getBoundingClientRect();
-              const isInitiallyVisible =
-                rect.top < window.innerHeight && rect.bottom > 0;
+          split = SplitText.create(textEls, {
+            type: 'lines',
+            mask: 'lines',
+            linesClass: 'split-line',
+            onSplit(self) {
+              if (textRevealCompleteRef.current) {
+                gsap.set(self.lines, { yPercent: 0 });
+                return;
+              }
 
-              const isLastLine = index === self.lines.length - 1;
+              self.lines.forEach((line, index) => {
+                const rect = line.getBoundingClientRect();
+                const isInitiallyVisible =
+                  rect.top < window.innerHeight && rect.bottom > 0;
 
-              gsap.fromTo(
-                line,
-                { yPercent: 100 },
-                {
-                  yPercent: 0,
-                  duration: 0.8,
-                  delay: isInitiallyVisible ? index * 0.08 : 0,
-                  ease: 'power3.out',
-                  scrollTrigger: isInitiallyVisible
-                    ? null
-                    : {
-                        trigger: line,
-                        start: 'top bottom-=50px',
-                        once: true,
-                      },
-                  onComplete: isLastLine
-                    ? () => {
-                        textRevealCompleteRef.current = true;
-                      }
-                    : undefined,
-                },
-              );
-            });
-          },
-        });
+                const isLastLine = index === self.lines.length - 1;
+
+                gsap.fromTo(
+                  line,
+                  { yPercent: 100 },
+                  {
+                    yPercent: 0,
+                    duration: 0.8,
+                    delay: isInitiallyVisible ? index * 0.08 : 0,
+                    ease: 'power3.out',
+                    scrollTrigger: isInitiallyVisible
+                      ? null
+                      : {
+                          trigger: line,
+                          start: 'top bottom-=50px',
+                          once: true,
+                        },
+                    onComplete: isLastLine
+                      ? () => {
+                          textRevealCompleteRef.current = true;
+                        }
+                      : undefined,
+                  },
+                );
+              });
+            },
+          });
+        };
+
+        createSplitText();
+
+        resizeDebounce = gsap.delayedCall(0.2, () => {
+          createSplitText();
+          ScrollTrigger.refresh();
+        }).pause();
+
+        resizeHandler = () => {
+          resizeDebounce.restart(true);
+        };
+
+        window.addEventListener('resize', resizeHandler);
       }
 
       const afterTextItems = gsap.utils.toArray('.reveal-after-text');
@@ -144,6 +162,11 @@ const useRevealAnimations = (containerRef) => {
       });
 
       return () => {
+        if (resizeHandler) {
+          window.removeEventListener('resize', resizeHandler);
+        }
+
+        resizeDebounce?.kill();
         split?.revert();
       };
     },
