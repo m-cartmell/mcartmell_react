@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Layout from '../Components/Layout';
 import { Provider } from '../Components/Context';
 import '../scss/globals.scss';
@@ -18,11 +19,31 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+  const [revealKey, setRevealKey] = useState(router.asPath);
+
+  // Reset scroll after route changes, then update revealKey for reveal measurements
+  useEffect(() => {
+    const handleRouteChangeComplete = (url) => {
+      if (!url.includes('#')) {
+        window.scrollTo(0, 0);
+      }
+
+      requestAnimationFrame(() => {
+        setRevealKey(url);
+      });
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChangeComplete);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChangeComplete);
+    };
+  }, [router.events]);
 
   return (
     <div className={classNames('site-wrapper', montserrat, plusJakartaSans)}>
       <Provider>
-        <Layout>
+        <Layout revealKey={revealKey}>
           <Component key={router.asPath} {...pageProps} />
         </Layout>
         <Analytics />

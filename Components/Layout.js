@@ -4,10 +4,10 @@ import Footer from './Layout/Footer';
 import ContactButtons from './Assembly/ContactButtons';
 import useRevealAnimations from '../hooks/useRevealAnimations';
 
-export default function Layout({ children }) {
+export default function Layout({ children, revealKey }) {
   const animRef = useRef();
 
-  useRevealAnimations(animRef);
+  useRevealAnimations(animRef, revealKey);
 
   return (
     <>

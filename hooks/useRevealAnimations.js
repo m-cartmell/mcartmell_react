@@ -7,8 +7,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-const useRevealAnimations = (containerRef) => {
+const useRevealAnimations = (containerRef, dependency) => {
   const router = useRouter();
+  const animationDependency = dependency ?? router.asPath;
   const textRevealCompleteRef = useRef(false);
 
   useGSAP(
@@ -149,7 +150,7 @@ const useRevealAnimations = (containerRef) => {
     },
     {
       scope: containerRef,
-      dependencies: [router.asPath],
+      dependencies: [animationDependency],
       revertOnUpdate: true,
     },
   );
