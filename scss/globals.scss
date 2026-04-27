@@ -15,11 +15,17 @@
   min-height: 100vh;
 }
 
+.site-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.site-wrapper,
 main {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding-top: var(--header-height);
 }
 
 // Base column styles

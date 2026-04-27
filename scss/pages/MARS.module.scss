@@ -23,9 +23,8 @@
 }
 
 .info-block {
-  @include bottom-pad;
-
   order: 2 !important;
+  padding-bottom: to-rem(25px) !important;
 }
 
 .lower-content {

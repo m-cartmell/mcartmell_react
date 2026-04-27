@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   return (
-    <div className={classNames(montserrat, plusJakartaSans)}>
+    <div className={classNames('site-wrapper', montserrat, plusJakartaSans)}>
       <Provider>
         <Layout>
           <Component key={router.asPath} {...pageProps} />
