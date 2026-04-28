@@ -133,7 +133,7 @@ const experience = [
     role: 'Software Developer',
     employer: 'Escape Fitness',
     start: 'May 2022',
-    end: 'Present',
+    end: 'Apr 2026',
     summary:
       'Led development of a globally deployed fitness platform (MARS), used across 300+ locations, and a MERN-based content and configuration system (DAL) that underpins the platform and wider business systems. Delivered end-to-end across mobile, backend, and infrastructure, including real-time device management, API integrations, and product configuration tooling that reduced operational overhead.',
     skills: [
