@@ -92,6 +92,14 @@ section {
   visibility: hidden;
 }
 
+.reveal-text {
+  visibility: hidden;
+
+  &.reveal-text-ready {
+    visibility: visible;
+  }
+}
+
 .reveal-text .line {
   display: block;
   overflow: hidden;

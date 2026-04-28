@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -7,15 +6,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
+const TEXT_REVEAL_READY_CLASS = 'reveal-text-ready';
+
 const useRevealAnimations = (containerRef, dependency) => {
   const router = useRouter();
   const animationDependency = dependency ?? router.asPath;
-  const textRevealCompleteRef = useRef(false);
 
   useGSAP(
     () => {
-      textRevealCompleteRef.current = false;
-
       let split;
 
       const revealOnView = (elements, fromVars, toVars, options = {}) => {
@@ -43,46 +41,43 @@ const useRevealAnimations = (containerRef, dependency) => {
       const textEls = gsap.utils.toArray('.reveal-text');
 
       if (textEls.length) {
+        const setTextReady = () => {
+          textEls.forEach((element) => {
+            element.classList.add(TEXT_REVEAL_READY_CLASS);
+          });
+        };
+
         split = SplitText.create(textEls, {
           type: 'lines',
           mask: 'lines',
           linesClass: 'split-line',
           autoSplit: true,
           onSplit(self) {
-            if (textRevealCompleteRef.current) {
-              gsap.set(self.lines, { yPercent: 0 });
+            if (!self.lines.length) {
+              setTextReady();
               return;
             }
 
-            self.lines.forEach((line, index) => {
+            gsap.set(self.lines, { yPercent: 100 });
+            setTextReady();
+
+            const isInitiallyVisible = self.lines.some((line) => {
               const rect = line.getBoundingClientRect();
-              const isInitiallyVisible =
-                rect.top < window.innerHeight && rect.bottom > 0;
+              return rect.top < window.innerHeight && rect.bottom > 0;
+            });
 
-              const isLastLine = index === self.lines.length - 1;
-
-              gsap.fromTo(
-                line,
-                { yPercent: 100 },
-                {
-                  yPercent: 0,
-                  duration: 0.8,
-                  delay: isInitiallyVisible ? index * 0.08 : 0,
-                  ease: 'power3.out',
-                  scrollTrigger: isInitiallyVisible
-                    ? null
-                    : {
-                        trigger: line,
-                        start: 'top bottom-=50px',
-                        once: true,
-                      },
-                  onComplete: isLastLine
-                    ? () => {
-                        textRevealCompleteRef.current = true;
-                      }
-                    : undefined,
-                },
-              );
+            return gsap.to(self.lines, {
+              yPercent: 0,
+              duration: 0.8,
+              ease: 'power3.out',
+              stagger: 0.08,
+              scrollTrigger: isInitiallyVisible
+                ? null
+                : {
+                    trigger: self.elements[0],
+                    start: 'top bottom-=50px',
+                    once: true,
+                  },
             });
           },
         });
@@ -145,6 +140,10 @@ const useRevealAnimations = (containerRef, dependency) => {
       });
 
       return () => {
+        textEls.forEach((element) => {
+          element.classList.remove(TEXT_REVEAL_READY_CLASS);
+        });
+
         split?.revert();
       };
     },
