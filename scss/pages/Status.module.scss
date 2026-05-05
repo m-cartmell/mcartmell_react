@@ -3,6 +3,10 @@
 @use '../helpers/padding-mixins' as *;
 @use '../helpers/variables' as *;
 
+.top-content {
+  padding-bottom: to-rem(10px);
+}
+
 .main-content {
   padding-top: to-rem(12px) !important;
 }
