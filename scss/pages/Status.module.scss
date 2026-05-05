@@ -4,5 +4,5 @@
 @use '../helpers/variables' as *;
 
 .main-content {
-  padding-top: 0 !important;
+  padding-top: to-rem(12px) !important;
 }

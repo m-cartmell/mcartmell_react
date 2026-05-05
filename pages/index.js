@@ -37,7 +37,7 @@ export default function Home({ content }) {
       <section className={styles['top-content']} ref={topRef}>
         <h1 className="reveal-text">Software developer & designer</h1>
         <div className={styles.intro}>
-          <p className="reveal-item">
+          <p>
             <span className={styles.bold}>
               Focused on building complete, end-to-end digital products.
             </span>

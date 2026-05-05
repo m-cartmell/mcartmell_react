@@ -48,7 +48,7 @@ export default function PageNav({ prev, next, align }) {
         ease: 'sine.inOut',
         yoyo: true,
         repeat: -1,
-        delay: 2,
+        delay: 1.2,
       });
 
       const hover = gsap.to(el, {

@@ -82,11 +82,11 @@ export default function MainContent({
             [styles['single-column']]: singleColumnSummary,
           })}
         >
-          <div className={classNames(styles['width-wrapper'], 'reveal-item')}>
+          <div className={styles['width-wrapper']}>
             <h2>{client}</h2>
             {renderText()}
           </div>
-          <div className={classNames(styles.wrapper, 'reveal-item')}>
+          <div className={styles.wrapper}>
             <SkillTags data={skills} align={skillTagsAlign} />
             <PageNav next={nav.next} prev={nav.prev} align={skillTagsAlign} />
           </div>

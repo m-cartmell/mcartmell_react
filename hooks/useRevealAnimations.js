@@ -48,29 +48,28 @@ const useRevealAnimations = (containerRef, dependency) => {
         };
 
         split = SplitText.create(textEls, {
-          type: 'lines',
-          mask: 'lines',
-          linesClass: 'split-line',
+          type: 'words, chars',
+          wordsClass: 'split-word',
+          charsClass: 'split-char',
           autoSplit: true,
           onSplit(self) {
-            if (!self.lines.length) {
+            if (!self.chars.length) {
               setTextReady();
               return;
             }
 
-            gsap.set(self.lines, { yPercent: 100 });
+            gsap.set(self.chars, {
+              autoAlpha: 0,
+              filter: 'blur(0.6rem)',
+            });
             setTextReady();
 
-            const isInitiallyVisible = self.lines.some((line) => {
-              const rect = line.getBoundingClientRect();
+            const isInitiallyVisible = self.elements.some((element) => {
+              const rect = element.getBoundingClientRect();
               return rect.top < window.innerHeight && rect.bottom > 0;
             });
 
-            return gsap.to(self.lines, {
-              yPercent: 0,
-              duration: 0.8,
-              ease: 'power3.out',
-              stagger: 0.08,
+            const timeline = gsap.timeline({
               scrollTrigger: isInitiallyVisible
                 ? null
                 : {
@@ -79,6 +78,32 @@ const useRevealAnimations = (containerRef, dependency) => {
                     once: true,
                   },
             });
+
+            self.chars.forEach((char, index) => {
+              const start = index * 0.04;
+
+              timeline
+                .to(
+                  char,
+                  {
+                    autoAlpha: 1,
+                    duration: 0.35,
+                    ease: 'power2.out',
+                  },
+                  start,
+                )
+                .to(
+                  char,
+                  {
+                    filter: 'blur(0rem)',
+                    duration: 0.55,
+                    ease: 'power3.out',
+                  },
+                  start + 0.35,
+                );
+            });
+
+            return timeline;
           },
         });
       }
@@ -88,15 +113,15 @@ const useRevealAnimations = (containerRef, dependency) => {
       if (afterTextItems.length) {
         revealOnView(
           afterTextItems,
-          { autoAlpha: 0, y: 8 },
+          { autoAlpha: 0, y: 4 },
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.8,
+            duration: 0.6,
             ease: 'power2.out',
           },
           {
-            delay: 0.8,
+            delay: 1.2,
             stagger: 0.1,
           },
         );
