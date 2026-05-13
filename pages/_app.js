@@ -7,14 +7,16 @@ import { Analytics } from '@vercel/analytics/next';
 import { Montserrat, Plus_Jakarta_Sans } from 'next/font/google';
 import classNames from 'classnames';
 
-const montserrat = Montserrat({
+const headingFont = Montserrat({
   weight: '900',
   subsets: ['latin'],
+  variable: '--font-heading',
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const bodyFont = Plus_Jakarta_Sans({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
+  variable: '--font-body',
 });
 
 export default function App({ Component, pageProps }) {
@@ -41,7 +43,13 @@ export default function App({ Component, pageProps }) {
   }, [router.events]);
 
   return (
-    <div className={classNames('site-wrapper', montserrat, plusJakartaSans)}>
+    <div
+      className={classNames(
+        'site-wrapper',
+        headingFont.variable,
+        bodyFont.variable,
+      )}
+    >
       <Provider>
         <Layout revealKey={revealKey}>
           <Component key={router.asPath} {...pageProps} />
