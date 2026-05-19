@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export default async function (req, res) {
+const Contact = async (req, res) => {
   // .env variables
   const {
     EMAIL_HOST,
@@ -18,11 +18,21 @@ export default async function (req, res) {
   const honeypot = req.body['last-name'];
 
   // reCAPTCHA v3
-  const url = `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET_KEY}&response=${token}&remoteip=${req.socket.remoteAddress}`;
-
-  const recaptcha = await fetch(url, { method: 'POST' }).then((res) =>
-    res.json(),
-  );
+  const params = new URLSearchParams({
+    secret: RECAPTCHA_SECRET_KEY,
+    response: token,
+    remoteip: req.socket.remoteAddress,
+  });
+  const recaptcha = await fetch(
+    'https://www.google.com/recaptcha/api/siteverify',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: params,
+    },
+  ).then((res) => res.json());
 
   // Initiates the SMTP server
   const transporter = nodemailer.createTransport({
@@ -35,26 +45,28 @@ export default async function (req, res) {
     },
   });
 
+  if (honeypot || !recaptcha.success || recaptcha.score < 0.5) {
+    return res.status(400).json({ error: 'Verification failed' });
+  }
+
   // Specifies the email options
   const mail = {
     from: `mcartmell.com ${EMAIL_USER}`,
     to: EMAIL_TO,
-    subject: subject,
+    subject,
+    text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
     html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
   };
 
-  console.log(req.body);
+  try {
+    await transporter.sendMail(mail);
 
-  // Sends the email if honeypot and reCAPTCHA conditions are met
-  if (!honeypot && recaptcha.success && recaptcha.score >= 0.5) {
-    transporter.sendMail(mail, (err) => {
-      if (err) {
-        console.log('Email failed!');
-        res.status(400).end();
-      } else {
-        console.log('Email sent');
-        res.status(200).end();
-      }
-    });
+    console.log('Email sent');
+    return res.status(200).json({ success: true });
+  } catch (err) {
+    console.log('Email failed!', err);
+    return res.status(500).json({ error: 'Email failed' });
   }
-}
+};
+
+export default Contact;
