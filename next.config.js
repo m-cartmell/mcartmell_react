@@ -1,6 +1,7 @@
 const { csp } = require('./csp');
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   // Fixes npm packages that depend on `fs` module
   webpack: (config, { isServer }) => {
     if (!isServer) {
@@ -148,3 +149,5 @@ module.exports = {
     ];
   },
 };
+
+module.exports = nextConfig;

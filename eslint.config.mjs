@@ -2,10 +2,12 @@ import js from '@eslint/js';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 const config = [
   js.configs.recommended,
   ...nextVitals,
+  ...tseslint.configs.recommended,
   {
     languageOptions: {
       globals: {
@@ -21,11 +23,12 @@ const config = [
       'comma-dangle': ['error', 'always-multiline'],
       'func-call-spacing': ['error', 'never'],
       eqeqeq: 'warn',
-      indent: ['error', 2, { SwitchCase: 1 }],
+      indent: 'off',
       'key-spacing': ['error', { beforeColon: false }],
       'no-console': 'off',
       'no-fallthrough': 'warn',
-      'no-unused-vars': [
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
         'warn',
         {
           argsIgnorePattern: '^_',
@@ -40,6 +43,12 @@ const config = [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       '@next/next/no-img-element': 'off',
+    },
+  },
+  {
+    files: ['**/next.config.js', '**/optimise-images.js'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
 ];

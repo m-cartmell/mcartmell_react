@@ -37,3 +37,6 @@ yarn-error.log*
 /images
 
 .nvmrc
+
+# Next.js generated TypeScript declarations
+next-env.d.ts

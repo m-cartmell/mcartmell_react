@@ -6,6 +6,7 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
+    "lint": "eslint .",
     "optimiseImages": "node optimise-images.js && echo 'Done'"
   },
   "dependencies": {
@@ -29,6 +30,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@types/isotope-layout": "^3.0.15",
+    "@types/node": "25.9.1",
+    "@types/nodemailer": "^8.0.0",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.3",
     "eslint-plugin-react": "^7.37.5",
@@ -42,6 +46,7 @@
     "stylelint-config-standard-scss": "^17.0.0",
     "stylelint-order": "^8.1.1",
     "stylelint-scss": "^7.0.0",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.59.0"
   }
 }
