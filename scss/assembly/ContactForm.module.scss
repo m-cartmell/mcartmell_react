@@ -96,6 +96,19 @@
   }
 }
 
+.send-group {
+  align-items: center;
+  display: flex;
+  gap: to-rem(15px);
+  justify-content: space-between;
+}
+
+.recaptcha {
+  color: $secondary-colour;
+  font-size: to-rem(12px);
+  text-align: right;
+}
+
 // Close button
 .close {
   position: absolute;

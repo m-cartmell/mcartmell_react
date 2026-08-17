@@ -186,9 +186,14 @@ export default function ContactForm({ closeModal }: ContactFormProps) {
           {errors.message && errorMessage()}
         </p>
 
-        <button className="block" title="Send form" type="submit" ref={send}>
-          Send
-        </button>
+        <p className={styles['send-group']}>
+          <button className="block" title="Send form" type="submit" ref={send}>
+            Send
+          </button>
+          <span className={styles.recaptcha}>
+            This site is protected by reCAPTCHA.
+          </span>
+        </p>
       </form>
       <button
         className={classNames('plain', styles.close)}
