@@ -15,10 +15,6 @@ const csp = () => {
       // Vercel Analytics
       'https://va.vercel-scripts.com',
 
-      // reCAPTCHA
-      'https://www.google.com',
-      'https://www.gstatic.com',
-
       // other embeds
       'https://*.elfsight.com',
       'https://*.cdninstagram.com',
@@ -29,16 +25,11 @@ const csp = () => {
 
     'font-src': [`'self'`, 'https://fonts.gstatic.com'],
 
-    'frame-src': [
-      `'self'`,
-      'https://www.google.com',
-      'https://recaptcha.google.com',
-    ],
+    'frame-src': [`'self'`],
 
     'connect-src': [
       `'self'`,
       'https://vitals.vercel-insights.com',
-      'https://www.google.com',
       'https://*.elfsight.com',
     ],
 
@@ -47,7 +38,6 @@ const csp = () => {
       'data:',
       'https://*.cdninstagram.com',
       'https://*.elfsightcdn.com',
-      'https://www.gstatic.com',
     ],
 
     'script-src-attr': [`'none'`],

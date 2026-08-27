@@ -4,46 +4,11 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 const contact = async (req: NextApiRequest, res: NextApiResponse) => {
   // .env variables
-  const {
-    EMAIL_HOST,
-    EMAIL_PORT,
-    EMAIL_USER,
-    EMAIL_PW,
-    EMAIL_TO,
-    RECAPTCHA_SECRET_KEY,
-  } = process.env;
-
-  if (!RECAPTCHA_SECRET_KEY) {
-    return res.status(500).json({ error: 'Missing reCAPTCHA secret key' });
-  }
+  const { EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PW, EMAIL_TO } =
+    process.env;
 
   // req. fields
-  const { token, subject, name, email, message } = req.body;
-
-  if (!token || typeof token !== 'string') {
-    return res.status(400).json({ error: 'Missing reCAPTCHA token' });
-  }
-
-  // reCAPTCHA v3
-  const params = new URLSearchParams({
-    secret: RECAPTCHA_SECRET_KEY,
-    response: token,
-  });
-
-  if (req.socket.remoteAddress) {
-    params.append('remoteip', req.socket.remoteAddress);
-  }
-
-  const recaptcha = await fetch(
-    'https://www.google.com/recaptcha/api/siteverify',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: params,
-    },
-  ).then((res) => res.json());
+  const { subject, name, email, message } = req.body;
 
   // Initiates the SMTP server
   const port = Number(EMAIL_PORT);
@@ -67,7 +32,7 @@ const contact = async (req: NextApiRequest, res: NextApiResponse) => {
   // Honeypot field
   const honeypot = req.body.lastName;
 
-  if (honeypot || !recaptcha.success || recaptcha.score < 0.5) {
+  if (honeypot) {
     return res.status(400).json({ error: 'Verification failed' });
   }
 

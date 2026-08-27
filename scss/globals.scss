@@ -42,12 +42,6 @@ main {
   width: 100%;
 }
 
-// Hides reCAPTCHA badge
-.grecaptcha-badge {
-  opacity: 0;
-  visibility: hidden !important;
-}
-
 img {
   display: block;
   height: auto;

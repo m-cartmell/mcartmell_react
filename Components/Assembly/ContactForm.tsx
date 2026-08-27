@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import type { SubmitHandler } from 'react-hook-form';
 import classNames from 'classnames';
-import Script from 'next/script';
 
 interface ContactFormProps {
   closeModal: () => void;
@@ -22,8 +21,6 @@ export default function ContactForm({ closeModal }: ContactFormProps) {
   const form = useRef<HTMLFormElement | null>(null);
   const notification = useRef<HTMLDivElement | null>(null);
   const send = useRef<HTMLButtonElement | null>(null);
-  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-
   const {
     register,
     handleSubmit,
@@ -57,36 +54,10 @@ export default function ContactForm({ closeModal }: ContactFormProps) {
     // Notifies user the form is sending
     send.current.textContent = 'Sending';
 
-    // window.grecaptcha safeguard
-    const grecaptcha = window.grecaptcha;
-    if (!grecaptcha) {
-      notification.current.classList.add(styles.undelivered);
-      notification.current.textContent =
-        'Captcha failed to load. Please try again.';
-      send.current.textContent = 'Send';
-      return;
-    }
-
-    if (!siteKey) {
-      throw new Error('Missing NEXT_PUBLIC_RECAPTCHA_SITE_KEY');
-    }
-
-    const token = await new Promise<string>((resolve) => {
-      grecaptcha.ready(() => {
-        grecaptcha
-          .execute(siteKey, {
-            action: 'contact_form',
-          })
-          .then(resolve);
-      });
-    });
-
-    const payload = { ...data, token };
-
     const res = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(data),
     });
 
     if (!res.ok) {
@@ -121,10 +92,6 @@ export default function ContactForm({ closeModal }: ContactFormProps) {
 
   return (
     <div className={styles.container}>
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}
-        strategy="afterInteractive"
-      />
       <h2>Send a message&hellip;</h2>
       <form name="contactForm" role="form" onSubmit={submitForm} ref={form}>
         <p className={styles['input-group']}>
@@ -185,15 +152,9 @@ export default function ContactForm({ closeModal }: ContactFormProps) {
           />
           {errors.message && errorMessage()}
         </p>
-
-        <p className={styles['send-group']}>
-          <button className="block" title="Send form" type="submit" ref={send}>
-            Send
-          </button>
-          <span className={styles.recaptcha}>
-            This site is protected by reCAPTCHA.
-          </span>
-        </p>
+        <button className="block" title="Send form" type="submit" ref={send}>
+          Send
+        </button>
       </form>
       <button
         className={classNames('plain', styles.close)}
