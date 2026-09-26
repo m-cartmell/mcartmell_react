@@ -8,7 +8,7 @@
   "text": [
     "MARS is a React Native Android application developed for Escape Fitness and used globally across 300+ customer locations. The platform supports Functional, Recovery, and Strength product configurations through a single, adaptable codebase.",
     "The application includes multilingual support for expansion into new territories, partner API integrations for analytics, and scheduling functionality to manage and restrict session access. I designed and developed the application end-to-end, including a registration wizard, a workout player powered by workouts built from an exercise library, user analytics, and custom branding.",
-    "The platform is supported by a MERN stack backend, providing scalable data handling, integrations, and remote content and device management. I delivered this end-to-end, from UI/UX through to deployment and device installation."
+    "The platform is supported by a MERN stack web application, providing scalable data handling, integrations, and remote content and device management. I delivered this end-to-end, from UI/UX through to deployment and device installation."
   ],
   "images": {
     "gallery": {
