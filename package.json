@@ -26,12 +26,12 @@
     "typeit-react": "^2.7.8"
   },
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "@types/isotope-layout": "^3.0.15",
-    "@types/node": "25.9.1",
+    "@types/node": "^24.19.2",
     "@types/nodemailer": "^8.0.0",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.3",
